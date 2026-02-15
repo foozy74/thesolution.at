@@ -17,9 +17,9 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section style={{ 
-    minHeight: '100vh', display: 'flex', alignItems: 'center', 
-    position: 'relative', overflow: 'hidden' 
+  <section style={{
+    minHeight: '100vh', display: 'flex', alignItems: 'center',
+    position: 'relative', overflow: 'hidden'
   }}>
     <div className="container" style={{ position: 'relative', zIndex: 2 }}>
       <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 1.1, marginBottom: '1.5rem' }}>
@@ -62,21 +62,21 @@ const App = () => {
     <div className="app">
       <Navbar />
       <Hero />
-      
+
       <section id="services" className="container">
         <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Infrastructure <span className="gradient-text">Expertise</span></h2>
         <div className="grid grid-3">
-          <ServiceCard 
+          <ServiceCard
             icon="🏢"
             title="Datacenter & Virtualization"
             items={[
-              "Server-Virtualisierung (VMware, Hyper-V, KVM)",
-              "Storage- & Netzwerk-Virtualisierung",
-              "Infrastruktur-Optimierung",
-              "Backup & Disaster-Recovery"
+              "Server Virtualization (VMware, Hyper-V, KVM)",
+              "Storage & Network Virtualization",
+              "Infrastructure Optimization",
+              "Backup & Disaster Recovery"
             ]}
           />
-          <ServiceCard 
+          <ServiceCard
             icon="☁️"
             title="AWS Multicloud Training"
             items={[
@@ -86,7 +86,7 @@ const App = () => {
               "Cloud Architecture Design"
             ]}
           />
-          <ServiceCard 
+          <ServiceCard
             icon="🛰️"
             title="VMware Specialist"
             items={[
@@ -142,8 +142,23 @@ const App = () => {
       <footer id="contact" style={{ padding: '6rem 0', textAlign: 'center' }}>
         <div className="container">
           <h2 style={{ fontSize: '3rem', marginBottom: '1.5rem' }}>Ready to find your <span className="gradient-text">Solution?</span></h2>
+          <p style={{ color: 'var(--text-primary)', fontSize: '1.5rem', marginBottom: '1rem' }}>Interested in working together? Let's connect!</p>
           <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Get in touch for specialized IT consulting and AI implementation.</p>
-          <a href="mailto:contact@thesolution.at" className="btn btn-primary" style={{ fontSize: '1.25rem' }}>Get in touch</a>
+
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', marginBottom: '4rem' }}>
+            <a href="mailto:contact@thesolution.at" className="btn btn-primary" style={{ fontSize: '1.25rem', width: 'fit-content' }}>
+              Email: contact@thesolution.at
+            </a>
+            <div style={{ display: 'flex', gap: '2rem' }}>
+              <a href="https://github.com/foozy74" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/jürgen-müller-b4792a57" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
           <div style={{ marginTop: '4rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
             © 2026 thesolution.at - Specialized IT Consulting
           </div>
