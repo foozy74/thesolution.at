@@ -176,14 +176,9 @@ const Impressum = () => (
           style={{ border: 0 }}
           loading="lazy"
           allowFullScreen
-          src="https://www.google.com/maps/embed/v1/place?key=REPLACE_WITH_YOUR_API_KEY&q=Hertha-Firnberg-Straße+9,1100+Wien,Austria"
+          referrerPolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2661.16832367!2d16.3768853!3d48.1652755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476da9ef07d2062b%3A0xc3f6050519965d83!2sHertha-Firnberg-Stra%C3%9Fe%209%2C%201100%20Wien%2C%20Austria!5e0!3m2!1sen!2sat!4v1707999999999!5m2!1sen!2sat"
         ></iframe>
-        {/* Fallback info if API key is missing */}
-        <div style={{ padding: '1rem', textAlign: 'center', fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-          <a href="https://www.google.com/maps/search/Hertha-Firnberg-Straße+9,1100+Wien" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-blue)' }}>
-            View on Google Maps
-          </a>
-        </div>
       </div>
     </div>
   </section>
