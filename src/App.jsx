@@ -160,7 +160,7 @@ const App = () => {
           </div>
 
           <div style={{ marginTop: '4rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-            © 2026 thesolution.at - Specialized IT Consulting
+            © 2026 thesolution.at - Specialized IT Consulting & AI Solutions
           </div>
         </div>
       </footer>
