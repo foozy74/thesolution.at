@@ -71,6 +71,7 @@ const App = () => {
             title="Datacenter & Virtualization"
             items={[
               "Server Virtualization (VMware, Hyper-V, KVM)",
+              "Kubernetes, KubeVirt & Cilium",
               "Storage & Network Virtualization",
               "Infrastructure Optimization",
               "Backup & Disaster Recovery"
