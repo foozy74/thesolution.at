@@ -1,16 +1,24 @@
-# React + Vite
+# thesolution.at - Specialized IT Consulting & AI Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Professional homepage for **Jürgen Müller**, IT Consultant specializing in high-end infrastructure and modern AI implementations.
 
-Currently, two official plugins are available:
+## Expertise
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **🏢 Datacenter & Virtualization**: Expert guidance on VMware (Broadcom), Hyper-V, and KVM consolidation.
+- **☁️ AWS Multicloud**: Strategic training and architecture for multicloud environments.
+- **🧠 Machine Learning & AI**: Implementation of NLP, Generative AI, and automated AI workflows.
 
-## React Compiler
+## Technology Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Frontend**: React + Vite
+- **Styling**: Vanilla CSS (Glassmorphism design)
+- **Deployment**: Dockerized with NGINX (Optimized for Coolify/Netlify)
 
-## Expanding the ESLint configuration
+## Contact
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Email**: [contact@thesolution.at](mailto:contact@thesolution.at)
+- **LinkedIn**: [Jürgen Müller](https://www.linkedin.com/in/jürgen-müller-b4792a57)
+- **GitHub**: [foozy74](https://github.com/foozy74)
+
+---
+© 2026 thesolution.at
