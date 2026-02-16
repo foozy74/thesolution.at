@@ -230,23 +230,30 @@ export function OpenClawTool() {
 
 function OverviewView() {
   return (
-    <main className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8 space-y-10 mt-4 sm:mt-10">
+    <main className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8 space-y-12 mt-4 sm:mt-10">
       {/* Hero */}
-      <div className="text-center space-y-4 py-6">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-medium">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          Production Ready · Security-First
+      <div className="glass p-8 sm:p-12 text-center space-y-6 relative overflow-hidden boarder-none">
+        <div style={{
+          position: 'absolute', top: '-10%', right: '-5%', width: '300px', height: '300px',
+          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, transparent 70%)',
+          filter: 'blur(40px)', zIndex: 0
+        }} />
+        <div className="z-10 relative space-y-4">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Production Ready · Security-First
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
+            Secure Infrastructure for{' '}
+            <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
+              OpenClaw
+            </span>
+          </h2>
+          <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+            Complete Infrastructure-as-Code setup with Terraform for Oracle Cloud Infrastructure.
+            Defense-in-Depth with 6 architecture security layers.
+          </p>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
-          Secure Infrastructure for{' '}
-          <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-            OpenClaw
-          </span>
-        </h2>
-        <p className="text-slate-400 max-w-2xl mx-auto text-lg">
-          Complete Infrastructure-as-Code setup with Terraform for Oracle Cloud Infrastructure.
-          Defense-in-Depth with 6 security layers.
-        </p>
       </div>
 
       {/* Architecture Diagram */}
@@ -296,24 +303,24 @@ function OverviewView() {
       </div>
 
       {/* Quick Start */}
-      <div className="bg-gradient-to-br from-indigo-900/30 to-purple-900/30 border border-indigo-500/20 rounded-2xl p-6 sm:p-8">
-        <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-          <span>🚀</span> Quick Start
+      <div className="glass p-6 sm:p-10 border-indigo-500/20">
+        <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-2">
+          <span>🚀</span> Quick Start Guide
         </h3>
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div className="space-y-4">
-            <p className="text-slate-300 text-sm">
-              How to deploy OpenClaw securely on OCI:
+        <div className="grid sm:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <p className="text-slate-400 text-sm">
+              Follow these steps to deploy OpenClaw securely on OCI:
             </p>
-            <div className="space-y-3">
+            <div className="space-y-4">
               {quickStartSteps.map((step, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center text-xs font-bold text-white flex-shrink-0">
+                <div key={i} className="flex items-start gap-4 p-3 rounded-xl hover:bg-white/5 transition-colors">
+                  <div className="w-8 h-8 rounded-full bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-sm font-bold text-indigo-400 flex-shrink-0">
                     {i + 1}
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-white">{step.title}</p>
-                    <p className="text-xs text-slate-400">{step.desc}</p>
+                    <p className="text-sm font-semibold text-white">{step.title}</p>
+                    <p className="text-xs text-slate-400 leading-relaxed">{step.desc}</p>
                   </div>
                 </div>
               ))}
@@ -466,9 +473,9 @@ function CodeView({
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 p-4 sm:p-6 space-y-6" style={{ maxHeight: 'calc(100vh - 180px)', overflowY: 'auto' }}>
-        {/* File Header */}
-        <div className="space-y-1">
+      <main className="flex-1 min-w-0 p-4 sm:p-6 space-y-8" style={{ maxHeight: 'calc(100vh - 180px)', overflowY: 'auto' }}>
+        {/* File Header Block */}
+        <div className="glass p-5 py-6 space-y-2">
           <div className="flex items-center gap-2 flex-wrap">
             <span className="text-2xl">{selectedFile.icon}</span>
             <h2 className="text-2xl font-bold text-white">{selectedFile.name}</h2>
@@ -476,7 +483,7 @@ function CodeView({
               {selectedFile.filename}
             </span>
           </div>
-          <p className="text-slate-400 text-sm">{selectedFile.description}</p>
+          <p className="text-slate-400 text-sm leading-relaxed">{selectedFile.description}</p>
         </div>
 
         {/* Security Notes */}
