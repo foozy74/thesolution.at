@@ -114,9 +114,9 @@ export function OpenClawTool() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--bg-color)] text-slate-200 pt-48">
+    <div className="min-h-screen bg-[var(--bg-color)] text-slate-200" style={{ paddingTop: '220px' }}>
       {/* Header */}
-      <header className="fixed top-28 left-0 right-0 z-40 backdrop-blur-xl bg-black/20 border-b border-white/10">
+      <header className="fixed left-0 right-0 z-40 backdrop-blur-xl bg-black/20 border-b border-white/10" style={{ top: '110px' }}>
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
@@ -230,7 +230,7 @@ export function OpenClawTool() {
 
 function OverviewView() {
   return (
-    <main className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8 space-y-10 mt-20">
+    <main className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8 space-y-10" style={{ marginTop: '60px' }}>
       {/* Hero */}
       <div className="text-center space-y-4 py-6">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-medium">
