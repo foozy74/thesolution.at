@@ -132,7 +132,7 @@ export function CodeBlock({ code, filename }: CodeBlockProps) {
         <div className="flex gap-2">
           <button
             onClick={handleDownload}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-md transition-all"
+            className="flex items-center gap-2 px-4 py-2 sm:px-3 sm:py-1.5 text-xs font-medium text-slate-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-md transition-all active:scale-95"
             title="Download file"
           >
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -142,7 +142,7 @@ export function CodeBlock({ code, filename }: CodeBlockProps) {
           </button>
           <button
             onClick={handleCopy}
-            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-md transition-all ${copied
+            className={`flex items-center gap-2 px-4 py-2 sm:px-3 sm:py-1.5 text-xs font-medium rounded-md transition-all active:scale-95 ${copied
               ? 'text-emerald-400 bg-emerald-500/10 border border-emerald-500/30'
               : 'text-slate-400 hover:text-white bg-white/5 hover:bg-white/10'
               }`}
@@ -166,8 +166,8 @@ export function CodeBlock({ code, filename }: CodeBlockProps) {
         </div>
       </div>
       {/* Code Content */}
-      <div className="overflow-x-auto bg-black/40">
-        <pre className="p-4 text-sm font-mono leading-relaxed">
+      <div className="overflow-x-auto bg-black/40 custom-scrollbar">
+        <pre className="p-4 text-[12px] sm:text-sm font-mono leading-relaxed">
           <code>{highlightedLines}</code>
         </pre>
       </div>

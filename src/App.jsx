@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import { OpenClawTool } from './tools/openclaw-iac/OpenClawTool';
@@ -12,21 +12,58 @@ const ScrollToTop = () => {
   return null;
 };
 
-const Navbar = () => (
-  <nav className="glass" style={{
-    position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
-    width: '90%', maxWidth: '1200px', padding: '1rem 2rem', zIndex: 1000,
-    display: 'flex', justifyContent: 'space-between', alignItems: 'center'
-  }}>
-    <Link to="/" style={{ fontSize: '1.5rem', fontWeight: 800, letterSpacing: '-1px', textDecoration: 'none' }} className="gradient-text">thesolution.at</Link>
-    <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
-      <Link to="/#services" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500 }}>Services</Link>
-      <Link to="/#ai" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500 }}>AI & ML</Link>
-      <Link to="/tools/openclaw-iac" style={{ color: 'var(--accent-teal)', textDecoration: 'none', fontWeight: 600 }}>OpenClaw IaC</Link>
-      <Link to="/#contact" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem' }}>Contact</Link>
-    </div>
-  </nav>
-);
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  return (
+    <nav className="glass" style={{
+      position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
+      width: '90%', maxWidth: '1200px', padding: '0.8rem 1.5rem', zIndex: 1000,
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+    }}>
+      <Link to="/" style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-1px', textDecoration: 'none' }} className="gradient-text">thesolution.at</Link>
+
+      {/* Mobile Menu Toggle */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="sm:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
+        aria-label="Toggle menu"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          {isOpen ? (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          ) : (
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          )}
+        </svg>
+      </button>
+
+      {/* Desktop Menu */}
+      <div className="hidden sm:flex" style={{ gap: '1.5rem', alignItems: 'center' }}>
+        <Link to="/#services" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, fontSize: '0.9rem' }}>Services</Link>
+        <Link to="/#ai" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, fontSize: '0.9rem' }}>AI & ML</Link>
+        <Link to="/tools/openclaw-iac" style={{ color: 'var(--accent-teal)', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem' }}>OpenClaw IaC</Link>
+        <Link to="/#contact" className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem' }}>Contact</Link>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isOpen && (
+        <div className="sm:hidden absolute top-full left-0 right-0 mt-2 glass p-4 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2">
+          <Link to="/#services" className="text-white text-lg font-medium no-underline">Services</Link>
+          <Link to="/#ai" className="text-white text-lg font-medium no-underline">AI & ML</Link>
+          <Link to="/tools/openclaw-iac" className="text-teal-400 text-lg font-bold no-underline">OpenClaw IaC</Link>
+          <Link to="/#contact" className="btn btn-primary text-center">Contact</Link>
+        </div>
+      )}
+    </nav>
+  );
+};
 
 const Hero = () => (
   <section style={{

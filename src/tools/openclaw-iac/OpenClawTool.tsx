@@ -114,9 +114,9 @@ export function OpenClawTool() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--bg-color)] text-slate-200" style={{ paddingTop: '220px' }}>
+    <div className="min-h-screen bg-[var(--bg-color)] text-slate-200 pt-[220px] sm:pt-[140px]">
       {/* Header */}
-      <header className="fixed left-0 right-0 z-40 backdrop-blur-xl bg-black/20 border-b border-white/10" style={{ top: '110px' }}>
+      <header className="fixed left-0 right-0 z-40 backdrop-blur-xl bg-black/20 border-b border-white/10 top-[110px] sm:top-[90px]">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
@@ -230,7 +230,7 @@ export function OpenClawTool() {
 
 function OverviewView() {
   return (
-    <main className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8 space-y-10" style={{ marginTop: '60px' }}>
+    <main className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8 space-y-10 mt-4 sm:mt-10">
       {/* Hero */}
       <div className="text-center space-y-4 py-6">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-medium">
@@ -404,7 +404,7 @@ function CodeView({
       <aside
         className={`${mobileMenuOpen ? 'fixed inset-0 z-40 bg-slate-900/95' : 'hidden'
           } sm:relative sm:block w-full sm:w-72 lg:w-80 flex-shrink-0 border-r border-slate-800/60 overflow-y-auto`}
-        style={{ maxHeight: 'calc(100vh - 120px)' }}
+        style={{ maxHeight: 'calc(100vh - 180px)' }}
       >
         <div className="p-4 space-y-4 sticky top-0">
           {/* Close mobile */}
@@ -466,7 +466,7 @@ function CodeView({
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 min-w-0 p-4 sm:p-6 space-y-6" style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}>
+      <main className="flex-1 min-w-0 p-4 sm:p-6 space-y-6" style={{ maxHeight: 'calc(100vh - 180px)', overflowY: 'auto' }}>
         {/* File Header */}
         <div className="space-y-1">
           <div className="flex items-center gap-2 flex-wrap">
