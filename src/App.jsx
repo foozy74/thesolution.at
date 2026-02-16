@@ -4,11 +4,25 @@ import './index.css';
 import { OpenClawTool } from './tools/openclaw-iac/OpenClawTool';
 
 // Scroll to top on navigation component
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+// Scroll to hash or top on navigation component
+const ScrollToNavigation = () => {
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      // Small delay to ensure content is rendered
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
   return null;
 };
 
@@ -16,18 +30,54 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { pathname } = useLocation();
 
-  // Close menu when route changes
+  // Close menu when route changes (optional, handled by onClick below too)
   useEffect(() => {
     setIsOpen(false);
   }, [pathname]);
 
+  const NavLink = ({ to, children, className = "", mobile = false }) => {
+    const isHash = to.startsWith('/#');
+    const hashId = to.replace('/#', '');
+    const isActive = pathname === '/' && window.location.hash === `#${hashId}`;
+
+    const handleClick = (e) => {
+      if (mobile) setIsOpen(false);
+
+      // If we're already on home and it's a hash link, handle it smoothly
+      if (pathname === '/' && isHash) {
+        const element = document.getElementById(hashId);
+        if (element) {
+          e.preventDefault();
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', `/#${hashId}`);
+        }
+      }
+    };
+
+    return (
+      <Link
+        to={to}
+        onClick={handleClick}
+        className={className}
+        style={{
+          color: isActive || (to === '/tools/openclaw-iac' && pathname.includes('openclaw')) ? 'var(--accent-teal)' : 'var(--text-secondary)',
+          textDecoration: 'none',
+          fontWeight: (isActive || to === '/tools/openclaw-iac') ? 600 : 500,
+          fontSize: mobile ? '1.125rem' : '0.9rem'
+        }}
+      >
+        {children}
+      </Link>
+    );
+  };
+
   return (
     <nav className="glass" style={{
       position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
-      width: '90%', maxWidth: '1200px', padding: '0.8rem 1.5rem', zIndex: 1000,
+      width: '90%', maxWidth: '1200px', padding: pathname.includes('openclaw') ? '0.8rem 1.5rem' : '1rem 2rem', zIndex: 1000,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center'
     }}>
-      <Link to="/" style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-1px', textDecoration: 'none' }} className="gradient-text">thesolution.at</Link>
+      <Link to="/" onClick={() => setIsOpen(false)} style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-1px', textDecoration: 'none' }} className="gradient-text">thesolution.at</Link>
 
       {/* Mobile Menu Toggle */}
       <button
@@ -46,19 +96,19 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex" style={{ gap: '1.5rem', alignItems: 'center' }}>
-        <Link to="/#services" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, fontSize: '0.9rem' }}>Services</Link>
-        <Link to="/#ai" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, fontSize: '0.9rem' }}>AI & ML</Link>
-        <Link to="/tools/openclaw-iac" style={{ color: 'var(--accent-teal)', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem' }}>OpenClaw IaC</Link>
-        <Link to="/#contact" className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem' }}>Contact</Link>
+        <NavLink to="/#services">Services</NavLink>
+        <NavLink to="/#ai">AI & ML</NavLink>
+        <NavLink to="/tools/openclaw-iac">OpenClaw IaC</NavLink>
+        <NavLink to="/#contact" className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem', color: 'white' }}>Contact</NavLink>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
         <div className="sm:hidden absolute top-full left-0 right-0 mt-2 glass p-4 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2">
-          <Link to="/#services" className="text-white text-lg font-medium no-underline">Services</Link>
-          <Link to="/#ai" className="text-white text-lg font-medium no-underline">AI & ML</Link>
-          <Link to="/tools/openclaw-iac" className="text-teal-400 text-lg font-bold no-underline">OpenClaw IaC</Link>
-          <Link to="/#contact" className="btn btn-primary text-center">Contact</Link>
+          <NavLink to="/#services" mobile>Services</NavLink>
+          <NavLink to="/#ai" mobile>AI & ML</NavLink>
+          <NavLink to="/tools/openclaw-iac" mobile>OpenClaw IaC</NavLink>
+          <NavLink to="/#contact" className="btn btn-primary text-center" mobile>Contact</NavLink>
         </div>
       )}
     </nav>
@@ -255,7 +305,7 @@ const Footer = () => (
 const App = () => {
   return (
     <Router>
-      <ScrollToTop />
+      <ScrollToNavigation />
       <div className="app">
         <Navbar />
         <Routes>
