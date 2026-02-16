@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { terraformFiles, categories, type TerraformFile } from './data/terraformConfigs';
 import { CodeBlock } from './components/CodeBlock';
 import { ArchitectureDiagram } from './components/ArchitectureDiagram';
@@ -123,11 +124,17 @@ export function OpenClawTool() {
               <span className="text-xl">⚖️</span>
             </div>
             <div>
-              <h1 className="text-lg font-bold text-white tracking-tight">
-                OpenClaw <span className="text-indigo-400">IaC</span>
-              </h1>
-              <p className="text-xs text-slate-500 hidden sm:block">
-                Secure deployment on Oracle Cloud Infrastructure
+              <div className="flex items-center gap-2 mb-0.5">
+                <Link to="/tools/solution" className="text-[10px] uppercase tracking-widest font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+                  Solutions
+                </Link>
+                <span className="text-slate-600 text-[10px]">/</span>
+                <h1 className="text-sm font-bold text-white tracking-tight">
+                  Solution <span className="text-indigo-400">IaC</span>
+                </h1>
+              </div>
+              <p className="text-[10px] text-slate-500 hidden sm:block">
+                Secure infrastructure delivery and automation
               </p>
             </div>
           </div>
@@ -251,7 +258,7 @@ export function OpenClawTool() {
             <StatsCard icon="🏗️" value="6" label="Infrastructure Layers" />
           </div>
           <div className="mt-10 text-center text-xs text-slate-500">
-            OpenClaw IaC Generator · Terraform for OCI · All configurations are production-ready
+            Solution IaC Architecture · Professional IT Automation · Production-ready blueprints
           </div>
         </div>
       </footer>
@@ -277,11 +284,11 @@ function OverviewView() {
           <h2 className="text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Secure Infrastructure for{' '}
             <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">
-              OpenClaw
+              Solution
             </span>
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            Complete Infrastructure-as-Code setup with Terraform for Oracle Cloud Infrastructure.
+            Enterprise-grade Infrastructure-as-Code setup with Terraform.
             Defense-in-Depth with 6 architecture security layers.
           </p>
         </div>
@@ -361,10 +368,10 @@ function OverviewView() {
             <div className="text-emerald-400 mb-1"># Terminal</div>
             <div className="space-y-1 text-slate-300">
               <p>
-                <span className="text-slate-500">$</span> git clone openclaw-iac/
+                <span className="text-slate-500">$</span> git clone thesolution/solution-iac/
               </p>
               <p>
-                <span className="text-slate-500">$</span> cd openclaw-iac
+                <span className="text-slate-500">$</span> cd solution-iac/openclaw
               </p>
               <p>
                 <span className="text-slate-500">$</span> cp terraform.tfvars.example terraform.tfvars
