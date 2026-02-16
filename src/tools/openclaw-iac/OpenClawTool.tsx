@@ -114,9 +114,9 @@ export function OpenClawTool() {
   );
 
   return (
-    <div className="min-h-screen bg-[var(--bg-color)] text-slate-200 pt-[220px] sm:pt-[140px]">
+    <div className="min-h-screen bg-[var(--bg-color)] text-slate-200 pt-[320px] sm:pt-[240px]">
       {/* Header */}
-      <header className="fixed left-0 right-0 z-40 backdrop-blur-xl bg-black/20 border-b border-white/10 top-[110px] sm:top-[90px]">
+      <header className="fixed left-0 right-0 z-40 backdrop-blur-xl bg-black/40 border-b border-white/10 top-[120px] sm:top-[100px]">
         <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
@@ -169,6 +169,37 @@ export function OpenClawTool() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Sub-navigation Menu */}
+        <div className="border-t border-white/5 bg-black/10">
+          <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-2 flex items-center gap-6 overflow-x-auto no-scrollbar">
+            <button
+              onClick={() => { setViewMode('overview'); setTimeout(() => document.getElementById('architecture')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
+              className="text-[10px] uppercase tracking-widest font-bold text-slate-400 hover:text-white transition-colors whitespace-nowrap"
+            >
+              🏗️ Architecture
+            </button>
+            <button
+              onClick={() => { setViewMode('overview'); setTimeout(() => document.getElementById('security')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
+              className="text-[10px] uppercase tracking-widest font-bold text-slate-400 hover:text-white transition-colors whitespace-nowrap"
+            >
+              🛡️ Security Layers
+            </button>
+            <button
+              onClick={() => { setViewMode('overview'); setTimeout(() => document.getElementById('quickstart')?.scrollIntoView({ behavior: 'smooth' }), 100); }}
+              className="text-[10px] uppercase tracking-widest font-bold text-slate-400 hover:text-white transition-colors whitespace-nowrap"
+            >
+              🚀 Quick Start
+            </button>
+            <div className="h-4 w-[1px] bg-white/10 hidden sm:block" />
+            <button
+              onClick={() => setViewMode('code')}
+              className={`text-[10px] uppercase tracking-widest font-bold transition-colors whitespace-nowrap ${viewMode === 'code' ? 'text-indigo-400' : 'text-slate-400 hover:text-white'}`}
+            >
+              📄 Terraform Files
             </button>
           </div>
         </div>
@@ -257,7 +288,7 @@ function OverviewView() {
       </div>
 
       {/* Architecture Diagram */}
-      <div className="glass overflow-hidden">
+      <div id="architecture" className="glass overflow-hidden scroll-mt-40">
         <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between">
           <h3 className="text-lg font-semibold text-white flex items-center gap-2">
             <span>🏗️</span> Architecture Overview
@@ -268,7 +299,7 @@ function OverviewView() {
       </div>
 
       {/* Security Layers */}
-      <div>
+      <div id="security" className="scroll-mt-40">
         <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
           <span>🛡️</span> Security Layers (Defense in Depth)
         </h3>
@@ -303,7 +334,7 @@ function OverviewView() {
       </div>
 
       {/* Quick Start */}
-      <div className="glass p-6 sm:p-10 border-indigo-500/20">
+      <div id="quickstart" className="glass p-6 sm:p-10 border-indigo-500/20 scroll-mt-40">
         <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-2">
           <span>🚀</span> Quick Start Guide
         </h3>
