@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
+import { OpenClawTool } from './tools/openclaw-iac/OpenClawTool';
 
 // Scroll to top on navigation component
 const ScrollToTop = () => {
@@ -21,6 +22,7 @@ const Navbar = () => (
     <div style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
       <Link to="/#services" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500 }}>Services</Link>
       <Link to="/#ai" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500 }}>AI & ML</Link>
+      <Link to="/tools/openclaw-iac" style={{ color: 'var(--accent-teal)', textDecoration: 'none', fontWeight: 600 }}>OpenClaw IaC</Link>
       <Link to="/#contact" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem' }}>Contact</Link>
     </div>
   </nav>
@@ -222,6 +224,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/tools/openclaw-iac" element={<OpenClawTool />} />
         </Routes>
         <Footer />
       </div>
