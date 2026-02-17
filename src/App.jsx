@@ -194,7 +194,7 @@ const Home = () => {
             ]}
           />
           <ServiceCard
-            icon="🛰️"
+            icon="🖥️"
             title="VMware Specialist"
             items={[
               "Broadcom Era Consultation",
