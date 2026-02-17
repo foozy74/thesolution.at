@@ -139,6 +139,12 @@ const Hero = () => (
       background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%)',
       filter: 'blur(50px)', zIndex: 1
     }} />
+    {/* Transparent gradient transition at bottom */}
+    <div style={{
+      position: 'absolute', bottom: 0, left: 0, right: 0, height: '200px',
+      background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9))',
+      zIndex: 2
+    }} />
   </section>
 );
 
@@ -158,12 +164,14 @@ const ServiceCard = ({ icon, title, items }) => (
 
 const Home = () => {
   const [showDiagnostic, setShowDiagnostic] = useState(false);
+
   return (
     <>
       <Hero />
+
       <section id="services" className="container">
         <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Infrastructure <span className="gradient-text">Expertise</span></h2>
-        <div className="grid grid-3">
+        <div className="grid grid-4">
           <ServiceCard
             icon="🏢"
             title="Datacenter & Virtualization"
@@ -193,6 +201,17 @@ const Home = () => {
               "License Optimization",
               "VCF Implementation",
               "Legacy Migration"
+            ]}
+          />
+          <ServiceCard
+            icon="🔷"
+            title="Databricks"
+            items={[
+              "Lakehouse Architecture",
+              "Apache Spark & Delta Lake",
+              "MLflow & Model Training",
+              "Data Engineering Pipelines",
+              "ETL & Streaming Analytics"
             ]}
           />
         </div>
