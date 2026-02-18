@@ -9,8 +9,15 @@ export function SolutionLanding() {
             icon: '🛡️',
             path: '/tools/solution/openclaw-iac',
             tags: ['IaC', 'Terraform', 'OCI', 'Security']
+        },
+        {
+            id: 'databricks-iac',
+            title: 'Databricks IaC',
+            description: 'Infrastructure-as-Code for Databricks. Automate workspaces, clusters, and jobs with Terraform and Asset Bundles.',
+            icon: '⚡',
+            path: '/tools/solution/databricks-iac',
+            tags: ['IaC', 'Databricks', 'Terraform', 'CI/CD']
         }
-        // Future solutions can be added here
     ];
 
     return (
@@ -51,12 +58,6 @@ export function SolutionLanding() {
                         </div>
                     </Link>
                 ))}
-
-                {/* Coming Soon Card */}
-                <div className="glass p-8 flex flex-col h-full items-center justify-center opacity-50 border-dashed border-white/10">
-                    <div className="text-3xl mb-4">🚀</div>
-                    <p className="text-slate-500 text-sm font-medium italic">More Solutions Coming Soon</p>
-                </div>
             </div>
         </section>
     );

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import './index.css';
 import { OpenClawTool } from './tools/solution/openclaw-iac/OpenClawTool';
+import { IaaCDatabricksTool } from './tools/solution/databricks-iac/IaaCDatabricksTool';
 import { SolutionLanding } from './tools/solution/SolutionLanding';
 
 // Scroll to top on navigation component
@@ -420,6 +421,7 @@ const App = () => {
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/tools/solution" element={<SolutionLanding />} />
           <Route path="/tools/solution/openclaw-iac" element={<OpenClawTool />} />
+          <Route path="/tools/solution/databricks-iac" element={<IaaCDatabricksTool />} />
         </Routes>
         <Footer />
       </div>
