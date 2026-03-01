@@ -4,6 +4,8 @@ import './index.css';
 import { OpenClawTool } from './tools/solution/openclaw-iac/OpenClawTool';
 import { IaaCDatabricksTool } from './tools/solution/databricks-iac/IaaCDatabricksTool';
 import { SolutionLanding } from './tools/solution/SolutionLanding';
+import { EbookCatalog } from './components/EbookCatalog';
+import { EbookCatalog } from './components/EbookCatalog';
 
 // Scroll to top on navigation component
 // Scroll to hash or top on navigation component
@@ -101,6 +103,7 @@ const Navbar = () => {
         <NavLink to="/#services">Services</NavLink>
         <NavLink to="/#ai">AI & ML</NavLink>
         <NavLink to="/tools/solution">Solution</NavLink>
+        <NavLink to="/ebook">E-Books</NavLink>
         <NavLink to="/#contact" className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem', color: 'white' }}>Contact</NavLink>
       </div>
 
@@ -110,6 +113,7 @@ const Navbar = () => {
           <NavLink to="/#services" mobile>Services</NavLink>
           <NavLink to="/#ai" mobile>AI & ML</NavLink>
           <NavLink to="/tools/solution" mobile>Solution</NavLink>
+          <NavLink to="/ebook" mobile>E-Books</NavLink>
           <NavLink to="/#contact" className="btn btn-primary text-center" mobile>Contact</NavLink>
         </div>
       )}
@@ -419,6 +423,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/ebook" element={<EbookCatalog />} />
           <Route path="/tools/solution" element={<SolutionLanding />} />
           <Route path="/tools/solution/openclaw-iac" element={<OpenClawTool />} />
           <Route path="/tools/solution/databricks-iac" element={<IaaCDatabricksTool />} />
