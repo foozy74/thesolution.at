@@ -102,7 +102,6 @@ const Navbar = () => {
         <NavLink to="/#services">Services</NavLink>
         <NavLink to="/#ai">AI & ML</NavLink>
         <NavLink to="/tools/solution">Solution</NavLink>
-        <NavLink to="/ebook">E-Books</NavLink>
         <NavLink to="/#contact" className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem', color: 'white' }}>Contact</NavLink>
       </div>
 
@@ -112,7 +111,6 @@ const Navbar = () => {
           <NavLink to="/#services" mobile>Services</NavLink>
           <NavLink to="/#ai" mobile>AI & ML</NavLink>
           <NavLink to="/tools/solution" mobile>Solution</NavLink>
-          <NavLink to="/ebook" mobile>E-Books</NavLink>
           <NavLink to="/#contact" className="btn btn-primary text-center" mobile>Contact</NavLink>
         </div>
       )}
