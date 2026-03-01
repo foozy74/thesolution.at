@@ -5,7 +5,6 @@ import { OpenClawTool } from './tools/solution/openclaw-iac/OpenClawTool';
 import { IaaCDatabricksTool } from './tools/solution/databricks-iac/IaaCDatabricksTool';
 import { SolutionLanding } from './tools/solution/SolutionLanding';
 import { EbookCatalog } from './components/EbookCatalog';
-import { EbookCatalog } from './components/EbookCatalog';
 
 // Scroll to top on navigation component
 // Scroll to hash or top on navigation component
