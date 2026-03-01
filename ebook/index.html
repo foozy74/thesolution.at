@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheSolution.at - E-Book Katalog</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>TheSolution.at</h1>
+                <span class="tagline">E-Book Katalog</span>
+            </div>
+            <nav class="nav">
+                <a href="#" class="nav-link active">Startseite</a>
+                <a href="#authors" class="nav-link">Autoren</a>
+                <a href="#books" class="nav-link">Bücher</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Entdecken Sie unsere E-Book Sammlung</h2>
+                <p class="hero-subtitle">Tausende von Büchern verschiedener Autoren – immer verfügbar</p>
+                
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Suchen Sie nach Titel oder Autor..." class="search-input">
+                    <button id="searchBtn" class="search-btn">Suchen</button>
+                </div>
+
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="authorCount">0</span>
+                        <span class="stat-label">Autoren</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="bookCount">0</span>
+                        <span class="stat-label">Bücher</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="filters">
+                    <h3>Filter</h3>
+                    <div class="filter-group">
+                        <label for="authorFilter">Autor:</label>
+                        <select id="authorFilter" class="filter-select">
+                            <option value="">Alle Autoren</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="sortBy">Sortieren nach:</label>
+                        <select id="sortBy" class="filter-select">
+                            <option value="author">Autor (A-Z)</option>
+                            <option value="title">Titel (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="results-info">
+                    <span id="resultsCount">Zeige alle Bücher</span>
+                </div>
+
+                <div id="booksContainer" class="books-grid">
+                    <!-- Books will be inserted here -->
+                </div>
+
+                <div id="pagination" class="pagination">
+                    <!-- Pagination will be inserted here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TheSolution.at - Alle Rechte vorbehalten</p>
+        </div>
+    </footer>
+
+    <script src="ebooks-data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
