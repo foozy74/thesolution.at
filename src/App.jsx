@@ -5,6 +5,7 @@ import { OpenClawTool } from './tools/solution/openclaw-iac/OpenClawTool';
 import { IaaCDatabricksTool } from './tools/solution/databricks-iac/IaaCDatabricksTool';
 import { SolutionLanding } from './tools/solution/SolutionLanding';
 import { EbookCatalog } from './components/EbookCatalog';
+import { WebCheckTool } from './tools/solution/web-check/WebCheckTool';
 
 // Scroll to top on navigation component
 // Scroll to hash or top on navigation component
@@ -424,6 +425,8 @@ const App = () => {
           <Route path="/tools/solution" element={<SolutionLanding />} />
           <Route path="/tools/solution/openclaw-iac" element={<OpenClawTool />} />
           <Route path="/tools/solution/databricks-iac" element={<IaaCDatabricksTool />} />
+          <Route path="/tools/solution/web-check" element={<WebCheckTool />} />
+          <Route path="/tools/solution/web-check" element={<WebCheckTool />} />
         </Routes>
         <Footer />
       </div>

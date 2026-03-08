@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 export function SolutionLanding() {
-    const solutions = [
+const solutions = [
         {
             id: 'openclaw-iac',
             title: 'OpenClaw IaC',
@@ -17,6 +17,14 @@ export function SolutionLanding() {
             icon: '⚡',
             path: '/tools/solution/databricks-iac',
             tags: ['IaC', 'Databricks', 'Terraform', 'CI/CD']
+        },
+        {
+            id: 'web-check',
+            title: 'Web-Check',
+            description: 'Comprehensive website security and performance analysis. Check SSL, DNS, headers, cookies, and more.',
+            icon: '🔍',
+            path: '/tools/solution/web-check',
+            tags: ['Security', 'Analysis', 'Performance', 'OSINT']
         }
     ];
 

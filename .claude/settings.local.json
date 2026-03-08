@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(git -C /Users/jurgen/dev/thesolution/github/thesolution.at status)",
+      "Bash(git -C /Users/jurgen/dev/thesolution/github/thesolution.at add src/tools/solution/SolutionLanding.tsx src/tools/solution/openclaw-iac/OpenClawTool.tsx)",
+      "Bash(git -C /Users/jurgen/dev/thesolution/github/thesolution.at diff src/tools/solution/SolutionLanding.tsx src/tools/solution/openclaw-iac/OpenClawTool.tsx)",
+      "Bash(git -C /Users/jurgen/dev/thesolution/github/thesolution.at diff --staged)",
+      "Bash(git -C /Users/jurgen/dev/thesolution/github/thesolution.at log --oneline -3)",
+      "Bash(git -C:*)",
+      "Bash(screencapture:*)",
+      "mcp__firecrawl__firecrawl_browser_create",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
+    ]
+  }
+}
