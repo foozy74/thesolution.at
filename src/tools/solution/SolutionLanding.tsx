@@ -6,7 +6,7 @@ const solutions = [
             id: 'openclaw-iac',
             title: 'OpenClaw IaC',
             description: 'Enterprise-grade Infrastructure-as-Code for Oracle Cloud. Secure, scalable, and production-ready.',
-            icon: '🛡️',
+            icon: '🔷',
             path: '/tools/solution/openclaw-iac',
             tags: ['IaC', 'Terraform', 'OCI', 'Security']
         },
@@ -14,7 +14,7 @@ const solutions = [
             id: 'databricks-iac',
             title: 'Databricks IaC',
             description: 'Infrastructure-as-Code for Databricks. Automate workspaces, clusters, and jobs with Terraform and Asset Bundles.',
-            icon: '⚡',
+            icon: '📊',
             path: '/tools/solution/databricks-iac',
             tags: ['IaC', 'Databricks', 'Terraform', 'CI/CD']
         },

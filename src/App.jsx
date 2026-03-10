@@ -6,6 +6,8 @@ import { IaaCDatabricksTool } from './tools/solution/databricks-iac/IaaCDatabric
 import { SolutionLanding } from './tools/solution/SolutionLanding';
 import { EbookCatalog } from './components/EbookCatalog';
 import { WebCheckTool } from './tools/solution/web-check/WebCheckTool';
+import { CookieBanner } from './components/CookieBanner';
+import { Datenschutz } from './components/Datenschutz';
 
 // Scroll to top on navigation component
 // Scroll to hash or top on navigation component
@@ -81,7 +83,10 @@ const Navbar = () => {
       width: '90%', maxWidth: '1200px', padding: pathname.includes('openclaw') ? '0.8rem 1.5rem' : '1rem 2rem', zIndex: 1000,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center'
     }}>
-      <Link to="/" onClick={() => setIsOpen(false)} style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-1px', textDecoration: 'none' }} className="gradient-text">thesolution.at</Link>
+      <Link to="/" onClick={() => setIsOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
+        <img src="/logo.jpeg" alt="thesolution.at logo" style={{ height: '40px', width: '40px', objectFit: 'contain' }} />
+        <span style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-1px' }} className="gradient-text">thesolution.at</span>
+      </Link>
 
       {/* Mobile Menu Toggle */}
       <button
@@ -103,7 +108,7 @@ const Navbar = () => {
         <NavLink to="/#services">Services</NavLink>
         <NavLink to="/#ai">AI & ML</NavLink>
         <NavLink to="/tools/solution">Solution</NavLink>
-        <NavLink to="/#contact" className="btn btn-primary" style={{ padding: '0.4rem 1.25rem', fontSize: '0.9rem', color: 'white' }}>Contact</NavLink>
+        <NavLink to="/#contact" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem', fontSize: '0.95rem', fontWeight: 700, boxShadow: '0 4px 15px rgba(125, 211, 192, 0.4)' }}>Contact</NavLink>
       </div>
 
       {/* Mobile Menu Dropdown */}
@@ -124,22 +129,42 @@ const Hero = () => (
     minHeight: '100vh', display: 'flex', alignItems: 'center',
     position: 'relative', overflow: 'hidden'
   }}>
-    <div className="container" style={{ position: 'relative', zIndex: 2 }}>
-      <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 1.1, marginBottom: '1.5rem' }}>
-        Elevating Infrastructure,<br />
-        <span className="gradient-text">Mastering AI.</span>
-      </h1>
-      <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '600px', marginBottom: '2.5rem' }}>
-        Expert IT Consulting for Datacenter Virtualization, AWS Multicloud, and Cutting-edge AI Solutions.
-      </p>
-      <div style={{ display: 'flex', gap: '1rem' }}>
-        <a href="#contact" className="btn btn-primary">Start a Project</a>
-        <a href="#services" className="btn glass" style={{ padding: '0.8rem 2rem' }}>Our Expertise</a>
+    <div className="container" style={{ position: 'relative', zIndex: 2, display: 'flex', alignItems: 'center', gap: '4rem' }}>
+      <div style={{ flex: '1' }}>
+        <h1 style={{ fontSize: 'clamp(3rem, 8vw, 5rem)', lineHeight: 1.1, marginBottom: '1.5rem' }}>
+          Elevating Infrastructure,<br />
+          <span className="gradient-text">Mastering AI.</span>
+        </h1>
+        <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '600px', marginBottom: '2.5rem' }}>
+          Expert IT Consulting for Datacenter Virtualization, AWS Multicloud, and Cutting-edge AI Solutions.
+        </p>
+        <div style={{ display: 'flex', gap: '1rem' }}>
+          <a href="#contact" className="btn btn-primary">Start a Project</a>
+          <a href="#services" className="btn glass" style={{ padding: '0.8rem 2rem' }}>Our Expertise</a>
+        </div>
+      </div>
+      <div style={{ flex: '1', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <img 
+          src="/logo.jpeg" 
+          alt="thesolution.at logo" 
+          style={{ 
+            maxWidth: '400px', 
+            width: '100%', 
+            height: 'auto',
+            filter: 'drop-shadow(0 0 40px rgba(125, 211, 192, 0.4)) brightness(1.1)',
+            opacity: 0.95
+          }} 
+        />
       </div>
     </div>
     <div style={{
-      position: 'absolute', top: '20%', right: '-10%', width: '500px', height: '500px',
-      background: 'radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%)',
+      position: 'absolute', top: '15%', right: '-5%', width: '600px', height: '600px',
+      background: 'radial-gradient(circle, rgba(125, 211, 192, 0.12) 0%, rgba(91, 155, 213, 0.08) 40%, transparent 70%)',
+      filter: 'blur(60px)', zIndex: 1
+    }} />
+    <div style={{
+      position: 'absolute', bottom: '10%', left: '-10%', width: '500px', height: '500px',
+      background: 'radial-gradient(circle, rgba(91, 155, 213, 0.1) 0%, transparent 70%)',
       filter: 'blur(50px)', zIndex: 1
     }} />
     {/* Transparent gradient transition at bottom */}
@@ -176,7 +201,7 @@ const Home = () => {
         <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Infrastructure <span className="gradient-text">Expertise</span></h2>
         <div className="grid grid-4">
           <ServiceCard
-            icon="🏢"
+            icon="🌀"
             title="Datacenter & Virtualization"
             items={[
               "Server Virtualization (VMware, Hyper-V, KVM)",
@@ -197,7 +222,7 @@ const Home = () => {
             ]}
           />
           <ServiceCard
-            icon="🖥️"
+            icon="🔷"
             title="VMware Specialist"
             items={[
               "Broadcom Era Consultation",
@@ -207,7 +232,7 @@ const Home = () => {
             ]}
           />
           <ServiceCard
-            icon="🔷"
+            icon="📊"
             title="Databricks"
             items={[
               "Lakehouse Architecture",
@@ -229,12 +254,12 @@ const Home = () => {
               <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
                 Leverage the power of modern AI to automate workflows, analyze complex data, and build intelligent products.
               </p>
-              <div className="grid grid-2" style={{ gap: '1rem' }}>
+                <div className="grid grid-2" style={{ gap: '1rem' }}>
                 {[
                   "💬 NLP Solutions",
-                  "🎨 Generative AI",
-                  "🧠 Neural Networks",
-                  "📊 Data Science",
+                  "✨ Generative AI",
+                  "🌀 Neural Networks",
+                  "📈 Data Science",
                   "⚡ AI-Automation",
                   "👁️ Computer Vision"
                 ].map((item, i) => (
@@ -406,7 +431,10 @@ const Footer = () => (
 
       <div style={{ marginTop: '4rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
         <span>© 2026 thesolution.at - Specialized IT Consulting & AI Solutions</span>
-        <Link to="/impressum" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Legal Notice (Impressum)</Link>
+        <div style={{ display: 'flex', gap: '2rem' }}>
+          <Link to="/impressum" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Impressum</Link>
+          <Link to="/datenschutz" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Datenschutz</Link>
+        </div>
       </div>
     </div>
   </footer>
@@ -421,6 +449,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/impressum" element={<Impressum />} />
+          <Route path="/datenschutz" element={<Datenschutz />} />
           <Route path="/ebook" element={<EbookCatalog />} />
           <Route path="/tools/solution" element={<SolutionLanding />} />
           <Route path="/tools/solution/openclaw-iac" element={<OpenClawTool />} />
@@ -428,6 +457,7 @@ const App = () => {
           <Route path="/tools/solution/web-check" element={<WebCheckTool />} />
           <Route path="/tools/solution/web-check" element={<WebCheckTool />} />
         </Routes>
+        <CookieBanner />
         <Footer />
       </div>
     </Router>

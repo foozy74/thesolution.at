@@ -301,7 +301,7 @@ const securityLayers = [
   {
     icon: '🌐',
     title: 'Network Isolation',
-    bgClass: 'bg-blue-500/10',
+    bgClass: 'bg-[var(--accent-blue)]/10',
     items: [
       'Private subnets for App & DB',
       'NAT Gateway for controlled egress',
@@ -310,9 +310,9 @@ const securityLayers = [
     ],
   },
   {
-    icon: '🛡️',
+    icon: '🔷',
     title: 'Web Application Firewall',
-    bgClass: 'bg-red-500/10',
+    bgClass: 'bg-[var(--accent-teal)]/10',
     items: [
       'OWASP Top 10 Protection',
       'Rate Limiting (100 req/min)',
@@ -323,7 +323,7 @@ const securityLayers = [
   {
     icon: '🔐',
     title: 'Encryption',
-    bgClass: 'bg-pink-500/10',
+    bgClass: 'bg-[var(--accent-purple)]/10',
     items: [
       'TLS 1.2+ forced',
       'HSM-backed KMS Keys',
@@ -334,7 +334,7 @@ const securityLayers = [
   {
     icon: '👤',
     title: 'Identity & Access',
-    bgClass: 'bg-purple-500/10',
+    bgClass: 'bg-[var(--accent-purple)]/10',
     items: [
       'Least-Privilege IAM Policies',
       'Workload Identity for OKE',
@@ -345,7 +345,7 @@ const securityLayers = [
   {
     icon: '📦',
     title: 'Container Security',
-    bgClass: 'bg-indigo-500/10',
+    bgClass: 'bg-[var(--accent-blue)]/10',
     items: [
       'Non-root container',
       'ReadOnly root filesystem',
@@ -356,7 +356,7 @@ const securityLayers = [
   {
     icon: '📊',
     title: 'Monitoring & Compliance',
-    bgClass: 'bg-cyan-500/10',
+    bgClass: 'bg-[var(--accent-teal)]/10',
     items: [
       'Audit logs (365 days)',
       'Security alarms',
