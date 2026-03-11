@@ -11,20 +11,15 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withSentryConfig(nextConfig, {
-  // Sentry organization and project
+const sentryWebpackPluginOptions = {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
-
-  // Source map upload auth token
   authToken: process.env.SENTRY_AUTH_TOKEN,
-
-  // Upload wider set of client source files for better stack trace resolution
   widenClientFileUpload: true,
-
-  // Create a proxy API route to bypass ad-blockers
   tunnelRoute: "/monitoring",
-
-  // Suppress non-CI output
   silent: !process.env.CI,
-});
+};
+
+export default process.env.SENTRY_AUTH_TOKEN
+  ? withSentryConfig(nextConfig, sentryWebpackPluginOptions)
+  : nextConfig;
