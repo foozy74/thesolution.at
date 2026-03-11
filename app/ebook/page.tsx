@@ -120,29 +120,25 @@ export default function EbookPage() {
           </div>
         </div>
 
-        {/* Search */}
-        <div className="max-w-2xl mx-auto mb-8">
-          <div className="flex gap-4">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              onKeyPress={(e) => e.key === "Enter" && performSearch()}
-              placeholder="Suchen Sie nach Titel oder Autor..."
-              className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-[var(--accent-teal)]"
-            />
-            <button
-              onClick={performSearch}
-              className="btn btn-primary px-6 py-3"
-            >
-              Suchen
-            </button>
-          </div>
-        </div>
-
-        {/* Filters */}
+        {/* Search & Filters */}
         <div className="glass p-6 rounded-xl max-w-4xl mx-auto mb-8">
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-4 gap-4">
+            {/* Search Input */}
+            <div className="md:col-span-2">
+              <label className="block text-xs uppercase tracking-wider text-slate-400 mb-2">
+                Suche
+              </label>
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                onKeyPress={(e) => e.key === "Enter" && performSearch()}
+                placeholder="Titel oder Autor..."
+                className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white placeholder-slate-400 focus:outline-none focus:border-[var(--accent-teal)]"
+              />
+            </div>
+            
+            {/* Author Filter */}
             <div>
               <label className="block text-xs uppercase tracking-wider text-slate-400 mb-2">
                 Autor
@@ -150,7 +146,7 @@ export default function EbookPage() {
               <select
                 value={selectedAuthor}
                 onChange={(e) => setSelectedAuthor(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-[var(--accent-teal)]"
+                className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-[var(--accent-teal)]"
               >
                 <option value="">Alle Autoren</option>
                 {authors.map((author) => (
@@ -160,30 +156,35 @@ export default function EbookPage() {
                 ))}
               </select>
             </div>
-            <div>
-              <label className="block text-xs uppercase tracking-wider text-slate-400 mb-2">
-                Sortieren nach
-              </label>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as "title" | "author")}
-                className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-[var(--accent-teal)]"
-              >
-                <option value="title">Titel</option>
-                <option value="author">Autor</option>
-              </select>
-            </div>
-            <div className="flex items-end">
-              <button
-                onClick={() => {
-                  setSearchTerm("");
-                  setSelectedAuthor("");
-                  setSortBy("title");
-                }}
-                className="w-full px-4 py-2 rounded-lg bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
-              >
-                Zurücksetzen
-              </button>
+            
+            {/* Sort & Reset */}
+            <div className="flex gap-2">
+              <div className="flex-1">
+                <label className="block text-xs uppercase tracking-wider text-slate-400 mb-2">
+                  Sortieren
+                </label>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as "title" | "author")}
+                  className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:border-[var(--accent-teal)]"
+                >
+                  <option value="title">Titel</option>
+                  <option value="author">Autor</option>
+                </select>
+              </div>
+              <div className="flex items-end">
+                <button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setSelectedAuthor("");
+                    setSortBy("title");
+                  }}
+                  className="px-3 py-2 rounded-lg bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all text-xs"
+                  title="Filter zurücksetzen"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
           </div>
         </div>
