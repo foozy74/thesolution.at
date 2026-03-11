@@ -115,9 +115,6 @@ export function Navbar() {
           <li>
             <ContactButton />
           </li>
-          <li>
-            <ContactButton />
-          </li>
         </ul>
       </div>
 
