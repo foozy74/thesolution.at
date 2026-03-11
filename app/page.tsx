@@ -100,11 +100,104 @@ function Hero() {
 }
 
 function ServicesSection() {
+  const [showStats, setShowStats] = useState(false);
+  const [counters, setCounters] = useState({ years: 0, customers: 0, projects: 0 });
+
+  const startCounters = () => {
+    setShowStats(true);
+    const duration = 2000;
+    const steps = 60;
+    const interval = duration / steps;
+
+    for (let i = 0; i <= steps; i++) {
+      setTimeout(() => {
+        const progress = i / steps;
+        const easeOut = 1 - Math.pow(1 - progress, 3);
+        setCounters({
+          years: Math.floor(25 * easeOut),
+          customers: Math.floor(500 * easeOut),
+          projects: Math.floor(100 * easeOut),
+        });
+      }, i * interval);
+    }
+  };
+
   return (
     <section id="services" className="container" aria-labelledby="services-heading">
-      <h2 id="services-heading" style={{ fontSize: "2.5rem", marginBottom: "3rem", textAlign: "center" }}>
-        Infrastructure <span className="gradient-text">Expertise</span>
-      </h2>
+      <button
+        onClick={() => (showStats ? setShowStats(false) : startCounters())}
+        style={{
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          padding: 0,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          width: "100%",
+        }}
+        aria-expanded={showStats}
+        aria-controls="stats-section"
+      >
+        <h2 id="services-heading" style={{ fontSize: "2.5rem", marginBottom: "0.5rem", textAlign: "center" }}>
+          Infrastructure <span className="gradient-text">Expertise</span>
+        </h2>
+        <span
+          style={{
+            fontSize: "1.25rem",
+            fontWeight: 600,
+            background: "linear-gradient(135deg, var(--accent-blue), var(--accent-teal))",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            backgroundClip: "text",
+          }}
+        >
+          {showStats ? "− Less Details" : "+ More Details"}
+        </span>
+      </button>
+
+      {showStats && (
+        <div
+          id="stats-section"
+          className="animate-in fade-in slide-in-from-top-4"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+            gap: "2rem",
+            marginBottom: "3rem",
+            padding: "2rem",
+            background: "rgba(59, 130, 246, 0.05)",
+            borderRadius: "16px",
+            border: "1px solid rgba(59, 130, 246, 0.1)",
+          }}
+        >
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "3.5rem", fontWeight: 700, color: "var(--accent-blue)", lineHeight: 1 }}>
+              {counters.years}+
+            </div>
+            <div style={{ color: "var(--text-secondary)", fontSize: "1.1rem", marginTop: "0.75rem" }}>
+              Years of Experience
+            </div>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "3.5rem", fontWeight: 700, color: "var(--accent-teal)", lineHeight: 1 }}>
+              {counters.customers}+
+            </div>
+            <div style={{ color: "var(--text-secondary)", fontSize: "1.1rem", marginTop: "0.75rem" }}>
+              Satisfied Customers
+            </div>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <div style={{ fontSize: "3.5rem", fontWeight: 700, color: "var(--accent-purple)", lineHeight: 1 }}>
+              {counters.projects}%
+            </div>
+            <div style={{ color: "var(--text-secondary)", fontSize: "1.1rem", marginTop: "0.75rem" }}>
+              Successful Projects
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="grid grid-4" role="list">
         <ServiceCard
           icon="🌀"
