@@ -1,0 +1,302 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://thesolution.at/#organization",
+      "name": "The Solution Virtualization Consolidation Company e.U.",
+      "alternateName": "thesolution.at",
+      "url": "https://thesolution.at/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://thesolution.at/logo.jpeg",
+        "width": "150",
+        "height": "150"
+      },
+      "image": "https://thesolution.at/logo.jpeg",
+      "description": "Spezialisiertes IT Consulting für Datacenter-Virtualisierung, AWS Multicloud, VMware und KI-Lösungen.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hertha-Firnberg-Straße 9/3/307",
+        "addressLocality": "Wien",
+        "postalCode": "1100",
+        "addressCountry": "AT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "48.1652755",
+        "longitude": "16.3768853"
+      },
+      "telephone": "+43-xxx-xxxxxxx",
+      "email": "contact@thesolution.at",
+      "vatID": "ATUxxxxxxx",
+      "founder": {
+        "@id": "https://thesolution.at/#person"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Austria"
+      },
+      "priceRange": "$$$",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/jürgen-müller-b4792a57",
+        "https://github.com/foozy74"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://thesolution.at/#person",
+      "name": "Jürgen Müller",
+      "jobTitle": "IT Consultant & Founder",
+      "worksFor": {
+        "@id": "https://thesolution.at/#organization"
+      },
+      "url": "https://thesolution.at/",
+      "sameAs": [
+        "https://www.linkedin.com/in/jürgen-müller-b4792a57",
+        "https://github.com/foozy74"
+      ]
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Datacenter & Virtualization Consulting",
+      "provider": {
+        "@id": "https://thesolution.at/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Austria"
+      },
+      "description": "Expert guidance on VMware (Broadcom), Hyper-V, KVM, Kubernetes, KubeVirt, and Cilium. Server virtualization, storage & network virtualization, infrastructure optimization.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Datacenter Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Server Virtualization",
+              "description": "VMware, Hyper-V, KVM implementation and optimization"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Kubernetes & Container",
+              "description": "Kubernetes, KubeVirt & Cilium deployment and management"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Infrastructure Optimization",
+              "description": "Performance tuning and cost optimization"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Backup & Disaster Recovery",
+              "description": "Comprehensive backup strategies and DR planning"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "serviceType": "AWS Multicloud Training",
+      "provider": {
+        "@id": "https://thesolution.at/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Austria"
+      },
+      "description": "Strategic workshops and hands-on training for multicloud environments. Cloud architecture design, integration & migration.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AWS Multicloud Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Strategic Workshops",
+              "description": "Cloud strategy and roadmap development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hands-on Training",
+              "description": "Practical multicloud implementation training"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cloud Architecture",
+              "description": "Design and implementation of cloud architectures"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "serviceType": "VMware Specialist Consulting",
+      "provider": {
+        "@id": "https://thesolution.at/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Austria"
+      },
+      "description": "Broadcom era consultation, license optimization, VCF implementation, and legacy migration.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "VMware Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Broadcom Consultation",
+              "description": "Navigate the Broadcom VMware acquisition"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "License Optimization",
+              "description": "Optimize VMware licensing costs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VCF Implementation",
+              "description": "VMware Cloud Foundation deployment"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Databricks & Data Engineering",
+      "provider": {
+        "@id": "https://thesolution.at/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Austria"
+      },
+      "description": "Lakehouse architecture, Apache Spark & Delta Lake, MLflow & model training, data engineering pipelines.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Databricks Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lakehouse Architecture",
+              "description": "Design and implement data lakehouse solutions"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "MLflow & Model Training",
+              "description": "Machine learning lifecycle management"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Data Engineering",
+              "description": "ETL & streaming analytics pipelines"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Machine Learning & AI Solutions",
+      "provider": {
+        "@id": "https://thesolution.at/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Austria"
+      },
+      "description": "NLP solutions, generative AI, neural networks, data science, AI automation, and computer vision implementations.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI & ML Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "NLP Solutions",
+              "description": "Natural language processing implementations"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Generative AI",
+              "description": "LLM and generative model integration"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Automation",
+              "description": "Automated AI workflows and processes"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://thesolution.at/#website",
+      "url": "https://thesolution.at/",
+      "name": "thesolution.at",
+      "description": "Specialized IT Consulting & AI Solutions",
+      "publisher": {
+        "@id": "https://thesolution.at/#organization"
+      },
+      "inLanguage": "de-AT"
+    }
+  ]
+}

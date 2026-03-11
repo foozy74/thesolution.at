@@ -82,9 +82,19 @@ const Navbar = () => {
       position: 'fixed', top: '1rem', left: '50%', transform: 'translateX(-50%)',
       width: '90%', maxWidth: '1200px', padding: pathname.includes('openclaw') ? '0.8rem 1.5rem' : '1rem 2rem', zIndex: 1000,
       display: 'flex', justifyContent: 'space-between', alignItems: 'center'
-    }}>
+    }} role="navigation" aria-label="Main navigation">
       <Link to="/" onClick={() => setIsOpen(false)} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-        <img src="/logo.jpeg" alt="thesolution.at logo" style={{ height: '40px', width: '40px', objectFit: 'contain' }} />
+        <img 
+          src="/logo.jpeg" 
+          alt="thesolution.at logo" 
+          style={{ 
+            height: '45px', 
+            width: '45px', 
+            objectFit: 'contain',
+            filter: 'drop-shadow(0 0 8px rgba(125, 211, 192, 0.8)) drop-shadow(0 0 15px rgba(91, 155, 213, 0.5))',
+            animation: 'clawPulse 3s ease-in-out infinite'
+          }} 
+        />
         <span style={{ fontSize: '1.25rem', fontWeight: 800, letterSpacing: '-1px' }} className="gradient-text">thesolution.at</span>
       </Link>
 
@@ -93,6 +103,7 @@ const Navbar = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="sm:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
         aria-label="Toggle menu"
+        aria-expanded={isOpen}
       >
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           {isOpen ? (
@@ -105,19 +116,23 @@ const Navbar = () => {
 
       {/* Desktop Menu */}
       <div className="hidden sm:flex" style={{ gap: '1.5rem', alignItems: 'center' }}>
-        <NavLink to="/#services">Services</NavLink>
-        <NavLink to="/#ai">AI & ML</NavLink>
-        <NavLink to="/tools/solution">Solution</NavLink>
-        <NavLink to="/#contact" className="btn btn-primary" style={{ padding: '0.5rem 1.5rem', fontSize: '0.95rem', fontWeight: 700, boxShadow: '0 4px 15px rgba(125, 211, 192, 0.4)' }}>Contact</NavLink>
+        <ul style={{ display: 'flex', gap: '1.5rem', listStyle: 'none', margin: 0, padding: 0, alignItems: 'center' }}>
+          <li><NavLink to="/#services">Services</NavLink></li>
+          <li><NavLink to="/#ai">AI & ML</NavLink></li>
+          <li><NavLink to="/tools/solution">Solution</NavLink></li>
+          <li><NavLink to="/#contact" className="btn btn-primary" style={{ padding: '0.7rem 2rem', fontSize: '1.05rem', fontWeight: 900, boxShadow: '0 0 25px rgba(125, 211, 192, 0.7), 0 0 50px rgba(91, 155, 213, 0.5)', textShadow: '0 2px 8px rgba(0, 0, 0, 0.5)' }}>Contact</NavLink></li>
+        </ul>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="sm:hidden absolute top-full left-0 right-0 mt-2 glass p-4 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2">
-          <NavLink to="/#services" mobile>Services</NavLink>
-          <NavLink to="/#ai" mobile>AI & ML</NavLink>
-          <NavLink to="/tools/solution" mobile>Solution</NavLink>
-          <NavLink to="/#contact" className="btn btn-primary text-center" mobile>Contact</NavLink>
+        <div className="sm:hidden absolute top-full left-0 right-0 mt-2 glass p-4 flex flex-col gap-4 animate-in fade-in slide-in-from-top-2" role="menu">
+          <ul style={{ display: 'flex', flexDirection: 'column', gap: '1rem', listStyle: 'none', margin: 0, padding: 0 }}>
+            <li><NavLink to="/#services" mobile role="menuitem">Services</NavLink></li>
+            <li><NavLink to="/#ai" mobile role="menuitem">AI & ML</NavLink></li>
+            <li><NavLink to="/tools/solution" mobile role="menuitem">Solution</NavLink></li>
+            <li><NavLink to="/#contact" className="btn btn-primary text-center" mobile role="menuitem">Contact</NavLink></li>
+          </ul>
         </div>
       )}
     </nav>
@@ -125,7 +140,7 @@ const Navbar = () => {
 };
 
 const Hero = () => (
-  <section style={{
+  <header style={{
     minHeight: '100vh', display: 'flex', alignItems: 'center',
     position: 'relative', overflow: 'hidden'
   }}>
@@ -173,21 +188,7 @@ const Hero = () => (
       background: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9))',
       zIndex: 2
     }} />
-  </section>
-);
-
-const ServiceCard = ({ icon, title, items }) => (
-  <div className="glass" style={{ padding: '2.5rem', height: '100%' }}>
-    <div style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }}>{icon}</div>
-    <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{title}</h3>
-    <ul style={{ listStyle: 'none', color: 'var(--text-secondary)' }}>
-      {items.map((item, i) => (
-        <li key={i} style={{ marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <span style={{ color: 'var(--accent-teal)' }}>•</span> {item}
-        </li>
-      ))}
-    </ul>
-  </div>
+  </header>
 );
 
 const Home = () => {
@@ -197,64 +198,64 @@ const Home = () => {
     <>
       <Hero />
 
-      <section id="services" className="container">
-        <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Infrastructure <span className="gradient-text">Expertise</span></h2>
-        <div className="grid grid-4">
-          <ServiceCard
-            icon="🌀"
-            title="Datacenter & Virtualization"
-            items={[
-              "Server Virtualization (VMware, Hyper-V, KVM)",
-              "Kubernetes, KubeVirt & Cilium",
-              "Storage & Network Virtualization",
-              "Infrastructure Optimization",
-              "Backup & Disaster Recovery"
-            ]}
-          />
-          <ServiceCard
-            icon="☁️"
-            title="AWS Multicloud Training"
-            items={[
-              "Strategic Workshops",
-              "Hands-on Multicloud Mastery",
-              "Integration & Migration",
-              "Cloud Architecture Design"
-            ]}
-          />
-          <ServiceCard
-            icon="🔷"
-            title="VMware Specialist"
-            items={[
-              "Broadcom Era Consultation",
-              "License Optimization",
-              "VCF Implementation",
-              "Legacy Migration"
-            ]}
-          />
-          <ServiceCard
-            icon="📊"
-            title="Databricks"
-            items={[
-              "Lakehouse Architecture",
-              "Apache Spark & Delta Lake",
-              "MLflow & Model Training",
-              "Data Engineering Pipelines",
-              "ETL & Streaming Analytics"
-            ]}
-          />
+      <section id="services" className="container" aria-labelledby="services-heading">
+        <h2 id="services-heading" style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Infrastructure <span className="gradient-text">Expertise</span></h2>
+        <div className="grid grid-4" role="list">
+          <article className="glass" style={{ padding: '2.5rem', height: '100%' }} role="listitem" aria-label="Datacenter & Virtualization Service">
+            <div style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }} aria-hidden="true">🌀</div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Datacenter & Virtualization</h3>
+            <ul style={{ listStyle: 'none', color: 'var(--text-secondary)' }}>
+              <li>Server Virtualization (VMware, Hyper-V, KVM)</li>
+              <li>Kubernetes, KubeVirt & Cilium</li>
+              <li>Storage & Network Virtualization</li>
+              <li>Infrastructure Optimization</li>
+              <li>Backup & Disaster Recovery</li>
+            </ul>
+          </article>
+          <article className="glass" style={{ padding: '2.5rem', height: '100%' }} role="listitem" aria-label="AWS Multicloud Training Service">
+            <div style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }} aria-hidden="true">☁️</div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>AWS Multicloud Training</h3>
+            <ul style={{ listStyle: 'none', color: 'var(--text-secondary)' }}>
+              <li>Strategic Workshops</li>
+              <li>Hands-on Multicloud Mastery</li>
+              <li>Integration & Migration</li>
+              <li>Cloud Architecture Design</li>
+            </ul>
+          </article>
+          <article className="glass" style={{ padding: '2.5rem', height: '100%' }} role="listitem" aria-label="VMware Specialist Service">
+            <div style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }} aria-hidden="true">🔷</div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>VMware Specialist</h3>
+            <ul style={{ listStyle: 'none', color: 'var(--text-secondary)' }}>
+              <li>Broadcom Era Consultation</li>
+              <li>License Optimization</li>
+              <li>VCF Implementation</li>
+              <li>Legacy Migration</li>
+            </ul>
+          </article>
+          <article className="glass" style={{ padding: '2.5rem', height: '100%' }} role="listitem" aria-label="Databricks Service">
+            <div style={{ fontSize: '2.5rem', marginBottom: '1.5rem' }} aria-hidden="true">📊</div>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Databricks</h3>
+            <ul style={{ listStyle: 'none', color: 'var(--text-secondary)' }}>
+              <li>Lakehouse Architecture</li>
+              <li>Apache Spark & Delta Lake</li>
+              <li>MLflow & Model Training</li>
+              <li>Data Engineering Pipelines</li>
+              <li>ETL & Streaming Analytics</li>
+            </ul>
+          </article>
         </div>
       </section>
 
-      <section id="ai" style={{ background: 'rgba(59, 130, 246, 0.02)' }}>
+      <section id="ai" style={{ background: 'rgba(59, 130, 246, 0.02)' }} aria-labelledby="ai-heading">
         <div className="container">
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Machine Learning & <span className="gradient-text">AI</span></h2>
+          <h2 id="ai-heading" style={{ fontSize: '2.5rem', marginBottom: '3rem', textAlign: 'center' }}>Machine Learning & <span className="gradient-text">AI</span></h2>
           <div className="grid grid-2">
-            <div style={{ padding: '2rem' }}>
+            <article style={{ padding: '2rem' }} aria-label="AI Services Overview">
               <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Future-Proof Your Business</h3>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '2rem' }}>
                 Leverage the power of modern AI to automate workflows, analyze complex data, and build intelligent products.
               </p>
-                <div className="grid grid-2" style={{ gap: '1rem' }}>
+                <div className="grid grid-2" style={{ gap: '1rem' }} role="list">
                 {[
                   "💬 NLP Solutions",
                   "✨ Generative AI",
@@ -263,10 +264,10 @@ const Home = () => {
                   "⚡ AI-Automation",
                   "👁️ Computer Vision"
                 ].map((item, i) => (
-                  <div key={i} className="glass" style={{ padding: '1rem', fontWeight: 600 }}>{item}</div>
+                  <div key={i} className="glass" style={{ padding: '1rem', fontWeight: 600 }} role="listitem">{item}</div>
                 ))}
               </div>
-            </div>
+            </article>
             <div className="glass" style={{ border: 'none', overflow: 'hidden', position: 'relative', minHeight: '500px' }}>
               <div style={{
                 position: 'absolute', inset: 0,
@@ -376,22 +377,22 @@ const Impressum = () => (
   <section className="container" style={{ paddingTop: '8rem' }}>
     <h2 style={{ fontSize: '2.5rem', marginBottom: '3rem' }}>Legal <span className="gradient-text">Notice</span></h2>
     <div className="grid grid-2">
-      <div className="glass" style={{ padding: '2rem' }}>
-        <h3 style={{ marginBottom: '1.5rem' }}>Company Information</h3>
-        <p style={{ marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>
-          <strong>The Solution Virtualization Consolidation Company e.U.</strong><br />
-          Owner: Jürgen Müller<br />
-          Commercial Court: Handelsgericht Wien<br />
-          Commercial Register Number: 309198d<br />
-          GLN: 9110017283110
-        </p>
-        <h3 style={{ marginBottom: '1.5rem' }}>Contact Address</h3>
-        <p style={{ color: 'var(--text-secondary)' }}>
-          Hertha-Firnberg-Straße 9/3/307<br />
-          1100 Wien<br />
-          Austria
-        </p>
-      </div>
+        <article className="glass" style={{ padding: '2rem' }}>
+          <h3 style={{ marginBottom: '1.5rem' }}>Company Information</h3>
+          <p style={{ marginBottom: '1.5rem', color: 'var(--text-secondary)' }}>
+            <strong>The Solution Virtualization Consolidation Company e.U.</strong><br />
+            Owner: Jürgen Müller<br />
+            Commercial Court: Handelsgericht Wien<br />
+            Commercial Register Number: 309198d<br />
+            GLN: 9110017283110
+          </p>
+          <h3 style={{ marginBottom: '1.5rem' }}>Contact Address</h3>
+          <address style={{ color: 'var(--text-secondary)', fontStyle: 'normal' }}>
+            Hertha-Firnberg-Straße 9/3/307<br />
+            1100 Wien<br />
+            Austria
+          </address>
+        </article>
       <div className="glass" style={{ overflow: 'hidden', minHeight: '400px', border: 'none' }}>
         <iframe
           title="Google Maps Location"
@@ -415,26 +416,34 @@ const Footer = () => (
       <p style={{ color: 'var(--text-primary)', fontSize: '1.5rem', marginBottom: '1rem' }}>Interested in working together? Let's connect!</p>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '3rem' }}>Get in touch for specialized IT consulting and AI implementation.</p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', marginBottom: '4rem' }}>
+      <address style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem', marginBottom: '4rem', fontStyle: 'normal' }}>
         <a href="mailto:contact@thesolution.at" className="btn btn-primary" style={{ fontSize: '1.25rem', width: 'fit-content' }}>
           Email: contact@thesolution.at
         </a>
-        <div style={{ display: 'flex', gap: '2rem' }}>
-          <a href="https://github.com/foozy74" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span>GitHub</span>
-          </a>
-          <a href="https://www.linkedin.com/in/jürgen-müller-b4792a57" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-            <span>LinkedIn</span>
-          </a>
-        </div>
-      </div>
+        <nav aria-label="Social media links">
+          <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', padding: 0, margin: 0 }}>
+            <li>
+              <a href="https://github.com/foozy74" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>GitHub</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/jürgen-müller-b4792a57" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-primary)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span>LinkedIn</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </address>
 
       <div style={{ marginTop: '4rem', display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
         <span>© 2026 thesolution.at - Specialized IT Consulting & AI Solutions</span>
-        <div style={{ display: 'flex', gap: '2rem' }}>
-          <Link to="/impressum" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Impressum</Link>
-          <Link to="/datenschutz" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Datenschutz</Link>
-        </div>
+        <nav aria-label="Legal links">
+          <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none', padding: 0, margin: 0 }}>
+            <li><Link to="/impressum" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Impressum</Link></li>
+            <li><Link to="/datenschutz" style={{ color: 'var(--text-secondary)', textDecoration: 'none' }}>Datenschutz</Link></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </footer>
@@ -446,6 +455,7 @@ const App = () => {
       <ScrollToNavigation />
       <div className="app">
         <Navbar />
+        <main id="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/impressum" element={<Impressum />} />
@@ -459,6 +469,7 @@ const App = () => {
         </Routes>
         <CookieBanner />
         <Footer />
+        </main>
       </div>
     </Router>
   );
