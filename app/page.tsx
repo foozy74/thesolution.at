@@ -116,7 +116,7 @@ function ServicesSection() {
         setCounters({
           years: Math.floor(25 * easeOut),
           customers: Math.floor(500 * easeOut),
-          projects: Math.floor(100 * easeOut),
+          projects: Math.floor(98 * easeOut),
         });
       }, i * interval);
     }
@@ -192,7 +192,7 @@ function ServicesSection() {
               {counters.projects}%
             </div>
             <div style={{ color: "var(--text-secondary)", fontSize: "1.1rem", marginTop: "0.75rem" }}>
-              Successful Projects
+              Client Retention
             </div>
           </div>
         </div>
