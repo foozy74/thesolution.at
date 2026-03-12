@@ -113,6 +113,9 @@ export function Navbar() {
             <NavLink href="/tools/solution" pathname={pathname}>Solution</NavLink>
           </li>
           <li>
+            <NavLink href="/team" pathname={pathname}>Team</NavLink>
+          </li>
+          <li>
             <ContactButton />
           </li>
         </ul>
@@ -141,6 +144,15 @@ export function Navbar() {
           </li>
           <li>
             <NavLink href="/tools/solution" pathname={pathname} mobile>Solution</NavLink>
+          </li>
+          <li>
+            <NavLink href="/team" pathname={pathname} mobile>Team</NavLink>
+          </li>
+          <li>
+            <ContactButton mobile />
+          </li>
+          <li>
+            <NavLink href="/team" pathname={pathname} mobile>Team</NavLink>
           </li>
           <li>
             <ContactButton mobile />

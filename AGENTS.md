@@ -7,10 +7,11 @@ Uses App Router architecture with server components.
 ## Build & Development Commands
 
 ```bash
-npm run dev       # Start dev server (Next.js)
+npm run dev       # Start dev server (Next.js) - http://localhost:3000
 npm run build     # Build for production
 npm run lint      # Run ESLint
 npm run start     # Start production server
+npm run typecheck # TypeScript type checking (if configured)
 ```
 
 **Note:** No test framework configured. Project uses manual/visual testing.
@@ -19,6 +20,7 @@ npm run start     # Start production server
 No automated tests exist. For manual testing:
 1. Run `npm run dev`
 2. Navigate to specific route (e.g., `/tools/solution/openclaw-iac`)
+3. Verify functionality in browser
 
 ## Code Style Guidelines
 
@@ -39,6 +41,7 @@ No automated tests exist. For manual testing:
 - No unused locals/parameters (prefix with `_` to ignore)
 - Define interfaces/types for component props
 - Use `type` for unions/intersections, `interface` for objects
+- Paths: `@/*` maps to root directory
 
 ### Naming Conventions
 - **Components**: PascalCase (`SolutionLanding`, `CodeBlock`)
@@ -87,11 +90,6 @@ export function ComponentName({ prop }: Props) {
 - Hooks for state management (client components)
 - `use client` directive for client-side components
 - `useCallback` for memoized handlers
-
-### ESLint Rules
-- React hooks rules enforced
-- No unused vars (except prefixed with `_`)
-- React-in-jsx-scope off (Next.js)
 
 ### Git/Commit Convention
 - Conventional Commits: `type(scope): message`
