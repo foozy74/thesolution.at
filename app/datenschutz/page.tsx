@@ -1,13 +1,18 @@
-"use client";
-
 import Link from "next/link";
+import { generateMetadata } from "@/components/MetaTags";
+
+export const metadata = generateMetadata({
+  title: "Datenschutz - thesolution.at | Privacy Policy",
+  description: "Datenschutzerklärung für thesolution.at - Informationen zur Datenverarbeitung, Cookie-Nutzung und Ihren Rechten gemäß DSGVO",
+  canonical: "https://thesolution.at/datenschutz",
+});
 
 export default function DatenschutzPage() {
   return (
     <section className="container" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
-      <h2 style={{ fontSize: "2.5rem", marginBottom: "3rem" }}>
+      <h1 style={{ fontSize: "2.5rem", marginBottom: "3rem" }}>
         <span className="gradient-text">Datenschutz</span>
-      </h2>
+      </h1>
 
       <div className="glass" style={{ padding: "3rem", marginBottom: "2rem" }}>
         <h3 style={{ fontSize: "1.5rem", marginBottom: "1.5rem", color: "var(--accent-teal)" }}>1. Verantwortlicher</h3>

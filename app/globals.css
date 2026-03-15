@@ -152,12 +152,12 @@ section {
 
 @keyframes clawPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 8px rgba(125, 211, 192, 0.8)) drop-shadow(0 0 15px rgba(91, 155, 213, 0.5));
+    filter: drop-shadow(0 0 4px rgba(125, 211, 192, 0.3)) drop-shadow(0 0 8px rgba(91, 155, 213, 0.2));
     transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 12px rgba(125, 211, 192, 1)) drop-shadow(0 0 20px rgba(91, 155, 213, 0.7));
-    transform: scale(1.05);
+    filter: drop-shadow(0 0 6px rgba(125, 211, 192, 0.4)) drop-shadow(0 0 10px rgba(91, 155, 213, 0.3));
+    transform: scale(1.02);
   }
 }
 
@@ -235,6 +235,22 @@ section {
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+  @keyframes aurora-glow {
+  0%, 100% {
+    text-shadow: 0 0 40px rgba(0, 200, 200, 0.5);
+    }
+  50% {
+    text-shadow: 0 0 60px rgba(0, 255, 153, 0.7);
+    }
+  }
+  @keyframes sparkle {
+  0%, 100% {
+    opacity: 0.7;
+    }
+  50% {
+    opacity: 1;
+    }
+  }
 }
 
 @layer base {

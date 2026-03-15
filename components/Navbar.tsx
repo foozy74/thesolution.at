@@ -202,8 +202,12 @@ function NavLink({ href, pathname, children, mobile = false }: { href: string; p
         checkHash();
         window.addEventListener("hashchange", checkHash);
         return () => window.removeEventListener("hashchange", checkHash);
+      } else {
+        setIsActive(false);
       }
     } else if (href === "/tools/solution" && pathname.includes("/tools/solution")) {
+      setIsActive(true);
+    } else if (href === "/team" && pathname === "/team") {
       setIsActive(true);
     } else {
       setIsActive(false);

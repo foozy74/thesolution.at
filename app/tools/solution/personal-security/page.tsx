@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Shield, Lock, Globe, Mail, MessageSquare, Users, Wifi, Smartphone, Laptop, House, DollarSign, UserRound, ShieldCheck } from "lucide-react";
 
 interface SecurityCategory {
   title: string;
   slug: string;
   description: string;
-  icon: string;
+  icon: React.ReactNode;
   intro: string;
   checklist: SecurityItem[];
 }
@@ -22,7 +23,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Authentifizierung",
     slug: "authentication",
     description: "Sicherung Ihrer Online-Account-Login-Daten",
-    icon: "🔐",
+    icon: <Lock size={24} />,
     intro: "Die meisten gemeldeten Datenschutzverletzungen werden durch schwache, Standard- oder gestohlene Passwörter verursacht.",
     checklist: [
       { point: "Verwenden Sie ein starkes Passwort", priority: "Essential", details: "Mindestens 12 Zeichen, keine Wörterbuchwörter." },
@@ -36,7 +37,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Web-Browsing",
     slug: "web-browsing",
     description: "Tracking, Zensur und Datensammlung vermeiden",
-    icon: "🌐",
+    icon: <Globe size={24} />,
     intro: "Browser sind eine der Hauptschnittstellen zum Internet und können viele Daten preisgeben.",
     checklist: [
       { point: "Browser aktuell halten", priority: "Essential", details: "Automatische Updates aktivieren." },
@@ -49,7 +50,7 @@ const securityCategories: SecurityCategory[] = [
     title: "E-Mail",
     slug: "email",
     description: "Schutz des Zugangs zu Ihren Online-Konten",
-    icon: "✉️",
+    icon: <Mail size={24} />,
     intro: "E-Mails sind standardmäßig unverschlüsselt. Sensible Daten sollten verschlüsselt werden.",
     checklist: [
       { point: "End-to-End-Verschlüsselung", priority: "Essential", details: "PGP/GPG für E-Mails." },
@@ -61,7 +62,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Messaging",
     slug: "messaging",
     description: "Private und verschlüsselte Kommunikation",
-    icon: "💬",
+    icon: <MessageSquare size={24} />,
     intro: "Die meisten Messaging-Dienste sind nicht sicher.",
     checklist: [
       { point: "Signal verwenden", priority: "Essential", details: "End-to-End-verschlüsselt." },
@@ -72,7 +73,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Soziale Medien",
     slug: "social-media",
     description: "Minimierung der Risiken bei sozialen Netzwerken",
-    icon: "👥",
+    icon: <Users size={24} />,
     intro: "Soziale Medien sammeln umfangreiche Daten.",
     checklist: [
       { point: "Privatsphäre-Einstellungen prüfen", priority: "Essential", details: "Posts nur für Freunde." },
@@ -84,7 +85,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Netzwerke",
     slug: "networks",
     description: "Sicherung Ihres Netzwerkverkehrs",
-    icon: "📡",
+    icon: <Wifi size={24} />,
     intro: "Unsichere Netzwerke ermöglichen Angreifern den Datenverkehr mitzulesen.",
     checklist: [
       { point: "VPN verwenden", priority: "Essential", details: "Mullvad oder ProtonVPN." },
@@ -96,7 +97,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Mobile Geräte",
     slug: "mobile-devices",
     description: "Invasives Tracking reduzieren",
-    icon: "📱",
+    icon: <Smartphone size={24} />,
     intro: "Mobile Geräte enthalten viele sensible Daten.",
     checklist: [
       { point: "Bildschirmsperre aktivieren", priority: "Essential", details: "Lange PIN oder Passwort." },
@@ -108,7 +109,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Personal Computer",
     slug: "personal-computers",
     description: "Sicherung von Betriebssystem und Daten",
-    icon: "💻",
+    icon: <Laptop size={24} />,
     intro: "Computer enthalten sensible Daten.",
     checklist: [
       { point: "Festplattenverschlüsselung", priority: "Essential", details: "BitLocker, FileVault, LUKS." },
@@ -121,7 +122,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Smart Home",
     slug: "smart-home",
     description: "IoT ohne Kompromisse bei der Privatsphäre",
-    icon: "🏠",
+    icon: <House size={24} />,
     intro: "Smart-Home-Geräte sammeln oft Daten.",
     checklist: [
       { point: "Standardpasswörter ändern", priority: "Essential", details: "Sofort nach Inbetriebnahme." },
@@ -133,7 +134,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Personal Finance",
     slug: "personal-finance",
     description: "Schutz Ihrer Finanzkonten",
-    icon: "💰",
+    icon: <DollarSign size={24} />,
     intro: "Finanzdaten sind besonders sensibel.",
     checklist: [
       { point: "Zwei-Faktor-Authentifizierung", priority: "Essential", details: "Für alle Bankkonten." },
@@ -144,7 +145,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Human Aspect",
     slug: "human-aspect",
     description: "Vermeidung von Social Engineering",
-    icon: "🎭",
+    icon: <UserRound size={24} />,
     intro: "Menschen sind oft das schwächste Glied.",
     checklist: [
       { point: "Phishing erkennen", priority: "Essential", details: "Absender prüfen." },
@@ -155,7 +156,7 @@ const securityCategories: SecurityCategory[] = [
     title: "Physische Sicherheit",
     slug: "physical-security",
     description: "Verhinderung von IRL-Sicherheitsvorfällen",
-    icon: "🔒",
+    icon: <Shield size={24} />,
     intro: "Digitale Sicherheit nützt wenig ohne physische Sicherheit.",
     checklist: [
       { point: "Geräte sichern", priority: "Essential", details: "Nie unbeaufsichtigt lassen." },
@@ -257,7 +258,7 @@ export default function PersonalSecurityPage() {
       <section className="container" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-6">
-            <span className="text-4xl" style={{ filter: "drop-shadow(0 0 8px rgba(125, 211, 192, 0.3))" }}>🛡️</span>
+            <span className="text-4xl" style={{ filter: "drop-shadow(0 0 8px rgba(125, 211, 192, 0.3))" }}></span>
           </div>
           <h1 style={{ fontSize: "3rem", marginBottom: "1.5rem", fontWeight: 800 }}>
             Personal Security <span className="gradient-text">Checklist</span>
@@ -271,7 +272,7 @@ export default function PersonalSecurityPage() {
         <div className="max-w-3xl mx-auto mb-24">
           <div className="glass p-8 rounded-xl">
             <h3 className="text-xl font-semibold text-white mb-6 text-center">Sicherheits-Profil</h3>
-            
+
             {mounted && (
               <div className="relative" style={{ maxWidth: "280px", margin: "0 auto" }}>
                 <svg viewBox="0 0 300 300" className="w-full h-auto">
@@ -290,7 +291,9 @@ export default function PersonalSecurityPage() {
                     return (
                       <g key={cat.slug}>
                         <circle cx={labelPoint.x} cy={labelPoint.y} r="14" fill="var(--glass-bg)" stroke="var(--accent-teal)" strokeWidth="1.5" />
-                        <text key={cat.slug} x={labelPoint.x} y={labelPoint.y} textAnchor="middle" dominantBaseline="central" fill="var(--accent-teal)" fontSize="12">{cat.icon}</text>
+                        <g transform={`translate(${labelPoint.x}, ${labelPoint.y})`}>
+                          {cat.icon}
+                        </g>
                       </g>
                     );
                   })}
@@ -323,7 +326,7 @@ export default function PersonalSecurityPage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Ja */}
             <div
               onMouseEnter={() => setHoveredStat("yes")}
@@ -341,7 +344,7 @@ export default function PersonalSecurityPage() {
                 <div className="text-xs text-slate-400 font-semibold">✓ Ja</div>
               </div>
             </div>
-            
+
             {/* Nein */}
             <div
               onMouseEnter={() => setHoveredStat("no")}
@@ -359,7 +362,7 @@ export default function PersonalSecurityPage() {
                 <div className="text-xs text-slate-400 font-semibold">✗ Nein</div>
               </div>
             </div>
-            
+
             {/* Offen */}
             <div
               onMouseEnter={() => setHoveredStat("pending")}
@@ -387,7 +390,7 @@ export default function PersonalSecurityPage() {
           {securityCategories.map((category) => {
             const progress = getProgress(category);
             const isHovered = hoveredCard === category.slug;
-            
+
             return (
               <div
                 key={category.slug}
@@ -409,7 +412,9 @@ export default function PersonalSecurityPage() {
                   <span style={{ fontSize: "1.25rem", color: "var(--accent-teal)" }}>→</span>
                 </div>
                 <div className="flex items-start justify-between mb-4 relative">
-                  <span style={{ fontSize: "3rem" }}>{category.icon}</span>
+                  <div style={{ fontSize: "3rem" }}>
+                    {category.icon}
+                  </div>
                   <div className="px-3 py-1 rounded-full text-xs font-bold relative z-10" style={{ background: progress === 100 ? "rgba(125, 211, 192, 0.2)" : "rgba(255,255,255,0.05)", color: progress === 100 ? "var(--accent-teal)" : "var(--text-secondary)" }}>
                     {progress === 100 ? "✓ Abgeschlossen" : `${progress}% erledigt`}
                   </div>
@@ -446,7 +451,9 @@ export default function PersonalSecurityPage() {
             <div key={category.slug} id={`checklist-${category.slug}`} className="glass overflow-hidden rounded-xl">
               <button onClick={() => setExpandedCategory(expandedCategory === category.slug ? null : category.slug)} className="w-full p-6 flex items-center justify-between hover:bg-white/5 transition-all">
                 <div className="flex items-center gap-4">
-                  <span style={{ fontSize: "2.5rem" }}>{category.icon}</span>
+                  <div style={{ fontSize: "2.5rem" }}>
+                    {category.icon}
+                  </div>
                   <div className="text-left">
                     <h3 className="text-xl font-bold text-white">{category.title}</h3>
                     <p className="text-sm text-slate-400">{category.checklist.length} Punkte • {getProgress(category)}% abgeschlossen</p>
@@ -471,7 +478,7 @@ export default function PersonalSecurityPage() {
                     {category.checklist.filter(item => activeFilter === "all" || item.priority === activeFilter).map((item, index) => {
                       const key = `${category.slug}-${index}`;
                       const status = itemStatuses[key] || "pending";
-                      
+
                       return (
                         <div
                           key={index}

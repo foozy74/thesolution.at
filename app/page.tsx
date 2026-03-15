@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Server, Cloud, Shield, BarChart3, MessageSquare, Sparkles, Brain, TrendingUp, Zap, Eye } from "lucide-react";
 
 export default function HomePage() {
   const [showDiagnostic, setShowDiagnostic] = useState(false);
@@ -200,7 +201,7 @@ function ServicesSection() {
 
       <div className="grid grid-4" role="list">
         <ServiceCard
-          icon="🌀"
+          icon={Server}
           title="Datacenter & Virtualization"
           items={[
             "Server Virtualization (VMware, Hyper-V, KVM)",
@@ -212,19 +213,19 @@ function ServicesSection() {
           ariaLabel="Datacenter & Virtualization Service"
         />
         <ServiceCard
-          icon="☁️"
+          icon={Cloud}
           title="AWS Multicloud Training"
           items={["Strategic Workshops", "Hands-on Multicloud Mastery", "Integration & Migration", "Cloud Architecture Design"]}
           ariaLabel="AWS Multicloud Training Service"
         />
         <ServiceCard
-          icon="🔷"
+          icon={Shield}
           title="VMware Specialist"
           items={["Broadcom Era Consultation", "License Optimization", "VCF Implementation", "Legacy Migration"]}
           ariaLabel="VMware Specialist Service"
         />
         <ServiceCard
-          icon="📊"
+          icon={BarChart3}
           title="Databricks"
           items={[
             "Lakehouse Architecture",
@@ -241,27 +242,100 @@ function ServicesSection() {
 }
 
 function ServiceCard({
-  icon,
+  icon: Icon,
   title,
   items,
   ariaLabel,
 }: {
-  icon: string;
+  icon: React.ComponentType<{ size: number; strokeWidth: number; style?: React.CSSProperties }>;
   title: string;
   items: string[];
   ariaLabel: string;
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
-    <article className="glass" style={{ padding: "2.5rem", height: "100%" }} role="listitem" aria-label={ariaLabel}>
-      <div style={{ fontSize: "2.5rem", marginBottom: "1.5rem" }} aria-hidden="true">
-        {icon}
+    <article
+      className="glass"
+      style={{
+        padding: "2.5rem",
+        height: "100%",
+        position: "relative",
+        overflow: "hidden",
+        transition: "all 0.3s ease",
+        cursor: "pointer",
+      }}
+      role="listitem"
+      aria-label={ariaLabel}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Icon Container mit Animation */}
+      <div
+        style={{
+          marginBottom: "1.5rem",
+          transition: "all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+          transform: isHovered ? "scale(1.15) rotate(5deg)" : "scale(1) rotate(0deg)",
+        }}
+        aria-hidden="true"
+      >
+        <Icon
+          size={48}
+          strokeWidth={1.5}
+          style={{
+            color: isHovered ? "var(--accent-teal)" : "var(--text-secondary)",
+            transition: "color 0.3s ease",
+            filter: isHovered
+              ? "drop-shadow(0 0 20px rgba(125, 211, 192, 0.6))"
+              : "none",
+          }}
+        />
       </div>
-      <h3 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>{title}</h3>
+
+      {/* Title mit Hover-Effekt */}
+      <h3
+        style={{
+          fontSize: "1.5rem",
+          marginBottom: "1rem",
+          transition: "all 0.3s ease",
+          textShadow: isHovered
+            ? "0 0 20px rgba(125, 211, 192, 0.5)"
+            : "none",
+        }}
+      >
+        {title}
+      </h3>
+
+      {/* List Items */}
       <ul style={{ listStyle: "none", color: "var(--text-secondary)" }}>
         {items.map((item, i) => (
-          <li key={i}>{item}</li>
+          <li
+            key={i}
+            style={{
+              marginBottom: "0.75rem",
+              transition: "all 0.3s ease",
+              paddingLeft: isHovered ? "10px" : "0",
+              color: isHovered ? "var(--text-primary)" : "var(--text-secondary)",
+            }}
+          >
+            {item}
+          </li>
         ))}
       </ul>
+
+      {/* Glow Overlay bei Hover */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          borderRadius: "inherit",
+          background: "linear-gradient(135deg, rgba(125, 211, 192, 0.08) 0%, rgba(91, 155, 213, 0.08) 100%)",
+          opacity: isHovered ? 1 : 0,
+          transition: "opacity 0.3s ease",
+          pointerEvents: "none",
+          border: "1px solid rgba(125, 211, 192, 0.2)",
+        }}
+      />
     </article>
   );
 }
@@ -286,18 +360,30 @@ function AISection({
               Leverage the power of modern AI to automate workflows, analyze complex data, and build intelligent products.
             </p>
             <div className="grid grid-2" style={{ gap: "1rem" }} role="list">
-              {[
-                "💬 NLP Solutions",
-                "✨ Generative AI",
-                "🌀 Neural Networks",
-                "📈 Data Science",
-                "⚡ AI-Automation",
-                "👁️ Computer Vision",
-              ].map((item, i) => (
-                <div key={i} className="glass" style={{ padding: "1rem", fontWeight: 600 }} role="listitem">
-                  {item}
-                </div>
-              ))}
+              <div className="glass" style={{ padding: "1rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.75rem" }} role="listitem">
+                <MessageSquare size={20} strokeWidth={1.5} style={{ color: "var(--accent-teal)" }} />
+                NLP Solutions
+              </div>
+              <div className="glass" style={{ padding: "1rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.75rem" }} role="listitem">
+                <Sparkles size={20} strokeWidth={1.5} style={{ color: "var(--accent-teal)" }} />
+                Generative AI
+              </div>
+              <div className="glass" style={{ padding: "1rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.75rem" }} role="listitem">
+                <Brain size={20} strokeWidth={1.5} style={{ color: "var(--accent-teal)" }} />
+                Neural Networks
+              </div>
+              <div className="glass" style={{ padding: "1rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.75rem" }} role="listitem">
+                <TrendingUp size={20} strokeWidth={1.5} style={{ color: "var(--accent-teal)" }} />
+                Data Science
+              </div>
+              <div className="glass" style={{ padding: "1rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.75rem" }} role="listitem">
+                <Zap size={20} strokeWidth={1.5} style={{ color: "var(--accent-teal)" }} />
+                AI-Automation
+              </div>
+              <div className="glass" style={{ padding: "1rem", fontWeight: 600, display: "flex", alignItems: "center", gap: "0.75rem" }} role="listitem">
+                <Eye size={20} strokeWidth={1.5} style={{ color: "var(--accent-teal)" }} />
+                Computer Vision
+              </div>
             </div>
           </article>
           <div

@@ -2,13 +2,14 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Settings, FileText, Laptop, HardDrive, Cog, Folder, Shield, Lock, Server, Database, Cloud, Activity } from "lucide-react";
 
 const terraformFiles = [
   {
     id: "provider",
     name: "Provider Config",
     filename: "provider.tf",
-    icon: "🔧",
+    icon: <Settings size={24} />,
     description: "OCI provider configuration with authentication setup.",
     category: "core",
     securityNotes: [
@@ -41,7 +42,7 @@ provider "oci" {
     id: "variables",
     name: "Variables",
     filename: "variables.tf",
-    icon: "📝",
+    icon: <FileText size={24} />,
     description: "Input variables for instance configuration and resources.",
     category: "core",
     securityNotes: [
@@ -124,7 +125,7 @@ variable "docker_lv_size_gb" {
     id: "compute",
     name: "Compute Instance",
     filename: "compute.tf",
-    icon: "💻",
+    icon: <Laptop size={24} />,
     description: "Ubuntu VM instance with cloud-init automation.",
     category: "compute",
     securityNotes: [
@@ -188,7 +189,7 @@ resource "oci_core_instance" "coolify_vm" {
     id: "storage",
     name: "Storage & LVM",
     filename: "storage.tf",
-    icon: "💾",
+    icon: <HardDrive size={24} />,
     description: "Block volume for Docker data with LVM configuration.",
     category: "storage",
     securityNotes: [
@@ -224,7 +225,7 @@ resource "oci_core_volume_attachment" "docker_volume_attachment" {
     id: "install",
     name: "Installation Script",
     filename: "install_coolify.sh",
-    icon: "⚙️",
+    icon: <Cog size={24} />,
     description: "Automated Docker and Coolify installation with LVM setup.",
     category: "automation",
     securityNotes: [
@@ -282,20 +283,20 @@ echo "=== Installation abgeschlossen ==="
 ];
 
 const categories = [
-  { id: "all", label: "All", icon: "📁" },
-  { id: "core", label: "Core", icon: "🔧" },
-  { id: "compute", label: "Compute", icon: "💻" },
-  { id: "storage", label: "Storage", icon: "💾" },
-  { id: "automation", label: "Automation", icon: "⚙️" },
+  { id: "all", label: "All", icon: <Folder size={20} /> },
+  { id: "core", label: "Core", icon: <Settings size={20} /> },
+  { id: "compute", label: "Compute", icon: <Laptop size={20} /> },
+  { id: "storage", label: "Storage", icon: <HardDrive size={20} /> },
+  { id: "automation", label: "Automation", icon: <Cog size={20} /> },
 ];
 
 const securityLayers = [
-  { icon: "🔐", title: "Authentication", bgClass: "bg-[var(--accent-blue)]/10", items: ["OCI API key authentication", "SSH key-based access", "IAM policies enforced", "Compartment isolation"] },
-  { icon: "🔒", title: "Network Security", bgClass: "bg-[var(--accent-teal)]/10", items: ["Public IP for VM access", "Security lists configured", "SSH (22) port access", "HTTP/HTTPS (80/443) open"] },
-  { icon: "💻", title: "Instance Security", bgClass: "bg-[var(--accent-purple)]/10", items: ["Ubuntu 22.04 Minimal", "Automatic security updates", "Cloud-init automation", "Preserve boot volume disabled"] },
-  { icon: "💾", title: "Storage Security", bgClass: "bg-[var(--accent-purple)]/10", items: ["Separate block volume for Docker", "LVM for flexible management", "Persistent fstab configuration", "Data isolation from OS"] },
-  { icon: "⚙️", title: "Docker Security", bgClass: "bg-[var(--accent-blue)]/10", items: ["Official Docker installation", "GPG key verification", "Log rotation (10MB, 3 files)", "Systemd service enabled"] },
-  { icon: "📈", title: "Monitoring & Logging", bgClass: "bg-[var(--accent-teal)]/10", items: ["Installation logging", "Cloud-init output logs", "Docker service monitoring", "Coolify built-in monitoring"] },
+  { icon: <Lock size={24} />, title: "Authentication", bgClass: "bg-[var(--accent-blue)]/10", items: ["OCI API key authentication", "SSH key-based access", "IAM policies enforced", "Compartment isolation"] },
+  { icon: <Shield size={24} />, title: "Network Security", bgClass: "bg-[var(--accent-teal)]/10", items: ["Public IP for VM access", "Security lists configured", "SSH (22) port access", "HTTP/HTTPS (80/443) open"] },
+  { icon: <Server size={24} />, title: "Instance Security", bgClass: "bg-[var(--accent-purple)]/10", items: ["Ubuntu 22.04 Minimal", "Automatic security updates", "Cloud-init automation", "Preserve boot volume disabled"] },
+  { icon: <Database size={24} />, title: "Storage Security", bgClass: "bg-[var(--accent-purple)]/10", items: ["Separate block volume for Docker", "LVM for flexible management", "Persistent fstab configuration", "Data isolation from OS"] },
+  { icon: <Cloud size={24} />, title: "Docker Security", bgClass: "bg-[var(--accent-blue)]/10", items: ["Official Docker installation", "GPG key verification", "Log rotation (10MB, 3 files)", "Systemd service enabled"] },
+  { icon: <Activity size={24} />, title: "Monitoring & Logging", bgClass: "bg-[var(--accent-teal)]/10", items: ["Installation logging", "Cloud-init output logs", "Docker service monitoring", "Coolify built-in monitoring"] },
 ];
 
 export default function CoolifyPage() {
@@ -335,7 +336,7 @@ export default function CoolifyPage() {
     <div className="min-h-screen bg-[var(--bg-color)] text-slate-200">
       <section className="container" style={{ paddingTop: "8rem", paddingBottom: "2rem" }}>
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-4xl">🚀</span>
+          <span className="text-4xl"></span>
           <div>
             <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>Coolify on OCI</h1>
             <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem" }}>Self-hosted PaaS on Oracle Cloud Infrastructure. Automated deployment with Terraform.</p>
@@ -348,7 +349,7 @@ export default function CoolifyPage() {
       </section>
 
       <section className="container pb-16">
-        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>🏗️ Overview</h2>
+        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>Overview</h2>
         <div className="glass overflow-hidden mb-8">
           <div className="px-6 py-4 border-b border-white/10 bg-white/2"><h3 className="text-lg font-semibold text-white">Architecture Overview</h3></div>
           <div className="p-6"><ArchitectureDiagram /></div>
@@ -367,7 +368,7 @@ export default function CoolifyPage() {
       </section>
 
       <section className="container pb-20" style={{ borderTop: "1px solid var(--glass-border)", paddingTop: "3rem" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>💻 Code</h2>
+        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}> Code</h2>
         <div className="mb-6">
           <h3 className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-3">Filter Categories</h3>
           <div className="flex flex-wrap gap-1.5">

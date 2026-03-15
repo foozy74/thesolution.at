@@ -1,0 +1,13 @@
+# Add files, extensions and folders to be ignored by Squirrel
+# '.*', '*~', '*~' and '.<dir>' is ignored by default
+
+# Ignore folders:
+# sample/
+
+# Ignore extensions:
+# *.tmp
+
+# Ignore files:
+# ignore.txt
+# sample/ignore.txt
+

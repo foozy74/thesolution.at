@@ -2,13 +2,14 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Cloud, Lock, Cog, Database, BarChart3, Folder, Shield, Globe, Square, User, Package } from "lucide-react";
 
 const terraformFiles = [
   {
     id: "foundation",
     name: "Foundation",
     filename: "01_foundation.tf",
-    icon: "☁️",
+    icon: <Cloud size={24} />,
     description: "Foundation configuration for OCI infrastructure including VCN, compartments, and policies.",
     category: "core",
     securityNotes: [
@@ -94,7 +95,7 @@ data "oci_core_services" "services" {
     id: "network",
     name: "Network & Security",
     filename: "02_network.tf",
-    icon: "🔒",
+    icon: <Lock size={24} />,
     description: "Network security configuration with subnets, route tables, and security lists.",
     category: "network",
     securityNotes: [
@@ -160,7 +161,7 @@ resource "oci_core_subnet" "private_db" {
     id: "compute",
     name: "Compute & OKE",
     filename: "03_compute.tf",
-    icon: "⚙️",
+    icon: <Cog size={24} />,
     description: "Compute instances and OKE cluster configuration.",
     category: "compute",
     securityNotes: [
@@ -217,7 +218,7 @@ resource "oci_containerengine_node_pool" "oke_nodes" {
     id: "database",
     name: "Database",
     filename: "04_database.tf",
-    icon: "🐘",
+    icon: <Database size={24} />,
     description: "Autonomous Database configuration with backup and security.",
     category: "database",
     securityNotes: [
@@ -254,7 +255,7 @@ resource "oci_database_autonomous_database" "main" {
     id: "monitoring",
     name: "Monitoring & Logging",
     filename: "05_monitoring.tf",
-    icon: "📈",
+    icon: <BarChart3 size={24} />,
     description: "Monitoring, logging, and alerting configuration.",
     category: "monitoring",
     securityNotes: [
@@ -298,17 +299,17 @@ resource "oci_logging_log_group" "openclaw" {
 ];
 
 const categories = [
-  { id: "all", label: "All", icon: "📁" },
-  { id: "core", label: "Core", icon: "☁️" },
-  { id: "network", label: "Network", icon: "🔒" },
-  { id: "compute", label: "Compute", icon: "⚙️" },
-  { id: "database", label: "Database", icon: "🐘" },
-  { id: "monitoring", label: "Monitoring", icon: "📈" },
+  { id: "all", label: "All", icon: <Folder size={20} /> },
+  { id: "core", label: "Core", icon: <Cloud size={20} /> },
+  { id: "network", label: "Network", icon: <Shield size={20} /> },
+  { id: "compute", label: "Compute", icon: <Cog size={20} /> },
+  { id: "database", label: "Database", icon: <Database size={20} /> },
+  { id: "monitoring", label: "Monitoring", icon: <BarChart3 size={20} /> },
 ];
 
 const securityLayers = [
   {
-    icon: "🌐",
+    icon: <Globe size={24} />,
     title: "Network Isolation",
     bgClass: "bg-[var(--accent-blue)]/10",
     items: [
@@ -319,7 +320,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "🔷",
+    icon: <Square size={24} />,
     title: "Web Application Firewall",
     bgClass: "bg-[var(--accent-teal)]/10",
     items: [
@@ -330,7 +331,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "🔐",
+    icon: <Lock size={24} />,
     title: "Encryption",
     bgClass: "bg-[var(--accent-purple)]/10",
     items: [
@@ -341,7 +342,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "👤",
+    icon: <User size={24} />,
     title: "Identity & Access",
     bgClass: "bg-[var(--accent-purple)]/10",
     items: [
@@ -352,7 +353,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "📦",
+    icon: <Package size={24} />,
     title: "Container Security",
     bgClass: "bg-[var(--accent-blue)]/10",
     items: [
@@ -363,7 +364,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "📊",
+    icon: <BarChart3 size={24} />,
     title: "Monitoring & Compliance",
     bgClass: "bg-[var(--accent-teal)]/10",
     items: [
@@ -380,8 +381,8 @@ export default function OpenClawPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const codeRef = useRef<HTMLElement>(null);
 
-  const filteredFiles = activeCategory === "all" 
-    ? terraformFiles 
+  const filteredFiles = activeCategory === "all"
+    ? terraformFiles
     : terraformFiles.filter((f) => f.category === activeCategory);
 
   const handleDownloadAll = useCallback(() => {
@@ -399,7 +400,7 @@ export default function OpenClawPage() {
   // Load Prism.js once on mount and highlight when selectedFile changes
   useEffect(() => {
     let Prism: unknown;
-    
+
     const loadPrism = async () => {
       const prismModule = await import("prismjs");
       Prism = prismModule.default;
@@ -407,12 +408,12 @@ export default function OpenClawPage() {
       await import("prismjs/components/prism-hcl.js");
       // @ts-expect-error - prismjs themes don't have type definitions
       await import("prismjs/themes/prism-tomorrow.css");
-      
+
       if (codeRef.current && Prism) {
         (Prism as { highlightElement: (element: HTMLElement) => void }).highlightElement(codeRef.current);
       }
     };
-    
+
     loadPrism();
   }, [selectedFile]);
 
@@ -421,7 +422,7 @@ export default function OpenClawPage() {
       {/* Header */}
       <section className="container" style={{ paddingTop: "8rem", paddingBottom: "2rem" }}>
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-4xl">🛡️</span>
+          <span className="text-4xl"></span>
           <div>
             <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>OpenClaw IaC</h1>
             <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem" }}>
@@ -442,7 +443,7 @@ export default function OpenClawPage() {
       {/* ===== OVERVIEW SECTION ===== */}
       <section className="container pb-16">
         <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>
-          🏗️ Overview
+          Overview
         </h2>
 
         {/* Architecture Diagram */}
@@ -488,7 +489,7 @@ export default function OpenClawPage() {
       {/* ===== CODE SECTION ===== */}
       <section className="container pb-20" style={{ borderTop: "1px solid var(--glass-border)", paddingTop: "3rem" }}>
         <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>
-          💻 Code
+          Code
         </h2>
 
         {/* Filter Categories - FULL WIDTH on top */}
@@ -499,11 +500,10 @@ export default function OpenClawPage() {
           <div className="flex flex-wrap gap-1.5">
             <button
               onClick={() => setActiveCategory("all")}
-              className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${
-                activeCategory === "all"
-                  ? "bg-indigo-600 text-white"
-                  : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-              }`}
+              className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${activeCategory === "all"
+                ? "bg-indigo-600 text-white"
+                : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                }`}
             >
               All
             </button>
@@ -511,11 +511,10 @@ export default function OpenClawPage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${
-                  activeCategory === cat.id
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-                }`}
+                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${activeCategory === cat.id
+                  ? "bg-indigo-600 text-white"
+                  : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                  }`}
               >
                 {cat.icon} {cat.label}
               </button>
@@ -533,11 +532,10 @@ export default function OpenClawPage() {
               <button
                 key={file.id}
                 onClick={() => setSelectedFile(file)}
-                className={`w-full text-left p-4 glass transition-all duration-200 ${
-                  selectedFile.id === file.id
-                    ? "bg-indigo-500/20 border-indigo-500/40 shadow-lg shadow-indigo-500/10"
-                    : "hover:bg-white/5 hover:border-white/20"
-                }`}
+                className={`w-full text-left p-4 glass transition-all duration-200 ${selectedFile.id === file.id
+                  ? "bg-indigo-500/20 border-indigo-500/40 shadow-lg shadow-indigo-500/10"
+                  : "hover:bg-white/5 hover:border-white/20"
+                  }`}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{file.icon}</span>

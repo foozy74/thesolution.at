@@ -2,13 +2,14 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
+import { Building, Lock, Cog, Users, BarChart3, Folder, Shield, User, Package, Activity } from "lucide-react";
 
 const terraformFiles = [
   {
     id: "workspace",
     name: "Workspace Setup",
     filename: "01_workspace.tf",
-    icon: "🏢",
+    icon: <Building size={24} />,
     description: "Databricks workspace configuration with networking and security setup.",
     category: "core",
     securityNotes: [
@@ -76,7 +77,7 @@ resource "databricks_mws_storage_configurations" "main" {
     id: "network",
     name: "Network & Security",
     filename: "02_network.tf",
-    icon: "🔒",
+    icon: <Lock size={24} />,
     description: "Network configuration with private subnets and security groups.",
     category: "network",
     securityNotes: [
@@ -159,7 +160,7 @@ resource "aws_security_group" "clusters" {
     id: "clusters",
     name: "Cluster Policies",
     filename: "03_clusters.tf",
-    icon: "⚙️",
+    icon: <Cog size={24} />,
     description: "Cluster policies and compute configuration.",
     category: "compute",
     securityNotes: [
@@ -276,7 +277,7 @@ resource "databricks_job" "production_etl" {
     id: "permissions",
     name: "Permissions & Access",
     filename: "04_permissions.tf",
-    icon: "👥",
+    icon: <Users size={24} />,
     description: "User permissions, groups, and access control.",
     category: "security",
     securityNotes: [
@@ -356,7 +357,7 @@ resource "databricks_group_member" "automation_member" {
     id: "pipelines",
     name: "Delta Live Tables",
     filename: "05_pipelines.tf",
-    icon: "📊",
+    icon: <BarChart3 size={24} />,
     description: "Delta Live Tables pipelines and data quality.",
     category: "data",
     securityNotes: [
@@ -459,17 +460,17 @@ resource "databricks_grants" "bronze_access" {
 ];
 
 const categories = [
-  { id: "all", label: "All", icon: "📁" },
-  { id: "core", label: "Core", icon: "🏢" },
-  { id: "network", label: "Network", icon: "🔒" },
-  { id: "compute", label: "Compute", icon: "⚙️" },
-  { id: "security", label: "Security", icon: "👥" },
-  { id: "data", label: "Data", icon: "📊" },
+  { id: "all", label: "All", icon: <Folder size={20} /> },
+  { id: "core", label: "Core", icon: <Building size={20} /> },
+  { id: "network", label: "Network", icon: <Shield size={20} /> },
+  { id: "compute", label: "Compute", icon: <Cog size={20} /> },
+  { id: "security", label: "Security", icon: <Users size={20} /> },
+  { id: "data", label: "Data", icon: <BarChart3 size={20} /> },
 ];
 
 const securityLayers = [
   {
-    icon: "🔐",
+    icon: <Lock size={24} />,
     title: "Encryption",
     bgClass: "bg-[var(--accent-blue)]/10",
     items: [
@@ -491,7 +492,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "👤",
+    icon: <User size={24} />,
     title: "Identity & Access",
     bgClass: "bg-[var(--accent-purple)]/10",
     items: [
@@ -502,7 +503,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "📊",
+    icon: "",
     title: "Data Governance",
     bgClass: "bg-[var(--accent-purple)]/10",
     items: [
@@ -513,7 +514,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "⚙️",
+    icon: <Cog size={24} />,
     title: "Cluster Security",
     bgClass: "bg-[var(--accent-blue)]/10",
     items: [
@@ -524,7 +525,7 @@ const securityLayers = [
     ],
   },
   {
-    icon: "📈",
+    icon: <Activity size={24} />,
     title: "Monitoring & Compliance",
     bgClass: "bg-[var(--accent-teal)]/10",
     items: [
@@ -541,8 +542,8 @@ export default function DatabricksPage() {
   const [activeCategory, setActiveCategory] = useState("all");
   const codeRef = useRef<HTMLElement>(null);
 
-  const filteredFiles = activeCategory === "all" 
-    ? terraformFiles 
+  const filteredFiles = activeCategory === "all"
+    ? terraformFiles
     : terraformFiles.filter((f) => f.category === activeCategory);
 
   const handleDownloadAll = useCallback(() => {
@@ -565,12 +566,12 @@ export default function DatabricksPage() {
       await import("prismjs/components/prism-hcl.js");
       // @ts-expect-error - prismjs themes don't have type definitions
       await import("prismjs/themes/prism-tomorrow.css");
-      
+
       if (codeRef.current) {
         Prism.highlightElement(codeRef.current);
       }
     };
-    
+
     loadPrism();
   }, [selectedFile]);
 
@@ -579,7 +580,7 @@ export default function DatabricksPage() {
       {/* Header */}
       <section className="container" style={{ paddingTop: "8rem", paddingBottom: "2rem" }}>
         <div className="flex items-center gap-4 mb-4">
-          <span className="text-4xl">⚡</span>
+          <span className="text-4xl"></span>
           <div>
             <h1 style={{ fontSize: "2.5rem", marginBottom: "0.5rem" }}>Databricks IaC</h1>
             <p style={{ color: "var(--text-secondary)", fontSize: "1.1rem" }}>
@@ -600,7 +601,7 @@ export default function DatabricksPage() {
       {/* ===== OVERVIEW SECTION ===== */}
       <section className="container pb-16">
         <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>
-          🏗️ Overview
+          Overview
         </h2>
 
         {/* Architecture Diagram */}
@@ -646,7 +647,7 @@ export default function DatabricksPage() {
       {/* ===== CODE SECTION ===== */}
       <section className="container pb-20" style={{ borderTop: "1px solid var(--glass-border)", paddingTop: "3rem" }}>
         <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>
-          💻 Code
+          Code
         </h2>
 
         {/* Filter Categories - FULL WIDTH on top */}
@@ -657,11 +658,10 @@ export default function DatabricksPage() {
           <div className="flex flex-wrap gap-1.5">
             <button
               onClick={() => setActiveCategory("all")}
-              className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${
-                activeCategory === "all"
-                  ? "bg-indigo-600 text-white"
-                  : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-              }`}
+              className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${activeCategory === "all"
+                ? "bg-indigo-600 text-white"
+                : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                }`}
             >
               All
             </button>
@@ -669,11 +669,10 @@ export default function DatabricksPage() {
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
-                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${
-                  activeCategory === cat.id
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-                }`}
+                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${activeCategory === cat.id
+                  ? "bg-indigo-600 text-white"
+                  : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
+                  }`}
               >
                 {cat.icon} {cat.label}
               </button>
@@ -691,11 +690,10 @@ export default function DatabricksPage() {
               <button
                 key={file.id}
                 onClick={() => setSelectedFile(file)}
-                className={`w-full text-left p-4 glass transition-all duration-200 ${
-                  selectedFile.id === file.id
-                    ? "bg-indigo-500/20 border-indigo-500/40 shadow-lg shadow-indigo-500/10"
-                    : "hover:bg-white/5 hover:border-white/20"
-                }`}
+                className={`w-full text-left p-4 glass transition-all duration-200 ${selectedFile.id === file.id
+                  ? "bg-indigo-500/20 border-indigo-500/40 shadow-lg shadow-indigo-500/10"
+                  : "hover:bg-white/5 hover:border-white/20"
+                  }`}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-xl">{file.icon}</span>
@@ -732,7 +730,7 @@ export default function DatabricksPage() {
           {selectedFile.securityNotes.length > 0 && (
             <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-4">
               <h3 className="text-[10px] uppercase tracking-widest font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>🛡️</span> Security Controls
+                <span><Shield size={24} /></span> Security Controls
               </h3>
               <div className="grid sm:grid-cols-2 gap-2">
                 {selectedFile.securityNotes.map((note, i) => (

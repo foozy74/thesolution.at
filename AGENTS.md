@@ -7,20 +7,37 @@ Uses App Router architecture with server components.
 ## Build & Development Commands
 
 ```bash
-npm run dev       # Start dev server (Next.js) - http://localhost:3000
-npm run build     # Build for production
-npm run lint      # Run ESLint
-npm run start     # Start production server
-npm run typecheck # TypeScript type checking (if configured)
+npm run dev          # Start dev server (Next.js) - http://localhost:3000
+npm run build        # Build for production
+npm run start        # Start production server
+npm run lint         # Run ESLint
+npm run lint:fix     # Run ESLint with auto-fix
+npm run typecheck    # TypeScript type checking
 ```
 
-**Note:** No test framework configured. Project uses manual/visual testing.
+### Cache & Troubleshooting
+```bash
+# Clear Next.js cache (fixes build errors)
+rm -rf .next && npm run dev
 
-## Single Test Execution
-No automated tests exist. For manual testing:
-1. Run `npm run dev`
-2. Navigate to specific route (e.g., `/tools/solution/openclaw-iac`)
-3. Verify functionality in browser
+# Kill dev server
+pkill -f "next dev"
+
+# Clean install
+rm -rf node_modules .next && npm install && npm run dev
+```
+
+### Single Page/Component Testing
+No automated test framework. Manual testing workflow:
+1. Start dev server: `npm run dev`
+2. Navigate to route: `http://localhost:3000/tools/solution/openclaw-iac`
+3. Verify in browser + check console for errors
+4. For component changes: Hot reload is automatic
+
+### Production Build Testing
+```bash
+npm run build && npm run start  # Test production build locally
+```
 
 ## Code Style Guidelines
 
@@ -72,17 +89,18 @@ export function ComponentName({ prop }: Props) {
 - 2-space indentation
 - Max line length: ~100 chars (soft)
 
-### CSS/Styling
-- Tailwind CSS 4.1 for utilities
-- CSS variables for theming (`var(--accent-blue)`)
-- `clsx` and `tailwind-merge` for conditional classes
-- Global styles in `app/globals.css`
-
 ### Error Handling
 - TypeScript strict mode catches type errors
 - Runtime errors: error boundaries in `app/global-error.tsx`
 - Form/input validation: defensive checks
 - Sentry integration for error tracking
+- Never expose secrets in client code (use server actions for API keys)
+
+### CSS/Styling
+- Tailwind CSS 4.1 for utilities
+- CSS variables for theming (`var(--accent-blue)`)
+- `clsx` and `tailwind-merge` for conditional classes
+- Global styles in `app/globals.css`
 
 ### React/Next.js Patterns
 - Functional components only
@@ -128,3 +146,59 @@ No specific rules configured. Follow existing patterns:
 - Use existing CSS variables from `app/globals.css`
 - Follow App Router patterns in `app/`
 - Use `@/` path alias for imports
+
+## AI Assistant Guidelines
+
+### UI/UX Pro Max Skill
+The project has UI/UX Pro Max skill installed (`.opencode/skills/ui-ux-pro-max/`).
+Use it for UI/UX design decisions by mentioning "UI/UX Pro Max" in requests.
+
+### Component Implementation
+When adding new components:
+1. Check existing components in `components/` for patterns
+2. Use Lucide React for icons: `import { Icon } from "lucide-react"`
+3. Add proper TypeScript types for all props
+4. Include `use client` directive for client components
+5. Follow glassmorphism design system (use `.glass` class)
+
+### Animation Guidelines
+- Use CSS animations from `globals.css` (e.g., `animate-float`, `animate-pulse-glow`)
+- Respect `prefers-reduced-motion` media query
+- Keep animations subtle and performant (200-300ms transitions)
+- Use cubic-bezier for smooth easing: `cubic-bezier(0.68, -0.55, 0.265, 1.55)`
+
+### Common Tasks
+
+**Add new page:**
+1. Create folder in `app/` (e.g., `app/new-page/page.tsx`)
+2. Add `export default function Page()` component
+3. Use `use client` if interactive
+4. Add to Navbar if needed
+
+**Add new component:**
+1. Create file in `components/` (e.g., `MyComponent.tsx`)
+2. Use named export: `export function MyComponent()`
+3. Define props interface
+4. Import in pages as needed
+
+**Add icons:**
+```bash
+npm install lucide-react
+```
+```tsx
+import { Server, Cloud } from "lucide-react"
+<Server size={24} strokeWidth={1.5} />
+```
+
+**Add animations:**
+```tsx
+// Use existing CSS animations
+<div className="animate-float">Content</div>
+
+// Or add custom hover effects
+const [isHovered, setIsHovered] = useState(false)
+<div style={{ 
+  transition: "all 0.3s ease",
+  transform: isHovered ? "scale(1.1)" : "scale(1)"
+}}>
+```

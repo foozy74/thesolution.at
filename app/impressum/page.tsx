@@ -1,11 +1,17 @@
-"use client";
+import { generateMetadata } from "@/components/MetaTags";
+
+export const metadata = generateMetadata({
+  title: "Impressum - thesolution.at | Legal Notice",
+  description: "Offizielle Impressum und rechtliche Informationen für thesolution.at - IT Consulting für Datacenter, Virtualisierung & AI",
+  canonical: "https://thesolution.at/impressum",
+});
 
 export default function ImpressumPage() {
   return (
     <section className="container" style={{ paddingTop: "8rem" }}>
-      <h2 style={{ fontSize: "2.5rem", marginBottom: "3rem" }}>
+      <h1 style={{ fontSize: "2.5rem", marginBottom: "3rem" }}>
         Legal <span className="gradient-text">Notice</span>
-      </h2>
+      </h1>
       <div className="grid grid-2">
         <article className="glass" style={{ padding: "2rem" }}>
           <h3 style={{ marginBottom: "1.5rem" }}>Company Information</h3>

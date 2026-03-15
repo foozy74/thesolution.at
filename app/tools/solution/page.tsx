@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Shield, Rocket, Zap, Lock } from "lucide-react";
+import { metadata } from "./metadata";
 
 const solutions = [
   {
     id: "openclaw-iac",
     title: "OpenClaw IaC",
     description: "Enterprise-grade Infrastructure-as-Code for Oracle Cloud. Secure, scalable, and production-ready.",
-    icon: "🔷",
+    icon: Shield,
     path: "/tools/solution/openclaw-iac",
     tags: ["IaC", "Terraform", "OCI", "Security"],
   },
@@ -16,7 +18,7 @@ const solutions = [
     id: "coolify-iac",
     title: "Coolify on OCI",
     description: "Self-hosted PaaS on Oracle Cloud Infrastructure. Automated deployment with Terraform and LVM.",
-    icon: "🚀",
+    icon: Rocket,
     path: "/tools/solution/coolify-iac",
     tags: ["IaC", "Coolify", "OCI", "Docker"],
   },
@@ -24,7 +26,7 @@ const solutions = [
     id: "databricks-iac",
     title: "Databricks IaC",
     description: "Infrastructure-as-Code for Databricks. Automate workspaces, clusters, and jobs with Terraform and Asset Bundles.",
-    icon: "⚡",
+    icon: Zap,
     path: "/tools/solution/databricks-iac",
     tags: ["IaC", "Databricks", "Terraform", "CI/CD"],
   },
@@ -32,7 +34,7 @@ const solutions = [
     id: "personal-security",
     title: "Personal Security Checklist",
     description: "Umfassende Checkliste für digitale Sicherheit und Privatsphäre. Über 100 Punkte in 12 Kategorien.",
-    icon: "🛡️",
+    icon: Lock,
     path: "/tools/solution/personal-security",
     tags: ["Security", "Privacy", "Checklist", "Guide"],
   },
@@ -43,13 +45,14 @@ export default function SolutionLandingPage() {
 
   return (
     <section className="container" style={{ paddingTop: "8rem", paddingBottom: "4rem" }}>
-      <h2 style={{ fontSize: "2.5rem", marginBottom: "3rem" }}>
+      <h1 style={{ fontSize: "2.5rem", marginBottom: "3rem" }}>
         Our <span className="gradient-text">Solutions</span>
-      </h2>
+      </h1>
 
       <div className="grid grid-2 gap-8">
         {solutions.map((sol) => {
           const isHovered = hoveredSolution === sol.id;
+          const IconComponent = sol.icon;
           
           return (
             <Link
@@ -69,7 +72,9 @@ export default function SolutionLandingPage() {
             >
               <div className="absolute inset-0 transition-all duration-300" style={{ background: isHovered ? "linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%)" : "transparent" }} />
               
-              <div className="text-4xl mb-6 transform transition-transform duration-300 relative z-10" style={{ transform: isHovered ? "scale(1.1)" : "scale(1)" }}>{sol.icon}</div>
+              <div className="mb-6 relative z-10" style={{ transform: isHovered ? "scale(1.1)" : "scale(1)", transition: "transform 0.3s ease" }}>
+                <IconComponent size={48} strokeWidth={1.5} style={{ color: isHovered ? "var(--accent-teal)" : "var(--text-secondary)", transition: "color 0.3s ease", filter: isHovered ? "drop-shadow(0 0 20px rgba(125, 211, 192, 0.6))" : "none" }} />
+              </div>
 
               <h2
                 className="text-2xl font-bold mb-4 transition-all duration-300 relative z-10"
