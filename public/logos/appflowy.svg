@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="appflowy-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7FD8BE"/>
+      <stop offset="100%" style="stop-color:#5B8FB9"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 15 Q30 30 35 50 Q40 70 50 85 Q60 70 65 50 Q70 30 50 15" fill="none" stroke="url(#appflowy-grad)" stroke-width="3"/>
+  <path d="M50 25 Q38 36 42 50 Q46 62 50 72 Q54 62 58 50 Q62 36 50 25" fill="url(#appflowy-grad)" opacity="0.7"/>
+  <path d="M20 70 L35 55 L50 70 L65 55 L80 70" fill="none" stroke="url(#appflowy-grad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="25" y="72" width="50" height="15" rx="3" fill="url(#appflowy-grad)" opacity="0.5"/>
+</svg>

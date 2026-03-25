@@ -113,6 +113,9 @@ export function Navbar() {
             <NavLink href="/tools/solution" pathname={pathname}>Solution</NavLink>
           </li>
           <li>
+            <NavLink href="/tools/product" pathname={pathname}>Products</NavLink>
+          </li>
+          <li>
             <NavLink href="/team" pathname={pathname}>Team</NavLink>
           </li>
           <li>
@@ -146,10 +149,7 @@ export function Navbar() {
             <NavLink href="/tools/solution" pathname={pathname} mobile>Solution</NavLink>
           </li>
           <li>
-            <NavLink href="/team" pathname={pathname} mobile>Team</NavLink>
-          </li>
-          <li>
-            <ContactButton mobile />
+            <NavLink href="/tools/product" pathname={pathname} mobile>Products</NavLink>
           </li>
           <li>
             <NavLink href="/team" pathname={pathname} mobile>Team</NavLink>
@@ -206,6 +206,8 @@ function NavLink({ href, pathname, children, mobile = false }: { href: string; p
         setIsActive(false);
       }
     } else if (href === "/tools/solution" && pathname.includes("/tools/solution")) {
+      setIsActive(true);
+    } else if (href === "/tools/product" && pathname.includes("/tools/product")) {
       setIsActive(true);
     } else if (href === "/team" && pathname === "/team") {
       setIsActive(true);
