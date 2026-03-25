@@ -84,7 +84,7 @@ export default function AppFlowyEUPaige() {
         <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>
           Was ist AppFlowy?
         </h2>
-        <div className="glass p-10" style={{ borderRadius: "12px" }}>
+        <div className="glass" style={{ padding: "2.5rem", borderRadius: "12px" }}>
           <p style={{ fontSize: "1.1rem", lineHeight: "2.2", color: "var(--text-secondary)" }}>
             AppFlowy ist dein persönlicher digitaler Arbeitsraum. Stell dir vor, du hättest 
             ein Notizbuch, einen Task-Manager und eine Wiki in einem - nur viel mächtiger. 
@@ -103,15 +103,15 @@ export default function AppFlowyEUPaige() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="glass p-8"
-              style={{ borderRadius: "12px" }}
+              className="glass"
+              style={{ padding: "2.5rem", borderRadius: "12px" }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "var(--accent-blue)/10", color: "var(--accent-blue)" }}>
                   {feature.icon}
                 </div>
                 <div>
-                  <h4 className="font-bold text-white">{feature.title}</h4>
+                  <h4 className="font-bold text-white" style={{ fontSize: "1.25rem" }}>{feature.title}</h4>
                 </div>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>
@@ -128,8 +128,8 @@ export default function AppFlowyEUPaige() {
           {pricingPlans.map((plan, i) => (
             <div
               key={i}
-              className="glass p-8 relative"
-              style={{ borderRadius: "12px", border: plan.popular ? "2px solid var(--accent-blue)" : "1px solid var(--glass-border)" }}
+              className="glass relative"
+              style={{ padding: "2.5rem", borderRadius: "12px", border: plan.popular ? "2px solid var(--accent-blue)" : "1px solid var(--glass-border)" }}
             >
               {plan.popular && (
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">

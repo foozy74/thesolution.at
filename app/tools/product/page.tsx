@@ -58,8 +58,9 @@ export default function ProductLandingPage() {
                   e.preventDefault();
                 }
               }}
-              className={`p-10 flex flex-col h-full transition-all duration-300 border-none relative overflow-hidden ${!isAvailable ? "opacity-50 grayscale" : ""}`}
+              className={`flex flex-col h-full transition-all duration-300 border-none relative overflow-hidden ${!isAvailable ? "opacity-50 grayscale" : ""}`}
               style={{
+                padding: "2.5rem",
                 backdropFilter: "blur(12px)",
                 border: "1px solid var(--glass-border)",
                 borderRadius: "var(--card-radius)",
@@ -71,7 +72,7 @@ export default function ProductLandingPage() {
             >
               <div className="absolute inset-0 transition-all duration-300" style={{ background: isHovered && isAvailable ? "linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%)" : "transparent" }} />
 
-              <div className="mb-6 relative z-10" style={{ transform: isHovered && isAvailable ? "scale(1.1)" : "scale(1)", transition: "transform 0.3s ease" }}>
+              <div className="relative z-10" style={{ marginBottom: "1.5rem", transform: isHovered && isAvailable ? "scale(1.15) rotate(5deg)" : "scale(1) rotate(0deg)", transition: "all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)" }}>
                 <img
                   src={product.logo}
                   alt={`${product.title} logo`}
@@ -86,8 +87,10 @@ export default function ProductLandingPage() {
 
               <div className="flex items-center gap-3 mb-4 relative z-10">
                 <h2
-                  className="text-2xl font-bold transition-all duration-300"
+                  className="font-bold transition-all duration-300"
                   style={{
+                    fontSize: "1.5rem",
+                    marginBottom: 0,
                     color: isHovered && isAvailable ? "var(--accent-teal)" : "var(--text-primary)",
                     textShadow: isHovered && isAvailable ? "0 0 20px rgba(125, 211, 192, 0.8), 0 0 30px rgba(125, 211, 192, 0.6), 0 0 40px rgba(125, 211, 192, 0.4)" : "0 0 10px rgba(125, 211, 192, 0.3)",
                   }}

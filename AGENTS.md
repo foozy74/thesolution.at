@@ -102,6 +102,55 @@ export function ComponentName({ prop }: Props) {
 - `clsx` and `tailwind-merge` for conditional classes
 - Global styles in `app/globals.css`
 
+### Card Design Standards
+Standard padding für alle Glass/Cards: `2.5rem` (40px)
+
+**Card-Struktur:**
+```tsx
+<div
+  className="glass"
+  style={{
+    padding: "2.5rem",
+    borderRadius: "12px",
+  }}
+>
+  {/* Icon mit margin-bottom */}
+  <div style={{ marginBottom: "1.5rem" }}>
+    <Icon size={48} />
+  </div>
+
+  {/* Title */}
+  <h4 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
+    {title}
+  </h4>
+
+  {/* Content */}
+  <ul>
+    {items.map(item => (
+      <li style={{ marginBottom: "0.75rem" }}>{item}</li>
+    ))}
+  </ul>
+</div>
+```
+
+**Icon-Animation bei Hover:**
+```tsx
+style={{
+  transform: isHovered ? "scale(1.15) rotate(5deg)" : "scale(1) rotate(0deg)",
+  transition: "all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+}}
+```
+
+**Standard-Abstände:**
+| Element | Wert |
+|---------|------|
+| Card Padding | `2.5rem` |
+| Icon margin-bottom | `1.5rem` |
+| Title font-size | `1.5rem` |
+| Title margin-bottom | `1rem` |
+| List item margin-bottom | `0.75rem` |
+| Border radius | `12px` |
+
 ### React/Next.js Patterns
 - Functional components only
 - App Router architecture (server components by default)

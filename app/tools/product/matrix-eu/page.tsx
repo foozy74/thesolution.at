@@ -50,7 +50,7 @@ export default function MatrixEUPaige() {
         <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>
           Was ist Matrix?
         </h2>
-        <div className="glass p-10" style={{ borderRadius: "12px" }}>
+        <div className="glass" style={{ padding: "2.5rem", borderRadius: "12px" }}>
           <p style={{ fontSize: "1.1rem", lineHeight: "2.2", color: "var(--text-secondary)" }}>
             Matrix ist ein offenes Netzwerk für sichere, dezentrale Kommunikation. 
             Stell dir vor, du könntest mit jedem chatten - egal ob er bei Signal, Telegram 
@@ -75,15 +75,15 @@ export default function MatrixEUPaige() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="glass p-8 opacity-50"
-              style={{ borderRadius: "12px" }}
+              className="glass opacity-50"
+              style={{ padding: "2.5rem", borderRadius: "12px" }}
             >
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center" style={{ background: "var(--accent-purple)/10", color: "var(--accent-purple)" }}>
                   {feature.icon}
                 </div>
                 <div>
-                  <h4 className="font-bold text-white">{feature.title}</h4>
+                  <h4 className="font-bold text-white" style={{ fontSize: "1.25rem" }}>{feature.title}</h4>
                 </div>
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">{feature.description}</p>

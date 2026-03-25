@@ -356,10 +356,10 @@ export default function CoolifyPage() {
         </div>
         <div className="grid grid-2 gap-4">
           {securityLayers.map((layer, i) => (
-            <div key={i} className={`glass p-6 ${layer.bgClass}`} style={{ borderRadius: "12px" }}>
+            <div key={i} className={`glass ${layer.bgClass}`} style={{ padding: "2.5rem", borderRadius: "12px" }}>
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl">{layer.icon}</div>
-                <div><h4 className="font-bold text-white">{layer.title}</h4><p className="text-[10px] uppercase tracking-widest text-slate-500">Security Layer {i + 1}</p></div>
+                <div><h4 className="font-bold text-white" style={{ fontSize: "1.25rem" }}>{layer.title}</h4><p className="text-[10px] uppercase tracking-widest text-slate-500">Security Layer {i + 1}</p></div>
               </div>
               <ul className="space-y-2">{layer.items.map((item, j) => (<li key={j} className="flex items-start gap-2 text-xs text-slate-300"><span className="text-emerald-500 mt-1">•</span>{item}</li>))}</ul>
             </div>

@@ -60,8 +60,9 @@ export default function SolutionLandingPage() {
               href={sol.path}
               onMouseEnter={() => setHoveredSolution(sol.id)}
               onMouseLeave={() => setHoveredSolution(null)}
-              className="p-8 flex flex-col h-full transition-all duration-300 border-none relative overflow-hidden"
+              className="flex flex-col h-full transition-all duration-300 border-none relative overflow-hidden"
               style={{
+                padding: "2.5rem",
                 backdropFilter: "blur(12px)",
                 border: "1px solid var(--glass-border)",
                 borderRadius: "var(--card-radius)",
@@ -72,13 +73,15 @@ export default function SolutionLandingPage() {
             >
               <div className="absolute inset-0 transition-all duration-300" style={{ background: isHovered ? "linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.15) 100%)" : "transparent" }} />
               
-              <div className="mb-6 relative z-10" style={{ transform: isHovered ? "scale(1.1)" : "scale(1)", transition: "transform 0.3s ease" }}>
+              <div className="relative z-10" style={{ marginBottom: "1.5rem", transform: isHovered ? "scale(1.15) rotate(5deg)" : "scale(1) rotate(0deg)", transition: "all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55)" }}>
                 <IconComponent size={48} strokeWidth={1.5} style={{ color: isHovered ? "var(--accent-teal)" : "var(--text-secondary)", transition: "color 0.3s ease", filter: isHovered ? "drop-shadow(0 0 20px rgba(125, 211, 192, 0.6))" : "none" }} />
               </div>
 
               <h2
-                className="text-2xl font-bold mb-4 transition-all duration-300 relative z-10"
+                className="font-bold transition-all duration-300 relative z-10"
                 style={{
+                  fontSize: "1.5rem",
+                  marginBottom: "1rem",
                   color: isHovered ? "var(--accent-teal)" : "var(--text-primary)",
                   textShadow: isHovered ? "0 0 20px rgba(125, 211, 192, 0.8), 0 0 30px rgba(125, 211, 192, 0.6), 0 0 40px rgba(125, 211, 192, 0.4)" : "0 0 10px rgba(125, 211, 192, 0.3)",
                 }}
@@ -86,7 +89,7 @@ export default function SolutionLandingPage() {
                 {sol.title}
               </h2>
 
-              <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-1 relative z-10">{sol.description}</p>
+              <p className="text-slate-400 text-sm leading-relaxed mb-8 flex-1 relative z-10" style={{ paddingLeft: isHovered ? "10px" : "0", transition: "all 0.3s ease" }}>{sol.description}</p>
 
               <div className="flex flex-wrap gap-2 mt-auto relative z-10">
                 {sol.tags.map((tag) => (
