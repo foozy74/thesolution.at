@@ -86,11 +86,7 @@ export default function MiroFishEUPaige() {
         </h2>
         <div className="glass" style={{ padding: "2.5rem", borderRadius: "12px" }}>
           <p style={{ fontSize: "1.1rem", lineHeight: "2.2", color: "var(--text-secondary)" }}>
-            MiroFish ist deine digitale Pinnwand für Ideen, Brainstorming und Teamarbeit. 
-            Stell dir eine riesige, unendliche Wand vor, an die du Post-its, Bilder, 
-            Diagramme und mehr heften kannst - nur eben digital. Egal ob du ein Team 
-            durch ein Projekt führst, einen Workshop facilitierst oder einfach deine 
-            Gedanken sortieren möchtest: MiroFish macht es einfach und macht Spaß.
+            MiroFish ist eine KI-Prognosemaschine der nächsten Generation, die auf Multiagenten-Technologie basiert. Sie extrahiert Ausgangsinformationen aus der realen Welt, wie aktuelle Nachrichten, politische Entwürfe und Finanzsignale, und erstellt daraus automatisch eine hochpräzise, ​​parallele digitale Welt. In dieser Welt interagieren und entwickeln sich Tausende intelligenter Agenten mit individuellen Persönlichkeiten, Langzeitgedächtnis und Verhaltenslogik frei. Durch die dynamische Einbindung von Variablen aus der Vogelperspektive lassen sich zukünftige Entwicklungen präzise prognostizieren. Die Zukunft wird in einer digitalen Sandbox durchgespielt, sodass sich Entscheidungen nach Hunderten von Simulationen als erfolgreich erweisen.
           </p>
         </div>
       </section>
