@@ -31,6 +31,15 @@ const products = [
     tags: ["Chat", "Video", "Kommunikation"],
     available: false,
   },
+  {
+    id: "analyse-stock-agent-team",
+    title: "Analyse Stock Agent Team",
+    description: "Dein KI-Investment-Komitee. Spezialisierte Agenten analysieren, debattieren und bewerten Aktien in Echtzeit – transparent und fundiert.",
+    logo: "/logos/analyse-stock.svg",
+    path: "/tools/product/analyse-stock-agent-team",
+    tags: ["AI", "Finance", "Analysis"],
+    available: true,
+  },
 ];
 
 export default function ProductLandingPage() {
