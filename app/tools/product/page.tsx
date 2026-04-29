@@ -5,22 +5,13 @@ import Link from "next/link";
 
 const products = [
   {
-    id: "mirofish-eu",
-    title: "MiroFish",
-    description: "Deine digitale Pinnwand. Gemeinsam Ideen sammeln, brainstormen und visualisieren - ganz einfach wie Post-its an eine Pinnwand, aber digital und überall erreichbar.",
+    id: "prediction-eu",
+    title: "Prediction",
+    description: "KI-Prognosemaschine der nächsten Generation. Treffe fundierte Entscheidungen durch Tausende von Simulationen in einer digitalen Sandbox.",
     logo: "/logos/mirofish.svg",
-    path: "/tools/product/mirofish-eu",
-    tags: ["Brainstorming", "Teams", "Visualisierung"],
-    available: true,
-  },
-  {
-    id: "appflowy-eu",
-    title: "AppFlowy",
-    description: "Dein persönlicher Arbeitsraum. Notizen, Aufgaben und Wissensdatenbank an einem Ort. So strukturiert wie ein Tower, aber so einfach wie ein Notizbuch.",
-    logo: "/logos/appflowy.svg",
-    path: "/tools/product/appflowy-eu",
-    tags: ["Notizen", "Wiki", "Aufgaben"],
-    available: true,
+    path: "https://prediction.thesolution.at/",
+    tags: ["AI", "Prognose", "Simulation"],
+    available: false,
   },
   {
     id: "matrix-eu",
@@ -36,7 +27,7 @@ const products = [
     title: "Analyse Stock Agent Team",
     description: "Dein KI-Investment-Komitee. Spezialisierte Agenten analysieren, debattieren und bewerten Aktien in Echtzeit – transparent und fundiert.",
     logo: "/logos/analyse-stock.svg",
-    path: "/tools/product/analyse-stock-agent-team",
+    path: "https://agent-eu.thesolution.at/",
     tags: ["AI", "Finance", "Analysis"],
     available: true,
   },
