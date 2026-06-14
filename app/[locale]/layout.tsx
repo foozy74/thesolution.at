@@ -80,9 +80,9 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale} className={cn("font-sans", geist.variable)}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <Navbar locale={locale} />
+          <Navbar />
           <main id="main-content">{children}</main>
-          <Footer locale={locale} />
+          <Footer />
           <CookieBanner />
         </NextIntlClientProvider>
       </body>
