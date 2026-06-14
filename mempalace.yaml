@@ -1,0 +1,22 @@
+wing: thesolution.at
+rooms:
+- name: ebook
+  description: Files from ebook/
+- name: scripts
+  description: Files from tools/
+- name: app
+  description: Files from app/
+- name: solution
+  description: Files from solution/
+- name: frontend
+  description: Files from components/
+- name: pic
+  description: Files from pic/
+- name: public
+  description: Files from public/
+- name: lib
+  description: Files from lib/
+- name: team
+  description: Files from team/
+- name: general
+  description: Files that don't fit other rooms

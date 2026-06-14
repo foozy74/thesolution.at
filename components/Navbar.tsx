@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
+import { LocaleSwitcher } from "./LocaleSwitcher";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const t = useTranslations("nav");
 
   useEffect(() => {
     setIsOpen(false);
@@ -22,7 +24,7 @@ export function Navbar() {
         transform: "translateX(-50%)",
         width: "90%",
         maxWidth: "1200px",
-        padding: pathname.includes("openclaw") ? "0.8rem 1.5rem" : "1rem 2rem",
+        padding: "1rem 2rem",
         zIndex: 1000,
         display: "flex",
         justifyContent: "space-between",
@@ -40,6 +42,8 @@ export function Navbar() {
         <img
           src="/logo.jpeg"
           alt="thesolution.at logo"
+          width={45}
+          height={45}
           style={{
             height: "45px",
             width: "45px",
@@ -68,7 +72,6 @@ export function Navbar() {
         </span>
       </Link>
 
-      {/* Mobile Menu Toggle */}
       <button
         onClick={(e) => {
           e.stopPropagation();
@@ -86,7 +89,7 @@ export function Navbar() {
         }}
         onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "rgba(255, 255, 255, 0.1)")}
         onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
-        aria-label="Toggle menu"
+        aria-label={t("openMenu")}
         aria-expanded={isOpen}
         type="button"
         className="mobile-toggle"
@@ -100,31 +103,32 @@ export function Navbar() {
         </svg>
       </button>
 
-      {/* Desktop Menu */}
       <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }} className="desktop-menu">
         <ul style={{ display: "flex", gap: "1.5rem", listStyle: "none", margin: 0, padding: 0, alignItems: "center" }}>
           <li>
-            <NavLink href="/#services" pathname={pathname}>Services</NavLink>
+            <NavLink href="/#services" pathname={pathname}>{t("services")}</NavLink>
           </li>
           <li>
-            <NavLink href="/#ai" pathname={pathname}>AI & ML</NavLink>
+            <NavLink href="/#ai" pathname={pathname}>{t("aiMl")}</NavLink>
           </li>
           <li>
-            <NavLink href="/tools/solution" pathname={pathname}>Solution</NavLink>
+            <NavLink href="/tools/solution" pathname={pathname}>{t("solution")}</NavLink>
           </li>
           <li>
-            <NavLink href="/tools/product" pathname={pathname}>Products</NavLink>
+            <NavLink href="/tools/product" pathname={pathname}>{t("products")}</NavLink>
           </li>
           <li>
-            <NavLink href="/team" pathname={pathname}>Team</NavLink>
+            <NavLink href="/team" pathname={pathname}>{t("team")}</NavLink>
           </li>
           <li>
-            <ContactButton />
+            <ContactButton label={t("contact")} />
+          </li>
+          <li>
+            <LocaleSwitcher />
           </li>
         </ul>
       </div>
 
-      {/* Mobile Menu Dropdown */}
       <div
         style={{
           position: "absolute",
@@ -136,55 +140,45 @@ export function Navbar() {
           marginLeft: "auto",
         }}
         className={`mobile-menu glass p-4 animate-in fade-in slide-in-from-right-4 ${isOpen ? "mobile-menu-open" : ""}`}
-        role="menu"
+        role="navigation"
+        aria-label="Mobile navigation"
       >
         <ul style={{ display: "flex", flexDirection: "column", gap: "1rem", listStyle: "none", margin: 0, padding: 0 }}>
           <li>
-            <NavLink href="/#services" pathname={pathname} mobile>Services</NavLink>
+            <NavLink href="/#services" pathname={pathname} mobile>{t("services")}</NavLink>
           </li>
           <li>
-            <NavLink href="/#ai" pathname={pathname} mobile>AI & ML</NavLink>
+            <NavLink href="/#ai" pathname={pathname} mobile>{t("aiMl")}</NavLink>
           </li>
           <li>
-            <NavLink href="/tools/solution" pathname={pathname} mobile>Solution</NavLink>
+            <NavLink href="/tools/solution" pathname={pathname} mobile>{t("solution")}</NavLink>
           </li>
           <li>
-            <NavLink href="/tools/product" pathname={pathname} mobile>Products</NavLink>
+            <NavLink href="/tools/product" pathname={pathname} mobile>{t("products")}</NavLink>
           </li>
           <li>
-            <NavLink href="/team" pathname={pathname} mobile>Team</NavLink>
+            <NavLink href="/team" pathname={pathname} mobile>{t("team")}</NavLink>
           </li>
           <li>
-            <ContactButton mobile />
+            <ContactButton label={t("contact")} mobile />
+          </li>
+          <li>
+            <LocaleSwitcher />
           </li>
         </ul>
       </div>
 
       <style>{`
         @media (max-width: 639px) {
-          .mobile-toggle {
-            display: block !important;
-          }
-          .desktop-menu {
-            display: none !important;
-          }
-          .mobile-menu {
-            display: none;
-          }
-          .mobile-menu-open {
-            display: block !important;
-          }
+          .mobile-toggle { display: block !important; }
+          .desktop-menu { display: none !important; }
+          .mobile-menu { display: none; }
+          .mobile-menu-open { display: block !important; }
         }
         @media (min-width: 640px) {
-          .mobile-toggle {
-            display: none !important;
-          }
-          .desktop-menu {
-            display: flex !important;
-          }
-          .mobile-menu {
-            display: none !important;
-          }
+          .mobile-toggle { display: none !important; }
+          .desktop-menu { display: flex !important; }
+          .mobile-menu { display: none !important; }
         }
       `}</style>
     </nav>
@@ -256,7 +250,7 @@ function NavLink({ href, pathname, children, mobile = false }: { href: string; p
   );
 }
 
-function ContactButton({ mobile = false }: { mobile?: boolean }) {
+function ContactButton({ label, mobile = false }: { label: string; mobile?: boolean }) {
   return (
     <Link
       href="/#contact"
@@ -267,7 +261,7 @@ function ContactButton({ mobile = false }: { mobile?: boolean }) {
         fontWeight: 700,
       }}
     >
-      Contact
+      {label}
     </Link>
   );
 }

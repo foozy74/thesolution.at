@@ -1,57 +1,211 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://thesolution.at/</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en"/>
   </url>
   <url>
     <loc>https://thesolution.at/impressum</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/impressum"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/impressum</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/impressum"/>
   </url>
   <url>
     <loc>https://thesolution.at/datenschutz</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/datenschutz"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/datenschutz</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/datenschutz"/>
   </url>
   <url>
     <loc>https://thesolution.at/team</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/team"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/team"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/team</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/team"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/team"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/about</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/about"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/about</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="thesolution.at/en/about"/>
   </url>
   <url>
     <loc>https://thesolution.at/tools/solution</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/solution</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution"/>
   </url>
   <url>
     <loc>https://thesolution.at/tools/solution/openclaw-iac</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/openclaw-iac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/openclaw-iac"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/solution/openclaw-iac</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/openclaw-iac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/openclaw-iac"/>
   </url>
   <url>
     <loc>https://thesolution.at/tools/solution/coolify-iac</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/coolify-iac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/coolify-iac"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/solution/coolify-iac</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/coolify-iac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/coolify-iac"/>
   </url>
   <url>
     <loc>https://thesolution.at/tools/solution/databricks-iac</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/databricks-iac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/databricks-iac"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/solution/databricks-iac</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/databricks-iac"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/databricks-iac"/>
   </url>
   <url>
     <loc>https://thesolution.at/tools/solution/personal-security</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-06-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/personal-security"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/personal-security"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/solution/personal-security</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/personal-security"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/personal-security"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/tools/solution/web-check</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/web-check"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/web-check"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/solution/web-check</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/solution/web-check"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/solution/web-check"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/tools/product</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/product"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/product"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/product</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/product"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/product"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/tools/product/matrix-eu</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/product/matrix-eu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/product/matrix-eu"/>
+  </url>
+  <url>
+    <loc>https://thesolution.at/en/tools/product/matrix-eu</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://thesolution.at/tools/product/matrix-eu"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://thesolution.at/en/tools/product/matrix-eu"/>
   </url>
 </urlset>

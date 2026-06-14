@@ -1,5 +1,8 @@
 import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
   output: 'standalone',
@@ -50,5 +53,5 @@ const sentryWebpackPluginOptions = {
 };
 
 export default process.env.SENTRY_AUTH_TOKEN
-  ? withSentryConfig(nextConfig, sentryWebpackPluginOptions)
-  : nextConfig;
+  ? withSentryConfig(withNextIntl(nextConfig), sentryWebpackPluginOptions)
+  : withNextIntl(nextConfig);

@@ -1,0 +1,244 @@
+{
+  "common": {
+    "siteName": "thesolution.at",
+    "loading": "Wird geladen...",
+    "more": "Mehr erfahren",
+    "back": "Zurück",
+    "languageSwitch": "Sprache wechseln"
+  },
+  "nav": {
+    "services": "Services",
+    "aiMl": "AI & ML",
+    "solution": "Solution",
+    "products": "Products",
+    "team": "Team",
+    "contact": "Contact",
+    "openMenu": "Menü öffnen"
+  },
+  "footer": {
+    "heading": "Bereit für deine Lösung?",
+    "subtitle": "Interessiert an einer Zusammenarbeit? Lass uns connecten!",
+    "description": "Kontaktiere uns für spezialisiertes IT-Consulting und AI-Implementierung.",
+    "emailButton": "contact@thesolution.at",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz",
+    "copyright": "© 2026 thesolution.at - Spezialisiertes IT-Consulting & AI-Lösungen"
+  },
+  "home": {
+    "metaTitle": "thesolution.at - IT Consulting & AI Lösungen",
+    "metaDescription": "IT Consulting für Datacenter, Virtualisierung, AWS und AI. Experte für Kubernetes, Terraform und Databricks in Österreich.",
+    "heroTitle1": "Elevating Infrastructure,",
+    "heroTitle2": "Mastering AI.",
+    "heroSubtitle": "Expert IT Consulting for Datacenter Virtualization, AWS Multicloud, and Cutting-edge AI Solutions.",
+    "heroIntro": "Wir architektieren Enterprise-grade Infrastructure-as-Code auf Oracle Cloud und AWS, modernisieren VMware-Umgebungen für die Broadcom-Ära und bauen produktionsreife AI-Systeme. Von Kubernetes-Plattformen und Databricks-Lakehouses bis zu Self-hosted PaaS und Custom-ML-Pipelines — unsere Lösungen betreiben geschäftskritische Workloads in ganz Europa. Entdecke unsere",
+    "heroIntroOr": "oder probiere unsere",
+    "solutionsLink": "IT-Lösungen",
+    "teamLink": "Expert-Team",
+    "productsLink": "AI-Produkte",
+    "cta": "Projekt starten",
+    "expertise": "Unsere Expertise",
+    "statsTitle": "Infrastructure Expertise",
+    "statsToggle": "Mehr Details",
+    "statsToggleLess": "Weniger Details",
+    "statsYears": "Jahre Erfahrung",
+    "statsCustomers": "Zufriedene Kunden",
+    "statsRetention": "Kundenbindung",
+    "aiTitle": "Machine Learning & AI",
+    "aiHeading": "Zukunftssicher mit AI",
+    "aiIntro": "Nutze die Kraft moderner AI, um Workflows zu automatisieren, komplexe Daten zu analysieren und intelligente Produkte zu entwickeln.",
+    "aiNlp": "NLP-Lösungen",
+    "aiGen": "Generative AI",
+    "aiNeural": "Neural Networks",
+    "aiData": "Data Science",
+    "aiAuto": "AI-Automation",
+    "aiVision": "Computer Vision"
+  },
+  "team": {
+    "metaTitle": "Unser Team - thesolution.at | Experten für IT & AI",
+    "metaDescription": "Lernen Sie das Team hinter thesolution.at kennen - Experten für Datacenter, Cloud, Kubernetes, Terraform und AI aus Österreich.",
+    "title": "Unser Team",
+    "subtitle": "Lernen Sie die Experten hinter thesolution.at kennen",
+    "hiring": "Werde Teil des Teams",
+    "hiringRole": "Offene Position",
+    "hiringBio": "Wir suchen talentierte Entwickler, Architekten und AI-Enthusiasten.",
+    "hiringCta": "Jetzt bewerben",
+    "members": {
+      "jurgen": {
+        "name": "Jürgen Müller",
+        "role": "Founder & Senior Cloud Architect",
+        "bio": "25+ Jahre Erfahrung in Datacenter-Virtualisierung, AWS Multicloud und AI-Lösungen."
+      },
+      "moritz": {
+        "name": "Moritz Müller",
+        "role": "Business Developer",
+        "bio": "Junges Business Developer-Talent mit psychologischem Hintergrund."
+      },
+      "felix": {
+        "name": "Felix Müller",
+        "role": "AI/ML Engineer | Web Designer",
+        "bio": "Vereint KI-Engineering mit kreativem Web-Design; inspiriert positiv Community und Kunden."
+      }
+    }
+  },
+  "about": {
+    "metaTitle": "Über uns - thesolution.at | IT Consulting Team",
+    "metaDescription": "Erfahren Sie mehr über thesolution.at - Ihr Partner für IT Consulting, Datacenter-Virtualisierung, Cloud und AI in Österreich.",
+    "title": "Über thesolution.at",
+    "intro": "Wir sind ein spezialisiertes IT-Consulting-Unternehmen aus Wien, Österreich. Unser Team kombiniert über 25 Jahre Erfahrung in Datacenter-Virtualisierung, Cloud-Architektur und künstlicher Intelligenz, um maßgeschneiderte Lösungen für Unternehmen jeder Größe zu entwickeln.",
+    "mission": {
+      "title": "Unsere Mission",
+      "text": "Wir befähigen Unternehmen, das volle Potenzial moderner IT-Infrastruktur auszuschöpfen. Durch die Kombination von bewährter Enterprise-Expertise mit modernsten Cloud- und AI-Technologien helfen wir unseren Kunden, agiler, sicherer und kosteneffizienter zu werden."
+    },
+    "expertise": {
+      "title": "Unsere Expertise",
+      "text": "Spezialisiert auf VMware-Migration im Broadcom-Zeitalter, AWS Multicloud-Strategien, Kubernetes-Orchestrierung mit Cilium, Databricks Lakehouse-Architekturen, und Infrastructure-as-Code mit Terraform. Zusätzlich entwickeln wir produktionsreife AI- und ML-Lösungen."
+    },
+    "values": {
+      "title": "Unsere Werte",
+      "text": "Transparenz, Datenschutz und technische Exzellenz stehen im Mittelpunkt unserer Arbeit. Alle unsere Lösungen werden in der EU gehostet, sind DSGVO-konform und folgen dem Prinzip \"Security by Design\". Wir setzen auf Open-Source-Technologien und vermeiden Vendor-Lock-in."
+    },
+    "location": {
+      "title": "Unser Standort",
+      "text": "Hauptsitz in Wien, Österreich. Wir betreuen Kunden in der gesamten DACH-Region und remote in ganz Europa. Unsere Hosting-Infrastruktur läuft auf Oracle Cloud Infrastructure (OCI) mit Standorten in der Europäischen Union."
+    }
+  },
+  "privacy": {
+    "metaTitle": "Datenschutz - thesolution.at | Privacy Policy",
+    "metaDescription": "Datenschutzerklärung für thesolution.at - DSGVO-konforme Datenverarbeitung, Cookie-frei und EU-gehostet.",
+    "title": "Datenschutz",
+    "responsible": "1. Verantwortlicher",
+    "responsibleText": "Verantwortlich im Sinne der Datenschutz-Grundverordnung (DSGVO) und des österreichischen Telekommunikationsgesetzes (TKG 2021) ist:",
+    "company": "The Solution Virtualization Consolidation Company e.U.",
+    "owner": "Inhaber",
+    "address": "Adresse",
+    "email": "E-Mail",
+    "hosting": "2. Hosting",
+    "hostingText": "Diese Website wird auf einem Server von Oracle Cloud Infrastructure (OCI) gehostet, der über Coolify verwaltet wird. Die Serverstandorte befinden sich in der Europäischen Union (EU). Alle Daten werden ausschließlich in EU-Rechenzentren verarbeitet und gespeichert.",
+    "cookies": "3. Keine Cookie-Verwendung",
+    "cookiesText": "Diese Website verwendet keine Cookies und setzt auch kein Tracking ein. Es werden keine personenbezogenen Daten auf Ihrem Endgerät gespeichert.",
+    "cookiesImportant": "Diese Website ist rein statisch und benötigt daher keine Cookie-Einwilligung.",
+    "cookiesStorage": "Der lokale Speicher (localStorage) wird ausschließlich verwendet, um Ihre Entscheidung bezüglich des Cookie-Hinweis-Banners zu speichern.",
+    "logs": "4. Server-Log-Dateien",
+    "logsText1": "Der Hosting-Provider erhebt automatisch technische Informationen, die Ihr Browser beim Aufruf dieser Website übermittelt. Diese Daten sind für uns nicht personenbezogen zuordenbar.",
+    "logsList": [
+      "Browsertyp und Browserversion",
+      "Verwendetes Betriebssystem",
+      "Referrer URL",
+      "Hostname des zugreifenden Rechners",
+      "Uhrzeit der Serveranfrage"
+    ],
+    "logsText2": "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen ausschließlich der technischen Funktionsfähigkeit und der Sicherheit unserer Website.",
+    "ssl": "5. SSL/TLS-Verschlüsselung",
+    "sslText": "Diese Website verwendet aus Sicherheitsgründen eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von \"http://\" auf \"https://\" wechselt und an dem Schloss-Symbol.",
+    "fonts": "6. Lokale Schriftarten",
+    "fontsText": "Diese Website verwendet lokal gehostete Schriftarten (Inter und Outfit). Die Schriftarten werden von unserem Server geladen und es erfolgt keine Verbindung zu externen Servern (wie z.B. Google Fonts).",
+    "embeds": "7. Eingebettete Inhalte",
+    "embedsText": "Auf unserer Website sind Google Maps-Karten eingebettet. Wenn Sie diese Seite aufrufen, wird eine Verbindung zu Google-Servern hergestellt. Dabei können Daten an Google übertragen werden.",
+    "rights": "8. Ihre Rechte",
+    "rightsText": "Gemäß der Datenschutz-Grundverordnung (DSGVO) stehen Ihnen folgende Rechte zu:",
+    "rightsList": [
+      "Auskunftsrecht: Recht auf Auskunft über Ihre personenbezogenen Daten",
+      "Recht auf Berichtigung: Berichtigung unrichtiger Daten",
+      "Recht auf Löschung: Löschung Ihrer Daten",
+      "Recht auf Einschränkung: Einschränkung der Verarbeitung",
+      "Widerspruchsrecht: Widerspruch gegen die Verarbeitung",
+      "Recht auf Datenübertragbarkeit: Daten in strukturiertem Format",
+      "Beschwerderecht: Beschwerde bei der Datenschutzbehörde"
+    ],
+    "authority": "Datenschutzbehörde Österreich",
+    "contact": "9. Kontakt",
+    "contactText": "Für datenschutzrechtliche Anfragen können Sie uns jederzeit kontaktieren:",
+    "update": "10. Aktualisierung dieser Datenschutzerklärung",
+    "updateText": "Diese Datenschutzerklärung wurde zuletzt aktualisiert am 10. März 2026.",
+    "backToImpressum": "← Zum Impressum",
+    "backHome": "Zurück zur Startseite"
+  },
+  "legal": {
+    "metaTitle": "Impressum - thesolution.at | Legal Notice",
+    "metaDescription": "Impressum und rechtliche Informationen für thesolution.at - The Solution Virtualization Consolidation Company e.U., Wien, Österreich.",
+    "title": "Legal Notice",
+    "company": "Company Information",
+    "owner": "Owner",
+    "court": "Commercial Court",
+    "register": "Commercial Register Number",
+    "gln": "GLN",
+    "address": "Contact Address",
+    "about": "About Our Services",
+    "aboutText": "thesolution.at is a specialized IT consulting company based in Vienna, Austria. We provide expert services in datacenter virtualization, cloud architecture (AWS and OCI), Kubernetes orchestration, and AI/ML solutions. Our team combines decades of enterprise experience with modern Infrastructure-as-Code practices to deliver scalable, secure, and cost-effective solutions for businesses of all sizes.",
+    "responsible": "Responsible for Content",
+    "responsibleText": "Jürgen Müller, Hertha-Firnberg-Straße 9/3/307, 1100 Wien, Austria"
+  },
+  "tools": {
+    "solutionsMetaTitle": "IT Solutions - thesolution.at | Cloud & IaC Tools",
+    "solutionsMetaDescription": "Infrastructure-as-Code, Cloud-Architektur, Databricks & Coolify. Spezialisierte IT-Lösungen für Ihr Business in Österreich.",
+    "solutionsTitle": "Our Solutions",
+    "explore": "Explore Solution",
+    "productsMetaTitle": "Products - thesolution.at | AI & SaaS Lösungen",
+    "productsMetaDescription": "SaaS-Produkte für Teams: Prediction Engine, Matrix Messenger und Analyse Stock Agent. KI-gestützte Anwendungen aus Europa mit höchstem Datenschutz.",
+    "productsTitle": "Our Products",
+    "comingSoon": "In Vorbereitung",
+    "prediction": {
+      "name": "Prediction",
+      "description": "KI-Prognosemaschine der nächsten Generation. Treffe fundierte Entscheidungen durch Tausende von Simulationen in einer digitalen Sandbox."
+    },
+    "matrix": {
+      "name": "Matrix",
+      "description": "Sichere Kommunikation für Teams - Chat und Videocalls ohne Big-Tech-Abhängigkeit. Wird in Kürze verfügbar sein."
+    },
+    "analyseStock": {
+      "name": "Analyse Stock Agent Team",
+      "description": "Dein KI-Investment-Komitee. Spezialisierte Agenten analysieren, debattieren und bewerten Aktien in Echtzeit – transparent und fundiert."
+    },
+    "openclaw": {
+      "metaTitle": "OpenClaw IaC - Enterprise Terraform for OCI",
+      "metaDescription": "Production-ready Infrastructure-as-Code für Oracle Cloud: VCN, Compartments, Compute, Kubernetes und Security mit Terraform.",
+      "title": "OpenClaw IaC",
+      "tagline": "Enterprise-grade Infrastructure-as-Code for Oracle Cloud. Secure, scalable, and production-ready."
+    },
+    "coolify": {
+      "metaTitle": "Coolify on OCI - Self-hosted PaaS",
+      "metaDescription": "Self-hosted Coolify PaaS auf Oracle Cloud mit Terraform und LVM. Vollständig automatisiertes Deployment auf Ubuntu mit Docker und cloud-init.",
+      "title": "Coolify on OCI",
+      "tagline": "Self-hosted PaaS on Oracle Cloud Infrastructure. Automated deployment with Terraform and LVM."
+    },
+    "databricks": {
+      "metaTitle": "Databricks IaC - Terraform & Asset Bundles",
+      "metaDescription": "Infrastructure-as-Code für Databricks Workspaces, Cluster, Jobs und ML-Modelle. Automatisierung mit Terraform und Databricks Asset Bundles auf AWS.",
+      "title": "Databricks IaC",
+      "tagline": "Infrastructure-as-Code for Databricks. Automate workspaces, clusters, and jobs with Terraform and Asset Bundles."
+    },
+    "cloudshift": {
+      "metaTitle": "CloudShift - Cloud Migration as a Service",
+      "metaDescription": "Nahtlose Migration von Workloads zwischen Cloud-Plattformen. V2V und C2C Migrationen leicht gemacht.",
+      "title": "CloudShift",
+      "tagline": "Cloud Migration as a Service. Nahtlose Migration von Workloads zwischen Plattformen."
+    },
+    "cloudshift_page": {
+      "title": "CloudShift",
+      "subtitle": "Cloud Migration as a Service. Nahtlose Migration von Workloads zwischen Cloud-Plattformen.",
+      "featuresTitle": "Funktionsübersicht",
+      "configTitle": "Konfiguration & Beispiele",
+      "architectureTitle": "Big Picture: Architektur"
+    },
+    "personalSecurity": {
+      "metaTitle": "Personal Security Checklist - 100+ Sicherheits-Tipps",
+      "metaDescription": "Umfassende Checkliste für digitale Sicherheit und Privatsphäre. Über 100 Punkte in 12 Kategorien für mehr Online-Schutz.",
+      "title": "Personal Security Checklist",
+      "tagline": "Umfassende Checkliste für digitale Sicherheit und Privatsphäre. Über 100 Punkte in 12 Kategorien."
+    },
+    "webCheck": {
+      "metaTitle": "Web Check - Website Sicherheits-Scanner",
+      "metaDescription": "Tool zur Überprüfung der Sicherheit und Konfiguration von Websites. DNS, SSL, Headers und mehr.",
+      "title": "Web Check",
+      "tagline": "Tool zur Überprüfung der Sicherheit und Konfiguration von Websites. DNS, SSL, Headers und mehr."
+    },
+    "matrixEu": {
+      "metaTitle": "Matrix EU - Sichere Team-Kommunikation",
+      "metaDescription": "Matrix EU: Sichere Chat- und Video-Kommunikation für Teams ohne Big-Tech-Abhängigkeit. DSGVO-konform und EU-gehostet.",
+      "title": "Matrix EU",
+      "tagline": "Sichere Kommunikation für Teams - Chat und Videocalls ohne Big-Tech-Abhängigkeit. DSGVO-konform und EU-gehostet."
+    }
+  }
+}
