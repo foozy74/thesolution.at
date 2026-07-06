@@ -5,6 +5,7 @@ import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 
 const products = [
+  { id: "cloudshift", logo: "/logos/cloudshift.svg", path: "/tools/product/cloudshift", tags: ["Migration", "VMware", "OLVM", "Proxmox", "V2V"], available: true },
   { id: "prediction", logo: "/logos/mirofish.svg", path: "https://prediction.thesolution.at/", tags: ["AI", "Prognose", "Simulation"], available: false },
   { id: "matrix", logo: "/logos/matrix.svg", path: "/tools/product/matrix-eu", tags: ["Chat", "Video", "Kommunikation"], available: false },
   { id: "analyseStock", logo: "/logos/analyse-stock.svg", path: "https://agent-eu.thesolution.at/", tags: ["AI", "Finance", "Analysis"], available: true },

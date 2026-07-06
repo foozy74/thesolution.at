@@ -191,6 +191,10 @@
       "name": "Analyse Stock Agent Team",
       "description": "Dein KI-Investment-Komitee. Spezialisierte Agenten analysieren, debattieren und bewerten Aktien in Echtzeit – transparent und fundiert."
     },
+    "cloudshift": {
+      "name": "CloudShift",
+      "description": "Vollautomatisierte Live-Migration von VMs zwischen VMware vSphere, Oracle OLVM, Hyper-V, Proxmox VE und OpenStack. Zero-Downtime Cutover."
+    },
     "openclaw": {
       "metaTitle": "OpenClaw IaC - Enterprise Terraform for OCI",
       "metaDescription": "Production-ready Infrastructure-as-Code für Oracle Cloud: VCN, Compartments, Compute, Kubernetes und Security mit Terraform.",

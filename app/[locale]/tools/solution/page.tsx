@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link } from "@/i18n/routing";
-import { Shield, Rocket, Zap, Lock, Cloud } from "lucide-react";
+import { Shield, Rocket, Zap, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const solutions = [
@@ -10,7 +10,6 @@ const solutions = [
   { id: "coolify-iac", key: "coolify", icon: Rocket, path: "/tools/solution/coolify-iac", tags: ["IaC", "Coolify", "OCI", "Docker"] },
   { id: "databricks-iac", key: "databricks", icon: Zap, path: "/tools/solution/databricks-iac", tags: ["IaC", "Databricks", "Terraform", "CI/CD"] },
   { id: "personal-security", key: "personalSecurity", icon: Lock, path: "/tools/solution/personal-security", tags: ["Security", "Privacy", "Checklist", "Guide"] },
-  { id: "cloudshift", key: "cloudshift", icon: Cloud, path: "/tools/product/cloudshift", tags: ["Migration", "VMware", "OLVM", "Proxmox", "V2V"] },
 ];
 
 export default function SolutionLandingPage() {
