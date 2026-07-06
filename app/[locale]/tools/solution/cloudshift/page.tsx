@@ -2,7 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Cloud, Lock, Cog, Database, Settings, Server, Box, Activity, Shield, Network, ArrowRight } from "lucide-react";
+import { Cloud, Lock, Cog, Settings, Server, Box, Activity, Shield, Network, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 const configFiles = [
@@ -108,8 +108,9 @@ const featureLayers = [
     bgClass: "bg-[var(--accent-blue)]/10",
     items: [
       "Migrate from VMware vSphere",
-      "Import to OpenStack, Azure, AWS",
-      "Import to Oracle OLVM / oVirt",
+      "Migrate from Oracle OLVM / oVirt",
+      "Import to Proxmox VE",
+      "Import to OLVM or VMware vSphere",
       "Automated format conversion",
     ],
   },
@@ -405,7 +406,7 @@ function ArchitectureDiagram() {
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: "2.5rem" }}>🏢</div>
             <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--text-primary)" }}>Origin Cloud</div>
-            <div style={{ fontSize: "0.75rem", color: "var(--accent-blue)" }}>VMware vSphere / Hyper-V</div>
+            <div style={{ fontSize: "0.75rem", color: "var(--accent-blue)" }}>VMware vSphere / Oracle OLVM</div>
           </div>
           <div style={{ textAlign: "left", fontSize: "0.85rem", color: "var(--text-secondary)" }}>
              <div>• Virtual Machines</div>
@@ -457,7 +458,7 @@ function ArchitectureDiagram() {
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: "2.5rem" }}>☁️</div>
             <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--text-primary)" }}>Destination Cloud</div>
-            <div style={{ fontSize: "0.75rem", color: "var(--accent-purple)" }}>OpenStack / AWS / Azure / OLVM</div>
+            <div style={{ fontSize: "0.75rem", color: "var(--accent-purple)" }}>OLVM / Hyper-V / Proxmox / VMware / OpenStack</div>
           </div>
           <div style={{ textAlign: "left", fontSize: "0.85rem", color: "var(--text-secondary)" }}>
              <div>• Converted Disks</div>

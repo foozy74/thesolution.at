@@ -11,13 +11,11 @@ import {
   Zap,
   BarChart3,
   Clock,
-  Lock,
   Network,
   Cpu,
   HardDrive,
   AlertCircle,
   Star,
-  Users,
   RefreshCw,
   Package,
 } from "lucide-react";
@@ -85,6 +83,44 @@ const platforms: Platform[] = [
       "Clustered environment support",
     ],
     color: "var(--accent-blue)",
+  },
+  {
+    id: "proxmox",
+    name: "Proxmox VE",
+    logo: "🟢",
+    badge: "New Target",
+    priceMultiplier: 1.1,
+    description:
+      "API-integrated migration to Proxmox VE using proxmoxer. Supports cloning templates, hot-attaching disks, and automatic storage pool/bridge mapping.",
+    features: [
+      "Proxmox VE API integration",
+      "Template-based minion VMs",
+      "Disk hot-attach & streaming",
+      "Storage pool auto-mapping",
+      "Bridge & VLAN network mapping",
+      "OS morphing & VirtIO injection",
+      "No-downtime background sync",
+    ],
+    color: "var(--accent-purple)",
+  },
+  {
+    id: "vmware_import",
+    name: "VMware vSphere (Target)",
+    logo: "🌀",
+    badge: "New Target",
+    priceMultiplier: 1.2,
+    description:
+      "Full integration for exporting from non-VMware environments (like OLVM) and importing back to VMware vSphere clusters using vCenter SDK.",
+    features: [
+      "vCenter API target deployment",
+      "Direct ESXi datastore writing",
+      "Port group & DVS mapping",
+      "VMware Tools injection",
+      "VMDK disk format conversion",
+      "Reverse migration workflows",
+      "Delta sync support",
+    ],
+    color: "var(--accent-teal)",
   },
   {
     id: "openstack",
@@ -169,7 +205,7 @@ const stats = [
   { value: "< 2h", label: "Avg. Migration Time", icon: <Clock size={22} /> },
   { value: "99.7%", label: "Success Rate", icon: <BarChart3 size={22} /> },
   { value: "0", label: "Downtime During Sync", icon: <Zap size={22} /> },
-  { value: "3", label: "Supported Destinations", icon: <Network size={22} /> },
+  { value: "5", label: "Supported Destinations", icon: <Network size={22} /> },
 ];
 
 const migrationSteps = [
@@ -177,7 +213,7 @@ const migrationSteps = [
     step: "01",
     title: "Register Endpoints",
     description:
-      "Connect your VMware vCenter and destination platform (OLVM, Hyper-V, or OpenStack) via our REST API or web UI.",
+      "Connect your VMware vCenter, OLVM, or other source platform, and select your destination (OLVM, Hyper-V, Proxmox VE, VMware, or OpenStack) via our REST API or web UI.",
     icon: <Server size={24} />,
     color: "var(--accent-blue)",
   },
@@ -433,7 +469,7 @@ export default function CloudShiftProductPage() {
                 animation: "pulse 2s infinite",
               }}
             />
-            VMware vSphere → Oracle OLVM · Hyper-V · OpenStack
+            VMware vSphere → Oracle OLVM · Hyper-V · Proxmox VE · OpenStack
           </div>
 
           <h1
@@ -470,8 +506,8 @@ export default function CloudShiftProductPage() {
             }}
           >
             CloudShift automates live VM migration from VMware vSphere to Oracle OLVM,
-            Microsoft Hyper-V, and OpenStack — with automatic disk conversion, driver
-            injection, and near-zero downtime cutover.
+            Microsoft Hyper-V, Proxmox VE, and OpenStack — with support for reverse
+            migrations, automatic disk conversion, driver injection, and near-zero downtime cutover.
           </p>
 
           <div
@@ -608,7 +644,7 @@ export default function CloudShiftProductPage() {
               icon: <Network size={28} />,
               color: "var(--accent-purple)",
               title: "Network & Storage Mapping",
-              desc: "Map VMware port groups, distributed switches, and datastores to destination logical networks and storage domains with a single config block.",
+              desc: "Map source port groups, virtual networks, and datastores to destination logical networks and storage domains with a single config block.",
             },
             {
               icon: <Shield size={28} />,
@@ -784,13 +820,13 @@ export default function CloudShiftProductPage() {
                 }}
               >
                 <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>🏢</div>
-                <div style={{ fontWeight: 700, fontSize: "0.9rem" }}>VMware vSphere</div>
+                <div style={{ fontWeight: 700, fontSize: "0.9rem" }}>vSphere or OLVM</div>
                 <div style={{ fontSize: "0.72rem", color: "var(--text-secondary)", marginTop: "0.25rem" }}>
                   Source Platform
                 </div>
               </div>
               <div style={{ fontSize: "0.72rem", color: "var(--accent-blue)" }}>
-                vCenter · ESXi · VMDK
+                vCenter · ESXi · oVirt / OLVM
               </div>
             </div>
 
@@ -846,7 +882,7 @@ export default function CloudShiftProductPage() {
                 </div>
               </div>
               <div style={{ fontSize: "0.72rem", color: "var(--accent-purple)" }}>
-                OLVM · Hyper-V · OpenStack
+                OLVM · Hyper-V · Proxmox · VMware · OpenStack
               </div>
             </div>
           </div>
