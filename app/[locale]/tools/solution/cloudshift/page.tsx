@@ -1,105 +1,8 @@
 "use client";
 
-import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
-import { Cloud, Lock, Cog, Settings, Server, Box, Activity, Shield, Network, ArrowRight } from "lucide-react";
+import { Lock, Cog, Settings, Server, Box, Activity, Shield, Network, ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
-
-const configFiles = [
-  {
-    id: "migration",
-    name: "Migration Definition",
-    filename: "01_migration.json",
-    icon: <Cloud size={24} />,
-    description: "API payload for migrating VMs from VMware vSphere to OpenStack with network mapping.",
-    category: "api",
-    securityNotes: [
-      "Credentials passed via Barbican Secret ID",
-      "Network isolation mapped securely",
-    ],
-    content: `{
-    "migration": {
-        "origin": {
-            "type": "vmware_vsphere",
-            "connection_info": {
-                "secret_id": "ebe69d82-da6f-451e-a0f6-3551d0f7ef85"
-            }
-        },
-        "destination": {
-            "type": "openstack",
-            "target_environment": {
-                "flavor_name": "m1.small",
-                "network_map": {
-                    "VM Network": "private",
-                    "VM Network Local": "public"
-                }
-            }
-        },
-        "instances": ["CentOS 7", "RHEL 7.2", "Ubuntu 14.04", "WS 2012 R2"]
-    }
-}
-`,
-  },
-  {
-    id: "standalone",
-    name: "Standalone Mode Configuration",
-    filename: "02_api-paste.ini",
-    icon: <Settings size={24} />,
-    description: "API pipeline configuration for Standalone (NoAuth) mode without Keystone.",
-    category: "config",
-    securityNotes: [
-      "Use only in isolated environments",
-      "Bypasses token verification",
-      "Automatically maps to default admin context",
-    ],
-    content: `# CloudShift API Pipeline Configuration
-# Standalone (NoAuth) Mode
-
-[pipeline:coriolis-api-v1]
-# Replace 'authtoken' with 'noauth' to bypass Keystone
-pipeline = request_id faultwrap noauth apiv1
-
-[app:apiv1]
-paste.app_factory = coriolis.api.v1.router:APIRouter.factory
-
-[filter:noauth]
-paste.filter_factory = coriolis.api.middleware.auth:NoAuthMiddleware.factory
-
-[filter:faultwrap]
-paste.filter_factory = coriolis.api.middleware.fault:FaultWrapper.factory
-
-[filter:request_id]
-paste.filter_factory = oslo_middleware:RequestId.factory
-`,
-  },
-  {
-    id: "secret",
-    name: "Barbican Secret",
-    filename: "03_secret.json",
-    icon: <Lock size={24} />,
-    description: "vSphere connection credentials securely stored in Barbican.",
-    category: "security",
-    securityNotes: [
-      "Passwords never exposed in API payloads",
-      "Managed via OpenStack Key Manager",
-      "RBAC policies enforce access",
-    ],
-    content: `{
-    "host": "10.0.0.10",
-    "username": "user@vsphere.local",
-    "password": "SuperSecretPassword123!",
-    "allow_untrusted": true
-}
-`,
-  },
-];
-
-const categories = [
-  { id: "all", label: "All", icon: <Box size={20} /> },
-  { id: "api", label: "API Examples", icon: <Cloud size={20} /> },
-  { id: "config", label: "Configuration", icon: <Settings size={20} /> },
-  { id: "security", label: "Security", icon: <Lock size={20} /> },
-];
 
 const featureLayers = [
   {
@@ -173,46 +76,6 @@ const featureLayers = [
 
 export default function CloudShiftPage() {
   const t = useTranslations("tools.cloudshift_page");
-  const [selectedFile, setSelectedFile] = useState(configFiles[0]);
-  const [activeCategory, setActiveCategory] = useState("all");
-  const codeRef = useRef<HTMLElement>(null);
-
-  const filteredFiles = activeCategory === "all"
-    ? configFiles
-    : configFiles.filter((f) => f.category === activeCategory);
-
-  const handleDownloadAll = useCallback(() => {
-    configFiles.forEach((file) => {
-      const blob = new Blob([file.content], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = file.filename;
-      a.click();
-      URL.revokeObjectURL(url);
-    });
-  }, []);
-
-  useEffect(() => {
-    let Prism: unknown;
-
-    const loadPrism = async () => {
-      const prismModule = await import("prismjs");
-      Prism = prismModule.default;
-      // @ts-expect-error - prismjs components don't have type definitions
-      await import("prismjs/components/prism-json.js");
-      // @ts-expect-error - prismjs components don't have type definitions
-      await import("prismjs/components/prism-ini.js");
-      // @ts-expect-error - prismjs themes don't have type definitions
-      await import("prismjs/themes/prism-tomorrow.css");
-
-      if (codeRef.current && Prism) {
-        (Prism as { highlightElement: (element: HTMLElement) => void }).highlightElement(codeRef.current);
-      }
-    };
-
-    loadPrism();
-  }, [selectedFile]);
 
   return (
     <div className="min-h-screen bg-[var(--bg-color)] text-slate-200">
@@ -228,12 +91,9 @@ export default function CloudShiftPage() {
           </div>
         </div>
         <div className="flex gap-4 mt-6">
-          <Link href="/tools/solution" className="btn glass">
-            ← Back to Solutions
+          <Link href="/tools/product" className="btn glass">
+            ← Back to Products
           </Link>
-          <button onClick={handleDownloadAll} className="btn btn-primary" style={{ fontSize: "0.95rem", padding: "0.6rem 1.5rem" }}>
-            Download All
-          </button>
         </div>
       </section>
 
@@ -256,18 +116,14 @@ export default function CloudShiftPage() {
         {/* Security / Feature Layers */}
         <div className="grid grid-2 gap-4">
           {featureLayers.map((layer, i) => (
-            <div
-              key={i}
-              className={`glass ${layer.bgClass} hover:scale-[1.02] transition-transform duration-300`}
-              style={{ padding: "2.5rem", borderRadius: "12px" }}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl" style={{ marginBottom: "0rem" }}>
+            <div key={i} className="glass" style={{ padding: "2.5rem", border: "1px solid var(--glass-border)", borderRadius: "var(--card-radius)" }}>
+              <div className="flex items-center gap-3 mb-4">
+                <div style={{ color: "var(--accent-teal)" }}>
                   {layer.icon}
                 </div>
-                <div>
-                  <h4 className="font-bold text-white" style={{ fontSize: "1.5rem", marginBottom: "0rem" }}>{layer.title}</h4>
-                </div>
+                <h3 style={{ fontSize: "1.5rem", fontWeight: 700 }}>
+                  {layer.title}
+                </h3>
               </div>
               <ul className="space-y-2">
                 {layer.items.map((item, j) => (
@@ -279,118 +135,6 @@ export default function CloudShiftPage() {
               </ul>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ===== CODE SECTION ===== */}
-      <section className="container pb-20" style={{ borderTop: "1px solid var(--glass-border)", paddingTop: "3rem" }}>
-        <h2 style={{ fontSize: "2rem", marginBottom: "2rem", color: "var(--accent-teal)" }}>
-          {t("configTitle")}
-        </h2>
-
-        {/* Filter Categories */}
-        <div className="mb-6">
-          <h3 className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-3">
-            Filter Categories
-          </h3>
-          <div className="flex flex-wrap gap-1.5">
-            <button
-              onClick={() => setActiveCategory("all")}
-              className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${activeCategory === "all"
-                ? "bg-indigo-600 text-white"
-                : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-                }`}
-            >
-              All
-            </button>
-            {categories.filter(c => c.id !== "all").map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-3 py-1.5 text-[10px] uppercase tracking-wider rounded-md font-bold transition-all ${activeCategory === cat.id
-                  ? "bg-indigo-600 text-white"
-                  : "bg-white/5 text-slate-400 hover:text-white hover:bg-white/10"
-                  }`}
-              >
-                <div className="flex items-center gap-2">
-                   {cat.icon}
-                   {cat.label}
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Module Files */}
-        <div className="mb-6">
-          <h3 className="text-[10px] uppercase tracking-widest font-bold text-slate-500 mb-3">
-            Files ({filteredFiles.length})
-          </h3>
-          <div className="grid grid-2 gap-2">
-            {filteredFiles.map((file) => (
-              <button
-                key={file.id}
-                onClick={() => setSelectedFile(file)}
-                className={`w-full text-left p-4 glass transition-all duration-200 ${selectedFile.id === file.id
-                  ? "bg-indigo-500/20 border-indigo-500/40 shadow-lg shadow-indigo-500/10"
-                  : "hover:bg-white/5 hover:border-white/20"
-                  }`}
-              >
-                <div className="flex items-center gap-3">
-                  <span className="text-xl">{file.icon}</span>
-                  <div className="min-w-0 flex-1">
-                    <h3 className={`font-semibold text-sm truncate ${selectedFile.id === file.id ? "text-indigo-300" : "text-slate-200"}`}>
-                      {file.name}
-                    </h3>
-                    <p className="text-xs text-slate-500 font-mono truncate">{file.filename}</p>
-                  </div>
-                  {selectedFile.id === file.id && (
-                    <div className="w-2 h-2 rounded-full bg-indigo-400 flex-shrink-0 animate-pulse" />
-                  )}
-                </div>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Selected File Content */}
-        <div className="space-y-6">
-          <div className="glass p-6 space-y-3">
-            <div className="flex items-center gap-3 flex-wrap">
-              <span className="text-3xl">{selectedFile.icon}</span>
-              <h2 className="text-xl font-bold text-white">{selectedFile.name}</h2>
-              <code className="px-2 py-0.5 text-[10px] font-mono bg-indigo-500/10 text-indigo-300 rounded border border-indigo-500/20">
-                {selectedFile.filename}
-              </code>
-            </div>
-            <p className="text-slate-400 text-sm leading-relaxed">{selectedFile.description}</p>
-          </div>
-
-          {selectedFile.securityNotes && selectedFile.securityNotes.length > 0 && (
-            <div className="bg-emerald-500/5 border border-emerald-500/10 rounded-xl p-4">
-              <h3 className="text-[10px] uppercase tracking-widest font-bold text-emerald-400 mb-3 flex items-center gap-2">
-                <span>🛡️</span> Security Controls
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-2">
-                {selectedFile.securityNotes.map((note, i) => (
-                  <div key={i} className="flex items-start gap-2 text-sm">
-                    <span className="mt-0.5 flex-shrink-0 text-emerald-400">✓</span>
-                    <span className="text-slate-300">{note}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          <div className="glass overflow-hidden rounded-xl">
-            <div className="px-4 py-2 border-b border-white/10 bg-white/2 flex items-center justify-between">
-              <span className="text-xs text-slate-400 font-mono">{selectedFile.filename}</span>
-              <span className="text-[10px] uppercase tracking-wider text-slate-500">{selectedFile.filename.endsWith('.json') ? 'JSON' : 'INI'}</span>
-            </div>
-            <pre style={{ background: "var(--bg-color)", margin: 0, padding: "1.5rem", overflowX: "auto" }}>
-              <code ref={codeRef} className={`language-${selectedFile.filename.endsWith('.json') ? 'json' : 'ini'}`}>{selectedFile.content}</code>
-            </pre>
-          </div>
         </div>
       </section>
     </div>

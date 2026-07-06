@@ -1526,7 +1526,7 @@ export default function CloudShiftProductPage() {
             }}
           >
             <Link href="/tools/solution/cloudshift" className="btn btn-primary">
-              Open CloudShift Console →
+              Open CloudShift Console
             </Link>
             <a
               href="mailto:cloudshift@thesolution.at"
