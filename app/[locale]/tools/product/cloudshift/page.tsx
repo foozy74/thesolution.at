@@ -18,6 +18,10 @@ import {
   Star,
   RefreshCw,
   Package,
+  Calendar,
+  MessageSquare,
+  Mail,
+  X,
 } from "lucide-react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -305,6 +309,7 @@ export default function CloudShiftProductPage() {
   const [activePlatform, setActivePlatform] = useState<string>("olvm");
   const [hoveredTier, setHoveredTier] = useState<string | null>(null);
   const [visibleSection, setVisibleSection] = useState<string>("");
+  const [showContactModal, setShowContactModal] = useState<boolean>(false);
   const heroRef = useRef<HTMLDivElement>(null);
 
   const selectedPlatform = platforms.find((p) => p.id === activePlatform) ?? platforms[0];
@@ -1528,13 +1533,13 @@ export default function CloudShiftProductPage() {
             <Link href="/tools/solution/cloudshift" className="btn btn-primary">
               Open CloudShift Console
             </Link>
-            <a
-              href="mailto:cloudshift@thesolution.at"
+            <button
+              onClick={() => setShowContactModal(true)}
               className="btn glass"
-              style={{ color: "var(--text-primary)" }}
+              style={{ color: "var(--text-primary)", cursor: "pointer" }}
             >
               Talk to an Engineer
-            </a>
+            </button>
           </div>
           <p style={{ marginTop: "1.5rem", fontSize: "0.8rem", color: "var(--text-secondary)" }}>
             Deployed on-premise or as a service · No per-seat licensing · Volume discounts available
@@ -1606,10 +1611,244 @@ export default function CloudShiftProductPage() {
         </div>
       </footer>
 
+      {/* ── CONTACT MODAL ────────────────────────────────────────── */}
+      {showContactModal && (
+        <div
+          style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 9999,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "2rem",
+            background: "rgba(0, 0, 0, 0.75)",
+            backdropFilter: "blur(8px)",
+            WebkitBackdropFilter: "blur(8px)",
+          }}
+          onClick={() => setShowContactModal(false)}
+        >
+          <div
+            className="glass"
+            style={{
+              position: "relative",
+              width: "100%",
+              maxWidth: "520px",
+              padding: "2.5rem",
+              background: "rgba(10, 15, 26, 0.95)",
+              border: "1px solid var(--glass-border)",
+              borderRadius: "16px",
+              boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)",
+              animation: "fadeIn 0.25s ease-out",
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setShowContactModal(false)}
+              style={{
+                position: "absolute",
+                top: "1.25rem",
+                right: "1.25rem",
+                background: "none",
+                border: "none",
+                color: "var(--text-secondary)",
+                cursor: "pointer",
+                padding: "0.25rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "color 0.2s",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-primary)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+            >
+              <X size={20} />
+            </button>
+
+            {/* Modal Header */}
+            <div style={{ marginBottom: "2rem", textAlign: "center" }}>
+              <h3
+                style={{
+                  fontFamily: "'Outfit', sans-serif",
+                  fontSize: "1.75rem",
+                  fontWeight: 700,
+                  color: "var(--text-primary)",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Talk to a Migration Engineer
+              </h3>
+              <p style={{ color: "var(--text-secondary)", fontSize: "0.9rem" }}>
+                Select your preferred way to connect with our team.
+              </p>
+            </div>
+
+            {/* Communication Channels */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {/* Option 1: Calendar */}
+              <a
+                href="https://cal.com/thesolution/migration-consulting"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1.25rem",
+                  padding: "1.25rem",
+                  borderRadius: "12px",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.06)",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(125, 211, 192, 0.08)";
+                  e.currentTarget.style.borderColor = "var(--accent-teal)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.06)";
+                }}
+              >
+                <div
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "10px",
+                    background: "rgba(125, 211, 192, 0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--accent-teal)",
+                  }}
+                >
+                  <Calendar size={24} />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "1rem", marginBottom: "0.15rem" }}>
+                    Book a Video Call
+                  </div>
+                  <div style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+                    Schedule a 15-minute consultation via Cal.com
+                  </div>
+                </div>
+                <ArrowRight size={18} style={{ color: "var(--text-secondary)" }} />
+              </a>
+
+              {/* Option 2: Matrix */}
+              <a
+                href="https://matrix.to/#/#support:thesolution.at"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1.25rem",
+                  padding: "1.25rem",
+                  borderRadius: "12px",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.06)",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(91, 155, 213, 0.08)";
+                  e.currentTarget.style.borderColor = "var(--accent-blue)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.06)";
+                }}
+              >
+                <div
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "10px",
+                    background: "rgba(91, 155, 213, 0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--accent-blue)",
+                  }}
+                >
+                  <MessageSquare size={24} />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "1rem", marginBottom: "0.15rem" }}>
+                    Matrix Chat
+                  </div>
+                  <div style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+                    Chat securely via our federated Matrix channel
+                  </div>
+                </div>
+                <ArrowRight size={18} style={{ color: "var(--text-secondary)" }} />
+              </a>
+
+              {/* Option 3: Email */}
+              <a
+                href="mailto:cloudshift@thesolution.at"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "1.25rem",
+                  padding: "1.25rem",
+                  borderRadius: "12px",
+                  background: "rgba(255, 255, 255, 0.03)",
+                  border: "1px solid rgba(255, 255, 255, 0.06)",
+                  textDecoration: "none",
+                  transition: "all 0.25s ease",
+                  cursor: "pointer",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "rgba(155, 143, 184, 0.08)";
+                  e.currentTarget.style.borderColor = "var(--accent-purple)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "rgba(255, 255, 255, 0.03)";
+                  e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.06)";
+                }}
+              >
+                <div
+                  style={{
+                    width: "48px",
+                    height: "48px",
+                    borderRadius: "10px",
+                    background: "rgba(155, 143, 184, 0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "var(--accent-purple)",
+                  }}
+                >
+                  <Mail size={24} />
+                </div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 700, color: "var(--text-primary)", fontSize: "1rem", marginBottom: "0.15rem" }}>
+                    Direct Email
+                  </div>
+                  <div style={{ color: "var(--text-secondary)", fontSize: "0.8rem" }}>
+                    Send an inquiry to cloudshift@thesolution.at
+                  </div>
+                </div>
+                <ArrowRight size={18} style={{ color: "var(--text-secondary)" }} />
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
+
       <style>{`
         @keyframes pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.6; transform: scale(0.85); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
         }
       `}</style>
     </div>
