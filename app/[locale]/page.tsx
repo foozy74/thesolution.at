@@ -26,13 +26,16 @@ function Hero() {
       style={{
         minHeight: "100vh",
         display: "flex",
-        alignItems: "center",
+        flexDirection: "column",
+        justifyContent: "center",
         position: "relative",
         overflow: "hidden",
+        paddingTop: "8rem",
+        paddingBottom: "4rem",
       }}
     >
       <div
-        className="container flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16"
+        className="container flex flex-col-reverse sm:flex-row items-center gap-8 sm:gap-16"
         style={{ position: "relative", zIndex: 2 }}
       >
         <div style={{ flex: "1" }} className="w-full">
@@ -79,7 +82,7 @@ function Hero() {
               filter: "drop-shadow(0 0 40px rgba(125, 211, 192, 0.4)) brightness(1.1)",
               opacity: 0.95,
             }}
-            className="max-w-[260px] md:max-w-[400px] w-full h-auto"
+            className="max-w-[260px] sm:max-w-[400px] w-full h-auto"
           />
         </div>
       </div>
