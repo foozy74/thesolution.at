@@ -32,11 +32,11 @@ function Hero() {
       }}
     >
       <div
-        className="container"
-        style={{ position: "relative", zIndex: 2, display: "flex", alignItems: "center", gap: "4rem" }}
+        className="container flex flex-col-reverse md:flex-row items-center gap-8 md:gap-16"
+        style={{ position: "relative", zIndex: 2 }}
       >
-        <div style={{ flex: "1" }}>
-          <h1 style={{ fontSize: "clamp(3rem, 8vw, 5rem)", lineHeight: 1.1, marginBottom: "1.5rem" }}>
+        <div style={{ flex: "1" }} className="w-full">
+          <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", lineHeight: 1.1, marginBottom: "1.5rem" }}>
             {t("heroTitle1")}<br />
             <span className="gradient-text">{t("heroTitle2")}</span>
           </h1>
@@ -60,28 +60,26 @@ function Hero() {
             </Link>
             {"."}
           </p>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <a href="#contact" className="btn btn-primary">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a href="#contact" className="btn btn-primary text-center">
               {t("cta")}
             </a>
-            <a href="#services" className="btn glass" style={{ padding: "0.8rem 2rem" }}>
+            <a href="#services" className="btn glass text-center" style={{ padding: "0.8rem 2rem" }}>
               {t("expertise")}
             </a>
           </div>
         </div>
-        <div style={{ flex: "1", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div style={{ flex: "1" }} className="w-full flex justify-center items-center">
           <img
             src="/logo.jpeg"
             alt="thesolution.at logo"
             width={400}
             height={400}
             style={{
-              maxWidth: "400px",
-              width: "100%",
-              height: "auto",
               filter: "drop-shadow(0 0 40px rgba(125, 211, 192, 0.4)) brightness(1.1)",
               opacity: 0.95,
             }}
+            className="max-w-[260px] md:max-w-[400px] w-full h-auto"
           />
         </div>
       </div>

@@ -536,12 +536,9 @@ export default function CloudShiftProductPage() {
             </a>
           </div>
 
-          {/* Stats Row */}
           <div
+            className="grid grid-cols-2 sm:grid-cols-4 gap-[1px]"
             style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "1px",
               maxWidth: "700px",
               margin: "0 auto",
               background: "var(--glass-border)",
@@ -979,14 +976,11 @@ export default function CloudShiftProductPage() {
 
         {/* Platform Detail */}
         <div
-          className="glass"
+          className="glass grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12"
           style={{
             padding: "2.5rem",
             borderRadius: "20px",
             border: `1px solid ${selectedPlatform.color}30`,
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "3rem",
             alignItems: "start",
           }}
         >

@@ -146,13 +146,13 @@ function ArchitectureDiagram() {
     <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", alignItems: "center", justifyContent: "center", padding: "2rem" }}>
       {/* Origin */}
       <div className="glass" style={{ padding: "1.5rem 3rem", border: "2px dashed var(--accent-blue)", borderRadius: "12px", width: "100%", maxWidth: "600px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6" style={{ width: "100%" }}>
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: "2.5rem" }}>🏢</div>
             <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--text-primary)" }}>Origin Cloud</div>
             <div style={{ fontSize: "0.75rem", color: "var(--accent-blue)" }}>VMware vSphere / Oracle OLVM</div>
           </div>
-          <div style={{ textAlign: "left", fontSize: "0.85rem", color: "var(--text-secondary)" }}>
+          <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }} className="text-center sm:text-left">
              <div>• Virtual Machines</div>
              <div>• Templates</div>
              <div>• Storage & Network</div>
@@ -172,7 +172,7 @@ function ArchitectureDiagram() {
           <div style={{ fontSize: "0.75rem", color: "var(--accent-teal)" }}>Stateless Microservices</div>
         </div>
         
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" style={{ width: "100%" }}>
           <div className="glass" style={{ padding: "1rem", textAlign: "center", backgroundColor: "rgba(255,255,255,0.02)" }}>
             <div style={{ fontSize: "1.5rem", marginBottom: "0.5rem", color: "var(--accent-blue)" }}><Activity className="mx-auto" /></div>
             <div style={{ fontSize: "0.85rem", fontWeight: 600 }}>API</div>
@@ -198,13 +198,13 @@ function ArchitectureDiagram() {
 
       {/* Destination */}
       <div className="glass" style={{ padding: "1.5rem 3rem", border: "2px solid var(--accent-purple)", borderRadius: "12px", width: "100%", maxWidth: "600px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div className="flex flex-col sm:flex-row justify-between items-center gap-6" style={{ width: "100%" }}>
           <div style={{ textAlign: "center" }}>
             <div style={{ fontSize: "2.5rem" }}>☁️</div>
             <div style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--text-primary)" }}>Destination Cloud</div>
             <div style={{ fontSize: "0.75rem", color: "var(--accent-purple)" }}>OLVM / Hyper-V / Proxmox / VMware / OpenStack</div>
           </div>
-          <div style={{ textAlign: "left", fontSize: "0.85rem", color: "var(--text-secondary)" }}>
+          <div style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }} className="text-center sm:text-left">
              <div>• Converted Disks</div>
              <div>• Injected Drivers</div>
              <div>• Mapped Networks</div>
