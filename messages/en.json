@@ -193,7 +193,11 @@
     },
     "cloudshift": {
       "name": "CloudShift",
-      "description": "Fully automated live VM migration between VMware vSphere, Oracle OLVM, Hyper-V, Proxmox VE, and OpenStack. Zero downtime cutover."
+      "description": "Fully automated live VM migration between VMware vSphere, Oracle OLVM, Hyper-V, Proxmox VE, and OpenStack. Zero downtime cutover.",
+      "metaTitle": "CloudShift - Cloud Migration as a Service",
+      "metaDescription": "Seamless migration of workloads across cloud platforms. V2V and C2C migrations made easy.",
+      "title": "CloudShift",
+      "tagline": "Cloud Migration as a Service. Seamlessly move workloads across platforms."
     },
     "openclaw": {
       "metaTitle": "OpenClaw IaC - Enterprise Terraform for OCI",
@@ -212,12 +216,6 @@
       "metaDescription": "Infrastructure-as-Code for Databricks Workspaces, Clusters, Jobs and ML Models. Automation with Terraform and Databricks Asset Bundles on AWS.",
       "title": "Databricks IaC",
       "tagline": "Infrastructure-as-Code for Databricks. Automate workspaces, clusters, and jobs with Terraform and Asset Bundles."
-    },
-    "cloudshift": {
-      "metaTitle": "CloudShift - Cloud Migration as a Service",
-      "metaDescription": "Seamless migration of workloads across cloud platforms. V2V and C2C migrations made easy.",
-      "title": "CloudShift",
-      "tagline": "Cloud Migration as a Service. Seamlessly move workloads across platforms."
     },
     "cloudshift_page": {
       "title": "CloudShift",

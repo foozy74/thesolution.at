@@ -172,7 +172,16 @@ export function Navbar() {
         @media (max-width: 639px) {
           .mobile-toggle { display: block !important; }
           .desktop-menu { display: none !important; }
-          .mobile-menu { display: none; }
+          .mobile-menu {
+            display: none;
+            background: rgba(10, 15, 26, 0.98) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(125, 211, 192, 0.25) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            padding: 1.5rem !important;
+          }
           .mobile-menu-open { display: block !important; }
         }
         @media (min-width: 640px) {
@@ -227,19 +236,21 @@ function NavLink({ href, pathname, children, mobile = false }: { href: string; p
       href={href}
       onClick={handleClick}
       style={{
-        color: isActive ? "var(--accent-teal)" : "var(--text-secondary)",
+        color: isActive ? "var(--accent-teal)" : (mobile ? "var(--text-primary)" : "var(--text-secondary)"),
         textDecoration: "none",
         fontWeight: isActive ? 600 : 500,
         fontSize: mobile ? "1.125rem" : "0.9rem",
-        transition: "text-shadow 0.3s ease",
+        transition: "all 0.3s ease",
         textShadow: isActive ? "0 0 10px rgba(125, 211, 192, 0.5)" : "none",
       }}
       onMouseEnter={(e) => {
+        e.currentTarget.style.color = "var(--accent-teal)";
         if (isActive) {
           e.currentTarget.style.textShadow = "0 0 20px rgba(125, 211, 192, 0.8), 0 0 30px rgba(125, 211, 192, 0.6)";
         }
       }}
       onMouseLeave={(e) => {
+        e.currentTarget.style.color = isActive ? "var(--accent-teal)" : (mobile ? "var(--text-primary)" : "var(--text-secondary)");
         if (isActive) {
           e.currentTarget.style.textShadow = "0 0 10px rgba(125, 211, 192, 0.5)";
         }
