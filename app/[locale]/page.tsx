@@ -34,8 +34,31 @@ function Hero() {
         paddingBottom: "4rem",
       }}
     >
+      <style>{`
+        .hero-flex-container {
+          display: flex;
+          flex-direction: column-reverse;
+          align-items: center;
+          gap: 2rem;
+          width: 100%;
+        }
+        .hero-logo-img {
+          max-width: 250px;
+          width: 100%;
+          height: auto;
+        }
+        @media (min-width: 768px) {
+          .hero-flex-container {
+            flex-direction: row;
+            gap: 4rem;
+          }
+          .hero-logo-img {
+            max-width: 400px;
+          }
+        }
+      `}</style>
       <div
-        className="container flex flex-col-reverse sm:flex-row items-center gap-8 sm:gap-16"
+        className="container hero-flex-container"
         style={{ position: "relative", zIndex: 2 }}
       >
         <div style={{ flex: "1" }} className="w-full">
@@ -82,7 +105,7 @@ function Hero() {
               filter: "drop-shadow(0 0 40px rgba(125, 211, 192, 0.4)) brightness(1.1)",
               opacity: 0.95,
             }}
-            className="max-w-[260px] sm:max-w-[400px] w-full h-auto"
+            className="hero-logo-img"
           />
         </div>
       </div>
