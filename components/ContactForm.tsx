@@ -47,8 +47,10 @@ export function ContactForm() {
         templateId,
         {
           from_name: formData.name,
+          name: formData.name,
           reply_to: formData.email,
           user_email: formData.email,
+          email: formData.email,
           subject: formData.subject || "Anfrage über thesolution.at",
           message: formData.message,
         },
