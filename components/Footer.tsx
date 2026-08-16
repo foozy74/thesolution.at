@@ -2,6 +2,7 @@
 
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
+import { ContactForm } from "@/components/ContactForm";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -20,10 +21,9 @@ export function Footer() {
           {t("description")}
         </p>
 
+        <ContactForm />
+
         <address style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1.5rem", marginBottom: "4rem", fontStyle: "normal" }}>
-          <a href="mailto:contact@thesolution.at" className="btn btn-primary" style={{ fontSize: "1.25rem", width: "fit-content" }}>
-            {t("emailButton")}
-          </a>
           <nav aria-label="Social media links">
             <ul style={{ display: "flex", gap: "2rem", listStyle: "none", padding: 0, margin: 0 }}>
               <li>

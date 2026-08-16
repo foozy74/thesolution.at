@@ -18,13 +18,32 @@
   "footer": {
     "heading": "Bereit für deine Lösung?",
     "subtitle": "Interessiert an einer Zusammenarbeit? Lass uns connecten!",
-    "description": "Kontaktiere uns für spezialisiertes IT-Consulting und AI-Implementierung.",
+    "description": "Schicke uns direkt eine Nachricht über das Kontaktformular für spezialisiertes IT-Consulting und AI-Implementierung.",
     "emailButton": "contact@thesolution.at",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "impressum": "Impressum",
     "datenschutz": "Datenschutz",
-    "copyright": "© 2026 thesolution.at - Spezialisiertes IT-Consulting & AI-Lösungen"
+    "copyright": "© 2026 thesolution.at - Spezialisiertes IT-Consulting & AI-Lösungen",
+    "form": {
+      "title": "Kontaktformular",
+      "nameLabel": "Name / Unternehmen",
+      "namePlaceholder": "Max Mustermann",
+      "emailLabel": "E-Mail-Adresse",
+      "emailPlaceholder": "max@beispiel.at",
+      "subjectLabel": "Anliegen / Betreff",
+      "subjectPlaceholder": "z.B. Cloud-Migration, AI Consulting...",
+      "messageLabel": "Nachricht",
+      "messagePlaceholder": "Beschreibe dein Projekt oder deine Frage...",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "successTitle": "Nachricht erfolgreich gesendet!",
+      "successText": "Vielen Dank für deine Anfrage. Wir werden uns in Kürze bei dir melden.",
+      "sendAnother": "Weitere Nachricht senden",
+      "errorTitle": "Fehler beim Senden",
+      "errorConfig": "EmailJS ist auf dem Server noch nicht vollständig konfiguriert (NEXT_PUBLIC_EMAILJS_*). Bitte trage die Keys in .env.local ein.",
+      "errorGeneric": "Beim Versenden der Nachricht ist ein Fehler aufgetreten. Bitte versuche es später erneut."
+    }
   },
   "home": {
     "metaTitle": "thesolution.at - IT Consulting & AI Lösungen",

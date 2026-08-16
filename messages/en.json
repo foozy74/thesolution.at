@@ -18,13 +18,32 @@
   "footer": {
     "heading": "Ready to find your Solution?",
     "subtitle": "Interested in working together? Let's connect!",
-    "description": "Get in touch for specialized IT consulting and AI implementation.",
+    "description": "Send us a message directly via the contact form for specialized IT consulting and AI implementation.",
     "emailButton": "contact@thesolution.at",
     "github": "GitHub",
     "linkedin": "LinkedIn",
     "impressum": "Legal Notice",
     "datenschutz": "Privacy Policy",
-    "copyright": "© 2026 thesolution.at - Specialized IT Consulting & AI Solutions"
+    "copyright": "© 2026 thesolution.at - Specialized IT Consulting & AI Solutions",
+    "form": {
+      "title": "Contact Form",
+      "nameLabel": "Name / Company",
+      "namePlaceholder": "Jane Doe",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "jane@example.com",
+      "subjectLabel": "Subject / Topic",
+      "subjectPlaceholder": "e.g. Cloud Migration, AI Consulting...",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Describe your project or question...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "successTitle": "Message sent successfully!",
+      "successText": "Thank you for reaching out. We will get back to you shortly.",
+      "sendAnother": "Send another message",
+      "errorTitle": "Sending failed",
+      "errorConfig": "EmailJS is not fully configured on the server yet (NEXT_PUBLIC_EMAILJS_*). Please add keys to .env.local.",
+      "errorGeneric": "An error occurred while sending your message. Please try again later."
+    }
   },
   "home": {
     "metaTitle": "thesolution.at - IT Consulting & AI Solutions",
