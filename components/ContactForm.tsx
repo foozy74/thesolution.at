@@ -61,7 +61,12 @@ export function ContactForm() {
           time: formattedTime,
           date: formattedTime,
           subject: subjectText,
+          subject_line: subjectText,
+          subject_text: subjectText,
           title: subjectText,
+          topic: subjectText,
+          heading: subjectText,
+          betreff: subjectText,
           message: formData.message,
         },
         publicKey
