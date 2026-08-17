@@ -42,15 +42,23 @@ export function ContactForm() {
     }
 
     try {
+      const now = new Date();
+      const formattedTime = now.toLocaleString("de-AT", {
+        dateStyle: "medium",
+        timeStyle: "short",
+      });
+
       await emailjs.send(
         serviceId,
         templateId,
         {
-          from_name: formData.name,
           name: formData.name,
-          reply_to: formData.email,
-          user_email: formData.email,
+          from_name: formData.name,
           email: formData.email,
+          user_email: formData.email,
+          reply_to: formData.email,
+          time: formattedTime,
+          date: formattedTime,
           subject: formData.subject || "Anfrage über thesolution.at",
           message: formData.message,
         },
