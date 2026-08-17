@@ -47,6 +47,7 @@ export function ContactForm() {
         dateStyle: "medium",
         timeStyle: "short",
       });
+      const subjectText = formData.subject.trim() || "Anfrage über thesolution.at";
 
       await emailjs.send(
         serviceId,
@@ -59,7 +60,8 @@ export function ContactForm() {
           reply_to: formData.email,
           time: formattedTime,
           date: formattedTime,
-          subject: formData.subject || "Anfrage über thesolution.at",
+          subject: subjectText,
+          title: subjectText,
           message: formData.message,
         },
         publicKey
