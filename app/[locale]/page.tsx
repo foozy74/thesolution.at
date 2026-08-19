@@ -59,7 +59,7 @@ function Hero() {
       `}</style>
       <div
         className="container hero-flex-container"
-        style={{ position: "relative", zIndex: 2 }}
+        style={{ position: "relative", zIndex: 10 }}
       >
         <div style={{ flex: "1" }} className="w-full">
           <h1 style={{ fontSize: "clamp(2.5rem, 6vw, 5rem)", lineHeight: 1.1, marginBottom: "1.5rem" }}>
@@ -119,6 +119,7 @@ function Hero() {
           background: "radial-gradient(circle, rgba(125, 211, 192, 0.12) 0%, rgba(91, 155, 213, 0.08) 40%, transparent 70%)",
           filter: "blur(60px)",
           zIndex: 1,
+          pointerEvents: "none",
         }}
       />
       <div
@@ -131,6 +132,7 @@ function Hero() {
           background: "radial-gradient(circle, rgba(91, 155, 213, 0.1) 0%, transparent 70%)",
           filter: "blur(50px)",
           zIndex: 1,
+          pointerEvents: "none",
         }}
       />
       <div
@@ -142,6 +144,7 @@ function Hero() {
           height: "200px",
           background: "linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9))",
           zIndex: 2,
+          pointerEvents: "none",
         }}
       />
     </header>
