@@ -47,10 +47,10 @@
   },
   "home": {
     "metaTitle": "thesolution.at - IT Consulting & AI Lösungen",
-    "metaDescription": "IT Consulting für Datacenter, Virtualisierung, AWS und AI. Experte für Kubernetes, Terraform und Databricks in Österreich.",
+    "metaDescription": "IT Consulting für Datacenter, Virtualisierung, AWS, GCP und AI. Experte für Kubernetes, Terraform und Databricks in Österreich.",
     "heroTitle1": "Elevating Infrastructure,",
     "heroTitle2": "Mastering AI.",
-    "heroSubtitle": "Expert IT Consulting for Datacenter Virtualization, AWS Multicloud, and Cutting-edge AI Solutions.",
+    "heroSubtitle": "Expert IT Consulting for Datacenter Virtualization, AWS & GCP Multicloud, and Cutting-edge AI Solutions.",
     "heroIntro": "Wir architektieren Enterprise-grade Infrastructure-as-Code auf Oracle Cloud und AWS, modernisieren VMware-Umgebungen für die Broadcom-Ära und bauen produktionsreife AI-Systeme. Von Kubernetes-Plattformen und Databricks-Lakehouses bis zu Self-hosted PaaS und Custom-ML-Pipelines — unsere Lösungen betreiben geschäftskritische Workloads in ganz Europa. Entdecke unsere",
     "heroIntroOr": "oder probiere unsere",
     "solutionsLink": "IT-Lösungen",
@@ -87,7 +87,7 @@
       "jurgen": {
         "name": "Jürgen Müller",
         "role": "Founder & Senior Cloud Architect",
-        "bio": "25+ Jahre Erfahrung in Datacenter-Virtualisierung, AWS Multicloud und AI-Lösungen."
+        "bio": "25+ Jahre Erfahrung in Datacenter-Virtualisierung, AWS & GCP Multicloud und AI-Lösungen."
       },
       "moritz": {
         "name": "Moritz Müller",
@@ -112,7 +112,7 @@
     },
     "expertise": {
       "title": "Unsere Expertise",
-      "text": "Spezialisiert auf VMware-Migration im Broadcom-Zeitalter, AWS Multicloud-Strategien, Kubernetes-Orchestrierung mit Cilium, Databricks Lakehouse-Architekturen, und Infrastructure-as-Code mit Terraform. Zusätzlich entwickeln wir produktionsreife AI- und ML-Lösungen."
+      "text": "Spezialisiert auf VMware-Migration im Broadcom-Zeitalter, AWS & GCP Multicloud-Strategien, Kubernetes-Orchestrierung mit Cilium, Databricks Lakehouse-Architekturen, und Infrastructure-as-Code mit Terraform. Zusätzlich entwickeln wir produktionsreife AI- und ML-Lösungen."
     },
     "values": {
       "title": "Unsere Werte",

@@ -5,7 +5,7 @@ Professional homepage for **Jürgen Müller**, IT Consultant specializing in hig
 ## Expertise
 
 - **🏢 Datacenter & Virtualization**: Expert guidance on VMware (Broadcom), Hyper-V, KVM, Kubernetes, KubeVirt, and Cilium.
-- **☁️ AWS Multicloud**: Strategic training and architecture for multicloud environments.
+- **☁️ AWS & GCP Multicloud**: Strategic training and architecture for multicloud environments.
 - **🧠 Machine Learning & AI**: Implementation of NLP, Generative AI, and automated AI workflows.
 
 ## Technology Stack

@@ -266,9 +266,9 @@ function ServicesSection() {
         />
         <ServiceCard
           icon={Cloud}
-          title="AWS Multicloud Training"
-          items={["Strategic Workshops", "Hands-on Multicloud Mastery", "Integration & Migration", "Cloud Architecture Design"]}
-          ariaLabel="AWS Multicloud Training Service"
+          title="AWS & GCP Multicloud Training"
+          items={["Strategic Workshops", "Hands-on Multicloud Mastery (AWS & GCP)", "Integration & Migration", "Cloud Architecture Design"]}
+          ariaLabel="AWS & GCP Multicloud Training Service"
         />
         <ServiceCard
           icon={Shield}

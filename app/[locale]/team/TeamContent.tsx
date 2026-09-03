@@ -48,7 +48,7 @@ export default function TeamContent() {
 }
 
 function getSkills(key: string): string[] {
-  if (key === "jurgen") return ["VMware", "AWS", "Kubernetes", "AI/ML"];
+  if (key === "jurgen") return ["VMware", "AWS", "Google Cloud (GCP)", "Kubernetes", "AI/ML"];
   if (key === "moritz") return ["Reporting & KPI‑Tracking", "Präsentations- und Pitch-Fähigkeiten"];
   if (key === "felix") return ["Python", "TensorFlow", "PyTorch", "MLOps", "Data Engineering", "Web Design"];
   return [];

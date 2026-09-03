@@ -47,10 +47,10 @@
   },
   "home": {
     "metaTitle": "thesolution.at - IT Consulting & AI Solutions",
-    "metaDescription": "IT consulting for datacenter, virtualization, AWS and AI. Expert for Kubernetes, Terraform and Databricks in Austria.",
+    "metaDescription": "IT consulting for datacenter, virtualization, AWS, GCP and AI. Expert for Kubernetes, Terraform and Databricks in Austria.",
     "heroTitle1": "Elevating Infrastructure,",
     "heroTitle2": "Mastering AI.",
-    "heroSubtitle": "Expert IT Consulting for Datacenter Virtualization, AWS Multicloud, and Cutting-edge AI Solutions.",
+    "heroSubtitle": "Expert IT Consulting for Datacenter Virtualization, AWS & GCP Multicloud, and Cutting-edge AI Solutions.",
     "heroIntro": "We architect enterprise-grade Infrastructure-as-Code on Oracle Cloud and AWS, modernize VMware environments for the Broadcom era, and build production-ready AI systems. From Kubernetes platforms and Databricks lakehouses to self-hosted PaaS and custom ML pipelines — our solutions power mission-critical workloads across Europe. Explore our",
     "heroIntroOr": "or try our",
     "solutionsLink": "IT solutions",
@@ -87,7 +87,7 @@
       "jurgen": {
         "name": "Jürgen Müller",
         "role": "Founder & Senior Cloud Architect",
-        "bio": "25+ years of experience in datacenter virtualization, AWS multicloud and AI solutions."
+        "bio": "25+ years of experience in datacenter virtualization, AWS & GCP multicloud and AI solutions."
       },
       "moritz": {
         "name": "Moritz Müller",
@@ -112,7 +112,7 @@
     },
     "expertise": {
       "title": "Our Expertise",
-      "text": "Specialized in VMware migration for the Broadcom era, AWS multicloud strategies, Kubernetes orchestration with Cilium, Databricks lakehouse architectures, and Infrastructure-as-Code with Terraform. Additionally, we develop production-ready AI and ML solutions."
+      "text": "Specialized in VMware migration for the Broadcom era, AWS & GCP multicloud strategies, Kubernetes orchestration with Cilium, Databricks lakehouse architectures, and Infrastructure-as-Code with Terraform. Additionally, we develop production-ready AI and ML solutions."
     },
     "values": {
       "title": "Our Values",

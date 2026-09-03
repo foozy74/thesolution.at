@@ -14,7 +14,7 @@
         "height": "150"
       },
       "image": "https://thesolution.at/logo.jpeg",
-      "description": "Spezialisiertes IT Consulting für Datacenter-Virtualisierung, AWS Multicloud, VMware und KI-Lösungen.",
+      "description": "Spezialisiertes IT Consulting für Datacenter-Virtualisierung, AWS & GCP Multicloud, VMware und KI-Lösungen.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Hertha-Firnberg-Straße 9/3/307",
@@ -121,7 +121,7 @@
     },
     {
       "@type": "Service",
-      "serviceType": "AWS Multicloud Training",
+      "serviceType": "AWS & GCP Multicloud Training",
       "provider": {
         "@id": "https://thesolution.at/#organization"
       },
@@ -132,7 +132,7 @@
       "description": "Strategic workshops and hands-on training for multicloud environments. Cloud architecture design, integration & migration.",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "AWS Multicloud Services",
+        "name": "AWS & GCP Multicloud Services",
         "itemListElement": [
           {
             "@type": "Offer",
