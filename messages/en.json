@@ -260,6 +260,138 @@
       "metaDescription": "Matrix EU: Secure chat and video communication for teams without Big Tech dependency. GDPR-compliant and EU-hosted.",
       "title": "Matrix EU",
       "tagline": "Secure team communication - chat and video calls without Big Tech dependency. GDPR-compliant and EU-hosted."
+    },
+    "augentrainer": {
+      "metaTitle": "Eye Trainer - Dynamic Visual & Focus Training",
+      "metaDescription": "Interactive visual tracking and multiple object tracking trainer to improve focus, dynamic visual acuity, and eye coordination.",
+      "title": "Eye Trainer",
+      "tagline": "Interactive Multiple Object Tracking and eye fitness. Track moving dots in a circle and boost your visual attention."
+    },
+    "augentrainer_page": {
+      "badge": "Neuro-Visual Eye Training & Focus",
+      "title": "Eye Trainer",
+      "back": "Back to Overview",
+      "headers": {
+        "continuous": "Track the red highlighted dot. It seamlessly transitions to white and continues moving among the other dots in the circle. Keep your eyes locked on it – for verification, this exact ball will light up red again!",
+        "challenge": "Memorize the red target dot. Track it seamlessly when it turns white. Click on the ball at the end of the round to earn points, streaks, and level up!",
+        "peripheral": "Stare steadily at the cross (+) in the center of the circle. Do not move your eyes and track the target ball exclusively using your peripheral vision to reduce tunnel vision and expand your visual field."
+      },
+      "tabs": {
+        "continuous": "Continuous Flow (Seamless Tracking)",
+        "challenge": "Challenge Mode (Click & Test)",
+        "peripheral": "Peripheral Vision (Fixation Cross)"
+      },
+      "status": {
+        "continuousHighlight": "🔴 Focus Target (Red)",
+        "continuousTracking": "👁️ Hold focus! Target is white and moving...",
+        "peripheralIdle": "➕ Fixate gaze on the center cross and start",
+        "peripheralMemorize": "🔴 Hold cross! Memorize target in peripheral vision ({timeLeft}s)",
+        "peripheralTracking": "➕ Do not look away! Hold cross & track ball peripherally ({timeLeft}s)",
+        "peripheralSelect": "👉 Click the ball you tracked in your peripheral vision!",
+        "peripheralCorrect": "🎉 Fantastic! Perfect peripheral perception!",
+        "peripheralWrong": "❌ Not quite – Target revealed!",
+        "challengeIdle": "Ready to Start",
+        "challengeMemorize": "🔴 Memorize Target! ({timeLeft}s)",
+        "challengeTracking": "👁️ Tracking (ball is white)... ({timeLeft}s)",
+        "challengeSelect": "👉 Click on the original target ball!",
+        "challengeCorrect": "🎉 Perfect! Tracked correctly!",
+        "challengeWrong": "❌ Incorrect – Target revealed!"
+      },
+      "overlays": {
+        "startBtn": "Start Training",
+        "nextRoundBtn": "Next Round",
+        "correctHit": "Hit! +Score",
+        "wrongHit": "Not quite!",
+        "descContinuous": "The red dot turns white and continues drawing its trail seamlessly. Keep your eye on it!",
+        "descChallenge": "Track the target dot as it turns white and select it at the end",
+        "descPeripheral": "Look steadily at the cross (+) in the center. Do not move your eyes and track the ball purely via your peripheral field!",
+        "targetBadge": "🎯 Target",
+        "yourClickBadge": "✕ Your Click"
+      },
+      "controls": {
+        "start": "Start",
+        "reset": "Reset",
+        "cycles": "Cycles",
+        "streak": "Streak",
+        "score": "Score",
+        "mute": "Mute Audio",
+        "unmute": "Enable Audio",
+        "fullscreen": "Fullscreen"
+      },
+      "stats": {
+        "title": "Performance & Progress",
+        "streak": "Streak",
+        "level": "Level",
+        "accuracy": "Accuracy",
+        "points": "Points"
+      },
+      "params": {
+        "title": "Training Parameters",
+        "dotSize": "Dot Size",
+        "trailLength": "Trail Length",
+        "dotCount": "Number of Dots",
+        "speed": "Speed",
+        "speeds": {
+          "slow": "Relaxed",
+          "medium": "Medium",
+          "fast": "Fast",
+          "expert": "Reflex"
+        },
+        "complexity": "Complexity & Dynamics",
+        "complexities": {
+          "1": "1 • Linear (Wall)",
+          "2": "2 • Dynamic (Bounces)",
+          "3": "3 • Curved",
+          "4": "4 • Chaotic / Reflex"
+        },
+        "duration": "Tracking Duration",
+        "fixationCross": "Central Fixation Cross"
+      },
+      "rules": {
+        "title": "Game Rules & Flow",
+        "step1Title": "1. Memorize Target (Red)",
+        "step1Desc": "At the start, the target ball lights up in vibrant red for 2.5 to 3 seconds.",
+        "step2Title": "2. Track Seamlessly (White)",
+        "step2Desc": "The ball transitions to white and continues moving among all other white balls.",
+        "step3Title": "3. Verification / Click",
+        "step3Desc": "In Continuous Flow, the ball automatically flashes red after the tracking period. In Challenge Mode, click the target ball to score."
+      },
+      "peripheralGuide": {
+        "title": "Peripheral Vision",
+        "crossTitle": "Central Fixation Cross (+)",
+        "crossDesc": "Keep your gaze strictly centered on the cross. Do not move your pupils towards the moving balls!",
+        "cornerTitle": "Corner-of-Eye Perception",
+        "cornerDesc": "Try to register the red target ball purely through your outer retinal rod cells and hold it in spatial working memory.",
+        "effectTitle": "Training Benefit",
+        "effectDesc": "Reduces screen-induced tunnel vision, doubles your Useful Field of View (UFOV), and sharpens reaction times in sports & driving."
+      },
+      "scoring": {
+        "title": "Scoring & Levels",
+        "base": "🎯 Base Points",
+        "baseVal": "+100 Points",
+        "streak": "🔥 Streak Bonus",
+        "streakVal": "+30 × Streak",
+        "speed": "⚡ Speed Bonus",
+        "speedVal": "+25 × Speed",
+        "level": "🏆 Level Bonus",
+        "levelVal": "+50 × Level",
+        "levelUpLabel": "Level Up",
+        "levelUp": "Every 3 consecutive correct rounds you level up!"
+      },
+      "science": {
+        "motTitle": "Multiple Object Tracking (MOT)",
+        "motDesc": "MOT is a proven cognitive psychology paradigm. It trains the brain's ability to track multiple visual stimuli simultaneously and extrapolate their spatial trajectories.",
+        "motPoint1": "Strengthens oculomotor control",
+        "motPoint2": "Sharpens divided visual attention",
+        "ergoTitle": "Eye Ergonomics & 20-20-20",
+        "ergoDesc": "Extended screen time locks eyes at fixed distances. Dynamic tracking exercises stimulate microsaccades and prevent visual fatigue.",
+        "ergoPoint1": "Every 20 min look 20 feet away for 20 sec",
+        "ergoPoint2": "Frequent conscious blinking",
+        "tipsTitle": "Training Tips",
+        "tipsDesc": "Sit upright approx. 50–70 cm from your screen. Use Fullscreen mode to eliminate distractions and adjust trail length and speed to your skill.",
+        "tipsPoint1": "5–10 minutes daily routine",
+        "tipsPoint2": "Test peripheral vision with the fixation cross"
+      }
     }
   }
 }

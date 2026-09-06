@@ -260,6 +260,138 @@
       "metaDescription": "Matrix EU: Sichere Chat- und Video-Kommunikation für Teams ohne Big-Tech-Abhängigkeit. DSGVO-konform und EU-gehostet.",
       "title": "Matrix EU",
       "tagline": "Sichere Kommunikation für Teams - Chat und Videocalls ohne Big-Tech-Abhängigkeit. DSGVO-konform und EU-gehostet."
+    },
+    "augentrainer": {
+      "metaTitle": "Augentrainer - Dynamisches Seh- & Fokus-Training",
+      "metaDescription": "Interaktives Visual-Tracking- und Multiple-Object-Tracking-Training zur Steigerung von Konzentration, visueller Wahrnehmung und Augenmuskulatur.",
+      "title": "Augentrainer",
+      "tagline": "Interaktives Multiple-Object-Tracking und Augentraining. Verfolge bewegte Punkte im Kreis und stärke deine visuelle Aufmerksamkeit."
+    },
+    "augentrainer_page": {
+      "badge": "Neuro-Visuelles Augentraining & Fokus",
+      "title": "Augentrainer",
+      "back": "Zurück zur Übersicht",
+      "headers": {
+        "continuous": "Verfolge den rot markierten Punkt. Er wechselt unterbrechungsfrei zu Weiß und bewegt sich kontinuierlich mit den anderen Punkten im Kreis. Halte deinen Blick fest darauf – zur Kontrolle leuchtet exakt diese Kugel wieder Rot auf!",
+        "challenge": "Präge dir den roten Zielball ein. Verfolge ihn unterbrechungsfrei, wenn er zu Weiß wird. Klicke am Ende der Runde auf den Ball, um Punkte, Streaks und Level-Aufstiege zu erzielen!",
+        "peripheral": "Fixiere starr das Kreuz (+) in der Kreismitte. Bewege deine Augen nicht weg und verfolge den Zielball ausschließlich über deine Augenwinkel (peripheres Sehen), um deinen Tunnelblick abzubauen und das Sichtfeld zu erweitern."
+      },
+      "tabs": {
+        "continuous": "Continuous Flow (Unterbrechungsfreies Tracking)",
+        "challenge": "Challenge Modus (Klick & Test)",
+        "peripheral": "Peripheres Sehen (Fixationskreuz)"
+      },
+      "status": {
+        "continuousHighlight": "🔴 Ziel fokussieren (Rot)",
+        "continuousTracking": "👁️ Blick halten! Ziel ist weiß und bewegt sich...",
+        "peripheralIdle": "➕ Blick starr auf das Kreuz in der Mitte richten und starten",
+        "peripheralMemorize": "🔴 Kreuz fixieren! Ziel im Augenwinkel einprägen ({timeLeft}s)",
+        "peripheralTracking": "➕ Nicht wegschauen! Kreuz halten & Ball peripher verfolgen ({timeLeft}s)",
+        "peripheralSelect": "👉 Klicke auf den Ball, den du im Augenwinkel verfolgt hast!",
+        "peripheralCorrect": "🎉 Fantastisch! Perfekt peripher wahrgenommen!",
+        "peripheralWrong": "❌ Knapp daneben – Ziel aufgedeckt!",
+        "challengeIdle": "Bereit zum Start",
+        "challengeMemorize": "🔴 Ziel merken! ({timeLeft}s)",
+        "challengeTracking": "👁️ Verfolgen (Punkt ist weiß)... ({timeLeft}s)",
+        "challengeSelect": "👉 Klicke auf den ursprünglichen Zielpunkt!",
+        "challengeCorrect": "🎉 Perfekt! Richtig verfolgt!",
+        "challengeWrong": "❌ Leider falsch – Ziel aufgedeckt!"
+      },
+      "overlays": {
+        "startBtn": "Training Starten",
+        "nextRoundBtn": "Nächste Runde",
+        "correctHit": "Treffer! +Score",
+        "wrongHit": "Nicht ganz!",
+        "descContinuous": "Der rote Punkt wird weiß und zieht seine Spur ununterbrochen weiter. Behalte ihn im Auge!",
+        "descChallenge": "Verfolge den Zielpunkt, während er weiß wird, und wähle ihn am Ende aus",
+        "descPeripheral": "Blicke starr auf das Kreuz (+) in der Mitte. Bewege die Augen nicht und verfolge den Ball rein über deine Augenwinkel!",
+        "targetBadge": "🎯 Ziel",
+        "yourClickBadge": "✕ Dein Klick"
+      },
+      "controls": {
+        "start": "Start",
+        "reset": "Zurücksetzen",
+        "cycles": "Durchläufe",
+        "streak": "Streak",
+        "score": "Score",
+        "mute": "Audio stummschalten",
+        "unmute": "Audio aktivieren",
+        "fullscreen": "Vollbild"
+      },
+      "stats": {
+        "title": "Leistung & Fortschritt",
+        "streak": "Streak",
+        "level": "Level",
+        "accuracy": "Trefferquote",
+        "points": "Punkte"
+      },
+      "params": {
+        "title": "Trainings-Parameter",
+        "dotSize": "Punktgröße",
+        "trailLength": "Spurlänge (Trail)",
+        "dotCount": "Anzahl Punkte",
+        "speed": "Geschwindigkeit",
+        "speeds": {
+          "slow": "Gemächlich",
+          "medium": "Mittel",
+          "fast": "Schnell",
+          "expert": "Reflex"
+        },
+        "complexity": "Komplexität & Dynamik",
+        "complexities": {
+          "1": "1 • Geradlinig (Wand)",
+          "2": "2 • Dynamisch (Stöße)",
+          "3": "3 • Kurvenreich",
+          "4": "4 • Chaotisch / Reflex"
+        },
+        "duration": "Tracking-Dauer",
+        "fixationCross": "Zentrales Fixationskreuz"
+      },
+      "rules": {
+        "title": "Spielregeln & Ablauf",
+        "step1Title": "1. Ziel einprägen (Rot)",
+        "step1Desc": "Zu Beginn leuchtet die Zielkugel für 2,5 bis 3 Sekunden in leuchtendem Rot auf.",
+        "step2Title": "2. Unterbrechungsfrei verfolgen (Weiß)",
+        "step2Desc": "Die Kugel wechselt zu Weiß und bewegt sich kontinuierlich zwischen den anderen Kugeln.",
+        "step3Title": "3. Überprüfung / Klick",
+        "step3Desc": "Im Continuous Flow leuchtet der Ball nach Ablauf der Zeit automatisch wieder rot auf. Im Challenge-Modus wählst du den Zielball per Klick aus."
+      },
+      "peripheralGuide": {
+        "title": "Peripheres Sehen",
+        "crossTitle": "Zentrales Fixationskreuz (+)",
+        "crossDesc": "Richte deinen Blick starr auf das Kreuz in der Kreismitte. Bewege deine Pupillen nicht zu den fliegenden Bällen!",
+        "cornerTitle": "Wahrnehmung im Augenwinkel",
+        "cornerDesc": "Versuche, die rot markierte Kugel rein über dein äußeres Sehfeld (periphere Stäbchenzellen) zu registrieren und im mentalen Raum zu halten.",
+        "effectTitle": "Trainings-Effekt",
+        "effectDesc": "Baut den Bildschirm-Tunnelblick ab, verdoppelt das nutzbare Sichtfeld (Useful Field of View) und schärft die Reaktionszeit im Sport & Straßenverkehr."
+      },
+      "scoring": {
+        "title": "Punktevergabe & Level",
+        "base": "🎯 Basis-Punkte",
+        "baseVal": "+100 Punkte",
+        "streak": "🔥 Streak-Bonus",
+        "streakVal": "+30 × Streak",
+        "speed": "⚡ Tempo-Bonus",
+        "speedVal": "+25 × Speed",
+        "level": "🏆 Level-Bonus",
+        "levelVal": "+50 × Level",
+        "levelUpLabel": "Level-Aufstieg",
+        "levelUp": "Alle 3 erfolgreichen Runden in Folge steigst du ein Level auf!"
+      },
+      "science": {
+        "motTitle": "Multiple Object Tracking (MOT)",
+        "motDesc": "MOT ist ein erprobtes Paradigma aus der Kognitionspsychologie. Es trainiert die Fähigkeit des Gehirns, visuelle Reize simultan zu erfassen und ihre Trajektorien präzise im Arbeitsgedächtnis zu behalten.",
+        "motPoint1": "Stärkt die Oculomotorik",
+        "motPoint2": "Schärft geteilte Aufmerksamkeit",
+        "ergoTitle": "Augen-Ergonomie & 20-20-20",
+        "ergoDesc": "Lange Bildschirmarbeit fixiert die Augen auf starre Distanzen. Dynamische Sehübungen mit Verfolgungsbewegungen regen die Mikrosakkaden an und beugen visueller Ermüdung vor.",
+        "ergoPoint1": "Alle 20 Min. für 20 Sek. in die Ferne blicken",
+        "ergoPoint2": "Regelmäßiges bewusstes Blinzeln",
+        "tipsTitle": "Trainings-Tipps",
+        "tipsDesc": "Sitze aufrecht mit ca. 50–70 cm Abstand zum Monitor. Nutze den Vollbild-Modus, um störende Ablenkungen auszublenden, und passe die Spurlänge sowie Geschwindigkeit an dein Level an.",
+        "tipsPoint1": "5–10 Minuten tägliche Routine",
+        "tipsPoint2": "Peripheres Sehen mit Fixationskreuz testen"
+      }
     }
   }
 }
