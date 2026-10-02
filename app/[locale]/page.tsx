@@ -6,12 +6,14 @@ import { Link } from "@/i18n/routing";
 import { Server, Cloud, Shield, BarChart3 } from "lucide-react";
 
 import { FormulaBackground } from "@/components/FormulaBackground";
+import { ServicesMotionGraphics } from "@/components/ServicesMotionGraphics";
 
 export default function HomePage() {
   return (
     <>
       <Hero />
       <ServicesSection />
+      <ServicesMotionGraphics />
     </>
   );
 }
