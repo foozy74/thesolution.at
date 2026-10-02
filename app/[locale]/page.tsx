@@ -5,6 +5,8 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Server, Cloud, Shield, BarChart3, MessageSquare, Sparkles, Brain, TrendingUp, Zap, Eye } from "lucide-react";
 
+import { FormulaBackground } from "@/components/FormulaBackground";
+
 export default function HomePage() {
   const [showDiagnostic, setShowDiagnostic] = useState(false);
 
@@ -19,7 +21,6 @@ export default function HomePage() {
 
 function Hero() {
   const t = useTranslations("home");
-  const tCommon = useTranslations("common");
 
   return (
     <header
@@ -109,6 +110,8 @@ function Hero() {
           />
         </div>
       </div>
+      {/* Sanfte mathematische Hintergrundanimation F(n, t) */}
+      <FormulaBackground opacity={0.85} showFormulaBadge={true} />
       <div
         style={{
           position: "absolute",
@@ -260,7 +263,6 @@ function ServicesSection() {
             "Storage & Network Virtualization",
             "Infrastructure Optimization",
             "Backup & Disaster Recovery",
-            "CloudShift (Cross-Cloud Migration)",
           ]}
           ariaLabel="Datacenter & Virtualization Service"
         />
