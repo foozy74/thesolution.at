@@ -63,16 +63,145 @@
     "statsToggleLess": "Less Details",
     "statsYears": "Years of Experience",
     "statsCustomers": "Satisfied Customers",
-    "statsRetention": "Client Retention",
-    "aiTitle": "Machine Learning & AI",
-    "aiHeading": "Future-Proof Your Business",
-    "aiIntro": "Leverage the power of modern AI to automate workflows, analyze complex data, and build intelligent products.",
-    "aiNlp": "NLP Solutions",
-    "aiGen": "Generative AI",
-    "aiNeural": "Neural Networks",
-    "aiData": "Data Science",
-    "aiAuto": "AI Automation",
-    "aiVision": "Computer Vision"
+    "statsRetention": "Client Retention"
+  },
+  "motion": {
+    "badge": "Motion Graphics Showcase",
+    "title": "Services",
+    "titleHighlight": "in Motion",
+    "subtitle": "Experience the core competencies of thesolution.at in our interactive corporate motion graphics presentation.",
+    "soundtrackTitle": "Soundtrack: Ummbrella - Deep Abstract Ambient",
+    "ambientTrack": "Ambient: Snowcap",
+    "soundOn": "Sound On",
+    "soundOff": "Sound Off",
+    "muteLabel": "Mute background music",
+    "unmuteLabel": "Unmute background music",
+    "soundActiveTitle": "Music active (Click to mute)",
+    "soundMutedTitle": "Music muted (Click for sound)",
+    "fullscreen": "Fullscreen",
+    "toggleFullscreen": "Toggle fullscreen",
+    "archLayer": "Architecture Layer",
+    "activeStatus": "ACTIVE",
+    "specLink": "Explore Specifications & Solutions",
+    "requestProject": "Request Project",
+    "allSolutions": "View All Solutions",
+    "prevScene": "Previous Scene",
+    "nextScene": "Next Scene",
+    "replay": "Replay from Start",
+    "play": "Play",
+    "pause": "Pause",
+    "scene": "Scene",
+    "of": "of",
+    "scenes": {
+      "intro": {
+        "badge": "01 / 06 • OVERVIEW",
+        "title": "thesolution.at",
+        "tagline": "ELEVATING ENTERPRISE INFRASTRUCTURE",
+        "category": "Architecture & Consulting",
+        "description": "Specialized high-end IT infrastructure, automated cloud ecosystems, and future-proof virtualization for demanding enterprises.",
+        "features": [
+          "Enterprise Infrastructure-as-Code",
+          "Modern Hybrid & Multicloud Workloads",
+          "Broadcom-Era VMware Modernization",
+          "High-Performance Big Data & Lakehouse"
+        ],
+        "metrics": [
+          { "label": "LOCATION", "value": "Austria & EU", "status": "ONLINE" },
+          { "label": "EXPERTISE", "value": "25+ Years", "status": "VERIFIED" },
+          { "label": "SYSTEMS", "value": "Enterprise-Grade", "status": "READY" }
+        ]
+      },
+      "datacenter": {
+        "badge": "02 / 06 • VIRTUALIZATION",
+        "title": "Datacenter & Virtualization",
+        "tagline": "HIGH-DENSITY COMPUTE & ZERO-TRUST MESH",
+        "category": "Compute, Storage & Network",
+        "description": "Maximum compute efficiency with advanced server virtualization, Kubernetes clusters, KubeVirt for container/VM convergence, and Cilium eBPF networking.",
+        "features": [
+          "VMware ESXi, Hyper-V & KVM Orchestration",
+          "Kubernetes, KubeVirt & Cilium eBPF Mesh",
+          "Storage & Software-Defined Network Virtualization",
+          "Disaster Recovery & High-Availability Architectures"
+        ],
+        "metrics": [
+          { "label": "REDUNDANCY", "value": "N+2 Active-Active", "status": "HEALTHY" },
+          { "label": "NETWORK", "value": "Cilium eBPF 100G", "status": "ACCELERATED" },
+          { "label": "KUBEVIRT", "value": "Unified VM/Pod", "status": "OPTIMIZED" }
+        ]
+      },
+      "multicloud": {
+        "badge": "03 / 06 • CLOUD EXCELLENCE",
+        "title": "AWS & GCP Multicloud Training",
+        "tagline": "HANDS-ON MULTICLOUD MASTERY & AUTOMATION",
+        "category": "Strategic Workshops & Migration",
+        "description": "Vendor-independent multicloud architectures on AWS and Google Cloud. In-depth hands-on workshops, Terraform CI/CD pipelines, and zero-downtime migrations.",
+        "features": [
+          "Strategic Multicloud Architecture & Governance",
+          "AWS & GCP Hands-on Mastery & Enablement",
+          "Terraform / OpenTofu Automation",
+          "Cross-Cloud Interconnect & Direct Peering"
+        ],
+        "metrics": [
+          { "label": "CLOUDS", "value": "AWS & GCP Dual-Active", "status": "SYNCED" },
+          { "label": "IAC PIPELINE", "value": "100% Declarative", "status": "PASSED" },
+          { "label": "LATENCY", "value": "< 2.4ms Interconnect", "status": "LOW" }
+        ]
+      },
+      "vmware": {
+        "badge": "04 / 06 • SPECIALIST CONSULTING",
+        "title": "VMware Specialist (Broadcom Era)",
+        "tagline": "VCF IMPLEMENTATION & LICENSE OPTIMIZATION",
+        "category": "Consultation & Legacy Migration",
+        "description": "In-depth strategic guidance for the Broadcom era: license cost optimization, VMware Cloud Foundation (VCF) adoption, or alternative migration paths.",
+        "features": [
+          "Broadcom-Era License & Capacity Audit",
+          "VMware Cloud Foundation (VCF) Architecture",
+          "Cost Reduction & Core-Based Licensing Strategy",
+          "Risk-Free Legacy Migration & Co-Existence"
+        ],
+        "metrics": [
+          { "label": "LICENSE EFFICIENCY", "value": "-35% to -50%", "status": "OPTIMIZED" },
+          { "label": "VCF READINESS", "value": "Architecture Grade A", "status": "VERIFIED" },
+          { "label": "MIGRATION", "value": "Zero Downtime", "status": "PLANNED" }
+        ]
+      },
+      "databricks": {
+        "badge": "05 / 06 • DATA & ANALYTICS",
+        "title": "Databricks & Lakehouse",
+        "tagline": "APACHE SPARK, DELTA LAKE & ML ENGINE",
+        "category": "Data Engineering & Real-Time Analytics",
+        "description": "Modern lakehouse architectures on Databricks: High-performance data engineering with Apache Spark, ACID-compliant Delta Lake pipelines, and production-ready MLflow.",
+        "features": [
+          "Lakehouse Architecture & Delta Lake Medallion (Bronze/Silver/Gold)",
+          "High-Throughput Apache Spark & Streaming Pipelines",
+          "MLflow Model Governance & Feature Store",
+          "Real-Time Business Intelligence & ETL Optimization"
+        ],
+        "metrics": [
+          { "label": "THROUGHPUT", "value": "1.2M Events/sec", "status": "STREAMING" },
+          { "label": "DELTA LAKE", "value": "ACID Guaranteed", "status": "CONSISTENT" },
+          { "label": "QUERY TIME", "value": "90% Faster", "status": "PEAK" }
+        ]
+      },
+      "finale": {
+        "badge": "06 / 06 • CONNECT",
+        "title": "Ready for your solution?",
+        "tagline": "YOUR PARTNER FOR IT EXCELLENCE",
+        "category": "Get in Touch",
+        "description": "Let's take your infrastructure, cloud workloads, and data platforms to the next level together. We look forward to hearing from you.",
+        "features": [
+          "Non-binding Initial Consultation & Architecture Review",
+          "Tailored Proof-of-Concepts & Roadmaps",
+          "Decades of Experience in Critical & Enterprise Environments",
+          "Direct Technical Contact Without Sales Detours"
+        ],
+        "metrics": [
+          { "label": "RESPONSE TIME", "value": "< 24 Hours", "status": "ACTIVE" },
+          { "label": "CLIENT SATISFACTION", "value": "98%+", "status": "TOP" },
+          { "label": "LOCATION", "value": "Vienna & DACH", "status": "DIRECT" }
+        ]
+      }
+    }
   },
   "team": {
     "metaTitle": "Our Team - thesolution.at | IT & AI Experts",

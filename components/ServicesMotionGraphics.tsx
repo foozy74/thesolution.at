@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import {
   Play,
   Pause,
@@ -20,6 +20,7 @@ import {
   Minimize2,
 } from "lucide-react";
 import { Link } from "@/i18n/routing";
+import { useTranslations } from "next-intl";
 
 interface SceneConfig {
   id: string;
@@ -36,57 +37,45 @@ interface SceneConfig {
   codeSnippet: string;
 }
 
-const SCENES: SceneConfig[] = [
-  {
-    id: "intro",
-    badge: "01 / 06 • OVERVIEW",
-    title: "thesolution.at",
-    tagline: "ELEVATING ENTERPRISE INFRASTRUCTURE",
-    category: "Architecture & Consulting",
-    description: "Spezialisierte High-End IT-Infrastruktur, automatisierte Cloud-Ökosysteme und zukunftssichere Virtualisierung für anspruchsvolle Unternehmen.",
-    icon: Sparkles,
-    accentColor: "var(--accent-teal)",
-    secondaryColor: "var(--accent-blue)",
-    features: [
-      "Enterprise Infrastructure-as-Code",
-      "Modern Hybrid & Multicloud Workloads",
-      "Broadcom-Era VMware Modernisierung",
-      "High-Performance Big Data & Lakehouse",
-    ],
-    metrics: [
-      { label: "STANDORT", value: "Österreich & EU", status: "ONLINE" },
-      { label: "EXPERTISE", value: "25+ Jahre", status: "VERIFIED" },
-      { label: "SYSTEMS", value: "Enterprise-Grade", status: "READY" },
-    ],
-    codeSnippet: `// thesolution.at - Core Architecture
+const SCENE_DURATION_MS = 6500; // 6.5s per scene
+
+export function ServicesMotionGraphics() {
+  const t = useTranslations("motion");
+
+  const scenes: SceneConfig[] = useMemo(
+    () => [
+      {
+        id: "intro",
+        badge: t("scenes.intro.badge"),
+        title: t("scenes.intro.title"),
+        tagline: t("scenes.intro.tagline"),
+        category: t("scenes.intro.category"),
+        description: t("scenes.intro.description"),
+        icon: Sparkles,
+        accentColor: "var(--accent-teal)",
+        secondaryColor: "var(--accent-blue)",
+        features: t.raw("scenes.intro.features") as string[],
+        metrics: t.raw("scenes.intro.metrics") as { label: string; value: string; status: string }[],
+        codeSnippet: `// thesolution.at - Core Architecture
 await Infrastructure.deploy({
   target: ["Datacenter", "AWS", "GCP", "Databricks"],
   resilience: "99.999%",
   compliance: "EU-GDPR / NIS2 Ready"
 });`,
-  },
-  {
-    id: "datacenter",
-    badge: "02 / 06 • VIRTUALIZATION",
-    title: "Datacenter & Virtualization",
-    tagline: "HIGH-DENSITY COMPUTE & ZERO-TRUST MESH",
-    category: "Compute, Storage & Network",
-    description: "Maximale Compute-Effizienz mit modernster Server-Virtualisierung, Kubernetes-Clustern, KubeVirt für Container/VM-Konvergenz und Cilium eBPF Networking.",
-    icon: Server,
-    accentColor: "var(--accent-blue)",
-    secondaryColor: "var(--accent-teal)",
-    features: [
-      "VMware ESXi, Hyper-V & KVM Orchestrierung",
-      "Kubernetes, KubeVirt & Cilium eBPF Mesh",
-      "Storage & Software-Defined Network Virtualization",
-      "Disaster Recovery & Hochverfügbarkeits-Konzepte",
-    ],
-    metrics: [
-      { label: "REDUNDANZ", value: "N+2 Active-Active", status: "HEALTHY" },
-      { label: "NETZWERK", value: "Cilium eBPF 100G", status: "ACCELERATED" },
-      { label: "KUBEVIRT", value: "Unified VM/Pod", status: "OPTIMIZED" },
-    ],
-    codeSnippet: `apiVersion: kubevirt.io/v1
+      },
+      {
+        id: "datacenter",
+        badge: t("scenes.datacenter.badge"),
+        title: t("scenes.datacenter.title"),
+        tagline: t("scenes.datacenter.tagline"),
+        category: t("scenes.datacenter.category"),
+        description: t("scenes.datacenter.description"),
+        icon: Server,
+        accentColor: "var(--accent-blue)",
+        secondaryColor: "var(--accent-teal)",
+        features: t.raw("scenes.datacenter.features") as string[],
+        metrics: t.raw("scenes.datacenter.metrics") as { label: string; value: string; status: string }[],
+        codeSnippet: `apiVersion: kubevirt.io/v1
 kind: VirtualMachine
 metadata:
   name: critical-workload-dc1
@@ -97,127 +86,90 @@ spec:
       domain:
         resources: { requests: { memory: 64Gi, cpu: 16 } }
         networkInterface: { bridge: "cilium-mesh" }`,
-  },
-  {
-    id: "multicloud",
-    badge: "03 / 06 • CLOUD EXCELLENCE",
-    title: "AWS & GCP Multicloud Training",
-    tagline: "HANDS-ON MULTICLOUD MASTERY & AUTOMATION",
-    category: "Strategic Workshops & Migration",
-    description: "Herstellerunabhängige Multicloud-Architekturen auf AWS und Google Cloud. Tiefgehende Hands-on Workshops, Terraform CI/CD Pipelines und Zero-Downtime Migrationen.",
-    icon: Cloud,
-    accentColor: "var(--accent-teal)",
-    secondaryColor: "#38bdf8",
-    features: [
-      "Strategische Multicloud-Architektur & Governance",
-      "AWS & GCP Hands-on Mastery & Enablement",
-      "Terraform / OpenTofu Automatisierung",
-      "Cross-Cloud Interconnect & Direct Peering",
-    ],
-    metrics: [
-      { label: "CLOUDS", value: "AWS & GCP Dual-Active", status: "SYNCED" },
-      { label: "IAC PIPELINE", value: "100% Declarative", status: "PASSED" },
-      { label: "LATENZ", value: "< 2.4ms Interconnect", status: "LOW" },
-    ],
-    codeSnippet: `module "multicloud_mesh" {
+      },
+      {
+        id: "multicloud",
+        badge: t("scenes.multicloud.badge"),
+        title: t("scenes.multicloud.title"),
+        tagline: t("scenes.multicloud.tagline"),
+        category: t("scenes.multicloud.category"),
+        description: t("scenes.multicloud.description"),
+        icon: Cloud,
+        accentColor: "var(--accent-teal)",
+        secondaryColor: "#38bdf8",
+        features: t.raw("scenes.multicloud.features") as string[],
+        metrics: t.raw("scenes.multicloud.metrics") as { label: string; value: string; status: string }[],
+        codeSnippet: `module "multicloud_mesh" {
   source = "./modules/cross-cloud-peering"
   aws_region = "eu-central-1"
   gcp_region = "europe-west3"
   encryption = "AES-256-GCM / WireGuard"
   traffic_failover = "automatic_bgp"
 }`,
-  },
-  {
-    id: "vmware",
-    badge: "04 / 06 • SPECIALIST CONSULTING",
-    title: "VMware Specialist (Broadcom Era)",
-    tagline: "VCF IMPLEMENTATION & LICENSE OPTIMIZATION",
-    category: "Consultation & Legacy Migration",
-    description: "Fundierte strategische Beratung für die Broadcom-Ära: Lizenzkosten-Optimierung, VMware Cloud Foundation (VCF) Einführung oder alternative Migrationspfade.",
-    icon: Shield,
-    accentColor: "#a855f7",
-    secondaryColor: "var(--accent-blue)",
-    features: [
-      "Broadcom-Era Lizenz- & Kapazitäts-Audit",
-      "VMware Cloud Foundation (VCF) Architektur",
-      "Kostenreduktion & Core-Based Licensing Strategie",
-      "Risikolose Legacy-Migration & Co-Existenz",
-    ],
-    metrics: [
-      { label: "LIZENZ-EFFIZIENZ", value: "-35% bis -50%", status: "OPTIMIZED" },
-      { label: "VCF READINESS", value: "Architektur Grade A", status: "VERIFIED" },
-      { label: "MIGRATION", value: "Zero Downtime", status: "PLANNED" },
-    ],
-    codeSnippet: `// Broadcom VCF License Cost Reduction Engine
+      },
+      {
+        id: "vmware",
+        badge: t("scenes.vmware.badge"),
+        title: t("scenes.vmware.title"),
+        tagline: t("scenes.vmware.tagline"),
+        category: t("scenes.vmware.category"),
+        description: t("scenes.vmware.description"),
+        icon: Shield,
+        accentColor: "#a855f7",
+        secondaryColor: "var(--accent-blue)",
+        features: t.raw("scenes.vmware.features") as string[],
+        metrics: t.raw("scenes.vmware.metrics") as { label: string; value: string; status: string }[],
+        codeSnippet: `// Broadcom VCF License Cost Reduction Engine
 const audit = await VMwareOptimizer.analyze({
   currentSockets: 48,
   targetVCFSuite: "VCF_Enterprise",
   consolidationRatio: 1.84,
   estimatedSavings: "EUR 120,000/yr"
 });`,
-  },
-  {
-    id: "databricks",
-    badge: "05 / 06 • DATA & ANALYTICS",
-    title: "Databricks & Lakehouse",
-    tagline: "APACHE SPARK, DELTA LAKE & ML ENGINE",
-    category: "Data Engineering & Real-Time Analytics",
-    description: "Moderne Lakehouse-Architekturen auf Databricks: High-Performance Data Engineering mit Apache Spark, ACID-konforme Delta Lake Pipelines und produktionsreifes MLflow.",
-    icon: Database,
-    accentColor: "#f59e0b",
-    secondaryColor: "var(--accent-teal)",
-    features: [
-      "Lakehouse Architektur & Delta Lake Medallion (Bronze/Silver/Gold)",
-      "High-Throughput Apache Spark & Streaming Pipelines",
-      "MLflow Model Governance & Feature Store",
-      "Real-Time Business Intelligence & ETL Optimierung",
-    ],
-    metrics: [
-      { label: "THROUGHPUT", value: "1.2M Events/sec", status: "STREAMING" },
-      { label: "DELTA LAKE", value: "ACID Guaranteed", status: "CONSISTENT" },
-      { label: "QUERY TIME", value: "90% Schneller", status: "PEAK" },
-    ],
-    codeSnippet: `// Databricks Streaming Delta Pipeline
+      },
+      {
+        id: "databricks",
+        badge: t("scenes.databricks.badge"),
+        title: t("scenes.databricks.title"),
+        tagline: t("scenes.databricks.tagline"),
+        category: t("scenes.databricks.category"),
+        description: t("scenes.databricks.description"),
+        icon: Database,
+        accentColor: "#f59e0b",
+        secondaryColor: "var(--accent-teal)",
+        features: t.raw("scenes.databricks.features") as string[],
+        metrics: t.raw("scenes.databricks.metrics") as { label: string; value: string; status: string }[],
+        codeSnippet: `// Databricks Streaming Delta Pipeline
 val stream = spark.readStream
   .format("delta")
   .load("/lakehouse/silver/telemetry")
   .groupBy(window($"timestamp", "1 minute"), $"serviceId")
   .agg(avg($"latency").as("avg_latency"))
   .writeStream.format("delta").start("/lakehouse/gold/kpis")`,
-  },
-  {
-    id: "finale",
-    badge: "06 / 06 • CONNECT",
-    title: "Bereit für deine Lösung?",
-    tagline: "DEIN PARTNER FÜR IT-EXZELLENZ",
-    category: "Get in Touch",
-    description: "Lass uns deine Infrastruktur, Cloud-Workloads und Datenplattformen gemeinsam auf das nächste Level heben. Wir freuen uns auf dein Projekt.",
-    icon: Sparkles,
-    accentColor: "var(--accent-teal)",
-    secondaryColor: "#a855f7",
-    features: [
-      "Unverbindliches Erstgespräch & Architektur-Check",
-      "Maßgeschneiderte POCs & Roadmaps",
-      "Langjährige Erfahrung in KRITIS- & Enterprise-Umgebungen",
-      "Direkter Kontakt ohne Vertriebs-Umwege",
-    ],
-    metrics: [
-      { label: "RESPONSE TIME", value: "< 24 Stunden", status: "ACTIVE" },
-      { label: "KUNDENZUFRIEDENHEIT", value: "98%+", status: "TOP" },
-      { label: "STANDORT", value: "Wien & DACH", status: "DIRECT" },
-    ],
-    codeSnippet: `// Connect with thesolution.at
+      },
+      {
+        id: "finale",
+        badge: t("scenes.finale.badge"),
+        title: t("scenes.finale.title"),
+        tagline: t("scenes.finale.tagline"),
+        category: t("scenes.finale.category"),
+        description: t("scenes.finale.description"),
+        icon: Sparkles,
+        accentColor: "var(--accent-teal)",
+        secondaryColor: "#a855f7",
+        features: t.raw("scenes.finale.features") as string[],
+        metrics: t.raw("scenes.finale.metrics") as { label: string; value: string; status: string }[],
+        codeSnippet: `// Connect with thesolution.at
 Contact.connect({
   consulting: ["Datacenter", "AWS/GCP", "VMware", "Databricks"],
   email: "contact@thesolution.at",
   status: "Ready to accelerate your business"
 });`,
-  },
-];
+      },
+    ],
+    [t]
+  );
 
-const SCENE_DURATION_MS = 6500; // 6.5s per scene
-
-export function ServicesMotionGraphics() {
   const [currentSceneIdx, setCurrentSceneIdx] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -232,7 +184,7 @@ export function ServicesMotionGraphics() {
   const sceneStartTimeRef = useRef<number>(Date.now());
   const elapsedPauseTimeRef = useRef<number>(0);
 
-  const currentScene = SCENES[currentSceneIdx];
+  const currentScene = scenes[currentSceneIdx] || scenes[0];
 
   // Background Ambient Music Synchronization
   useEffect(() => {
@@ -291,13 +243,13 @@ export function ServicesMotionGraphics() {
   // Scene switcher
   const goToScene = useCallback(
     (idx: number) => {
-      const nextIdx = (idx + SCENES.length) % SCENES.length;
+      const nextIdx = (idx + scenes.length) % scenes.length;
       setCurrentSceneIdx(nextIdx);
       setProgress(0);
       sceneStartTimeRef.current = Date.now();
       elapsedPauseTimeRef.current = 0;
     },
-    []
+    [scenes.length]
   );
 
   const nextScene = useCallback(() => goToScene(currentSceneIdx + 1), [goToScene, currentSceneIdx]);
@@ -392,7 +344,7 @@ export function ServicesMotionGraphics() {
       ctx.clearRect(0, 0, width, height);
 
       // Gradient backdrop glow based on active scene
-      const scene = SCENES[currentSceneIdx];
+      const scene = scenes[currentSceneIdx] || scenes[0];
       const isTeal = scene.accentColor.includes("teal");
       const isPurple = scene.accentColor.includes("purple") || scene.accentColor.includes("a855f7");
       const isGold = scene.accentColor.includes("f59e0b");
@@ -489,7 +441,7 @@ export function ServicesMotionGraphics() {
       window.removeEventListener("resize", handleResize);
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
-  }, [currentSceneIdx]);
+  }, [currentSceneIdx, scenes]);
 
   // Fullscreen toggle handler
   const toggleFullscreen = () => {
@@ -526,13 +478,13 @@ export function ServicesMotionGraphics() {
             letterSpacing: "0.08em",
           }}
         >
-          <Sparkles size={16} /> Motion Graphics Showcase
+          <Sparkles size={16} /> {t("badge")}
         </div>
         <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, marginBottom: "0.75rem", lineHeight: 1.2 }}>
-          Dienstleistungen <span className="gradient-text">in Bewegung</span>
+          {t("title")} <span className="gradient-text">{t("titleHighlight")}</span>
         </h2>
         <p style={{ color: "var(--text-secondary)", maxWidth: "680px", margin: "0 auto", fontSize: "1.1rem" }}>
-          Erlebe die Kernkompetenzen von thesolution.at in unserer interaktiven Firmen Motion Graphics Präsentation.
+          {t("subtitle")}
         </p>
       </div>
 
@@ -586,7 +538,7 @@ export function ServicesMotionGraphics() {
         >
           {/* Scene Navigation Pills */}
           <div style={{ display: "flex", gap: "0.4rem", flexWrap: "wrap" }}>
-            {SCENES.map((s, idx) => {
+            {scenes.map((s, idx) => {
               const active = idx === currentSceneIdx;
               return (
                 <button
@@ -642,10 +594,10 @@ export function ServicesMotionGraphics() {
                   borderRadius: "6px",
                   padding: "0.3rem 0.6rem",
                 }}
-                title="Soundtrack: Ummbrella - Deep Abstract Ambient"
+                title={t("soundtrackTitle")}
               >
                 <Music size={12} className="animate-pulse" />
-                <span className="hidden md:inline">Ambient: Snowcap</span>
+                <span className="hidden md:inline">{t("ambientTrack")}</span>
               </div>
             )}
 
@@ -665,11 +617,11 @@ export function ServicesMotionGraphics() {
                 fontWeight: 600,
                 transition: "all 0.2s ease",
               }}
-              aria-label={isAudioEnabled ? "Musik stummschalten" : "Hintergrundmusik aktivieren"}
-              title={isAudioEnabled ? "Musik aktiv (Klick für Mute)" : "Musik stumm (Klick für Sound)"}
+              aria-label={isAudioEnabled ? t("muteLabel") : t("unmuteLabel")}
+              title={isAudioEnabled ? t("soundActiveTitle") : t("soundMutedTitle")}
             >
               {isAudioEnabled ? <Volume2 size={15} /> : <VolumeX size={15} />}
-              <span>{isAudioEnabled ? "Sound An" : "Sound Aus"}</span>
+              <span>{isAudioEnabled ? t("soundOn") : t("soundOff")}</span>
             </button>
 
             <button
@@ -685,8 +637,8 @@ export function ServicesMotionGraphics() {
                 alignItems: "center",
                 justifyContent: "center",
               }}
-              aria-label="Vollbild umschalten"
-              title="Vollbild"
+              aria-label={t("toggleFullscreen")}
+              title={t("fullscreen")}
             >
               {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
             </button>
@@ -822,10 +774,10 @@ export function ServicesMotionGraphics() {
             {currentScene.id === "finale" ? (
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
                 <a href="#contact" className="btn btn-primary" style={{ padding: "0.75rem 1.75rem" }}>
-                  Projekt anfragen <ArrowRight size={16} />
+                  {t("requestProject")} <ArrowRight size={16} />
                 </a>
                 <Link href="/tools/solution" className="btn glass" style={{ padding: "0.75rem 1.5rem" }}>
-                  Alle Lösungen ansehen
+                  {t("allSolutions")}
                 </Link>
               </div>
             ) : (
@@ -842,7 +794,7 @@ export function ServicesMotionGraphics() {
                     textDecoration: "underline",
                   }}
                 >
-                  Spezifikation & Lösungen vertiefen <ArrowRight size={14} />
+                  {t("specLink")} <ArrowRight size={14} />
                 </Link>
               </div>
             )}
@@ -897,7 +849,7 @@ export function ServicesMotionGraphics() {
                   </div>
                   <div>
                     <div style={{ fontSize: "0.7rem", color: "var(--text-secondary)", textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                      Architecture Layer
+                      {t("archLayer")}
                     </div>
                     <div style={{ fontSize: "1rem", fontWeight: 700, color: "var(--text-primary)" }}>
                       {currentScene.category}
@@ -929,7 +881,7 @@ export function ServicesMotionGraphics() {
                     }}
                     className="animate-pulse"
                   />
-                  ACTIVE
+                  {t("activeStatus")}
                 </div>
               </div>
 
@@ -1019,8 +971,8 @@ export function ServicesMotionGraphics() {
               const rect = e.currentTarget.getBoundingClientRect();
               const clickPercent = (e.clientX - rect.left) / rect.width;
               const targetScene = Math.min(
-                SCENES.length - 1,
-                Math.max(0, Math.floor(clickPercent * SCENES.length))
+                scenes.length - 1,
+                Math.max(0, Math.floor(clickPercent * scenes.length))
               );
               goToScene(targetScene);
             }}
@@ -1042,7 +994,7 @@ export function ServicesMotionGraphics() {
                 top: 0,
                 bottom: 0,
                 left: 0,
-                width: `${((currentSceneIdx + progress / 100) / SCENES.length) * 100}%`,
+                width: `${((currentSceneIdx + progress / 100) / scenes.length) * 100}%`,
                 background: "linear-gradient(90deg, var(--accent-blue), var(--accent-teal))",
                 transition: "width 0.05s linear",
               }}
@@ -1074,7 +1026,7 @@ export function ServicesMotionGraphics() {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
-                title="Vorherige Szene"
+                title={t("prevScene")}
               >
                 <ChevronLeft size={18} />
               </button>
@@ -1099,7 +1051,7 @@ export function ServicesMotionGraphics() {
                 }}
               >
                 {isPlaying ? <Pause size={16} /> : <Play size={16} />}
-                <span>{isPlaying ? "Pause" : "Play"}</span>
+                <span>{isPlaying ? t("pause") : t("play")}</span>
               </button>
 
               <button
@@ -1115,7 +1067,7 @@ export function ServicesMotionGraphics() {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
-                title="Nächste Szene"
+                title={t("nextScene")}
               >
                 <ChevronRight size={18} />
               </button>
@@ -1133,7 +1085,7 @@ export function ServicesMotionGraphics() {
                   alignItems: "center",
                   justifyContent: "center",
                 }}
-                title="Von Beginn an abspielen"
+                title={t("replay")}
               >
                 <RotateCcw size={16} />
               </button>
@@ -1142,8 +1094,10 @@ export function ServicesMotionGraphics() {
             {/* Time / Scene Counter & Info */}
             <div style={{ display: "flex", alignItems: "center", gap: "1.2rem", fontSize: "0.85rem", color: "var(--text-secondary)" }}>
               <div>
-                Szene <span style={{ color: "var(--text-primary)", fontWeight: 700 }}>0{currentSceneIdx + 1}</span> von{" "}
-                <span>0{SCENES.length}</span>
+                {t("scene")}{" "}
+                <span style={{ color: "var(--text-primary)", fontWeight: 700 }}>0{currentSceneIdx + 1}</span>{" "}
+                {t("of")}{" "}
+                <span>0{scenes.length}</span>
               </div>
               <div
                 style={{
@@ -1155,7 +1109,7 @@ export function ServicesMotionGraphics() {
                 00:{Math.floor((currentSceneIdx * SCENE_DURATION_MS + (progress / 100) * SCENE_DURATION_MS) / 1000)
                   .toString()
                   .padStart(2, "0")}{" "}
-                / 00:{Math.floor((SCENES.length * SCENE_DURATION_MS) / 1000)}s
+                / 00:{Math.floor((scenes.length * SCENE_DURATION_MS) / 1000)}s
               </div>
             </div>
           </div>
