@@ -109,9 +109,6 @@ export function Navbar() {
             <NavLink href="/#services" pathname={pathname}>{t("services")}</NavLink>
           </li>
           <li>
-            <NavLink href="/#ai" pathname={pathname}>{t("aiMl")}</NavLink>
-          </li>
-          <li>
             <NavLink href="/tools/solution" pathname={pathname}>{t("solution")}</NavLink>
           </li>
           <li>
@@ -146,9 +143,6 @@ export function Navbar() {
         <ul style={{ display: "flex", flexDirection: "column", gap: "1rem", listStyle: "none", margin: 0, padding: 0 }}>
           <li>
             <NavLink href="/#services" pathname={pathname} mobile>{t("services")}</NavLink>
-          </li>
-          <li>
-            <NavLink href="/#ai" pathname={pathname} mobile>{t("aiMl")}</NavLink>
           </li>
           <li>
             <NavLink href="/tools/solution" pathname={pathname} mobile>{t("solution")}</NavLink>
