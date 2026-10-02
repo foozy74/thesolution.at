@@ -131,7 +131,8 @@
       },
       "multicloud": {
         "badge": "03 / 06 • CLOUD EXCELLENCE",
-        "title": "AWS & GCP Multicloud Training",
+        "title": "Cloud & Multicloud Training",
+        "shortTitle": "Cloud",
         "tagline": "HANDS-ON MULTICLOUD MASTERY & AUTOMATION",
         "category": "Strategic Workshops & Migration",
         "description": "Herstellerunabhängige Multicloud-Architekturen auf AWS und Google Cloud. Tiefgehende Hands-on Workshops, Terraform CI/CD Pipelines und Zero-Downtime Migrationen.",

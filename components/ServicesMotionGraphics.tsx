@@ -26,6 +26,7 @@ interface SceneConfig {
   id: string;
   badge: string;
   title: string;
+  shortTitle?: string;
   tagline: string;
   category: string;
   description: string;
@@ -91,6 +92,7 @@ spec:
         id: "multicloud",
         badge: t("scenes.multicloud.badge"),
         title: t("scenes.multicloud.title"),
+        shortTitle: t("scenes.multicloud.shortTitle"),
         tagline: t("scenes.multicloud.tagline"),
         category: t("scenes.multicloud.category"),
         description: t("scenes.multicloud.description"),
@@ -571,7 +573,7 @@ Contact.connect({
                   />
                   <span>0{idx + 1}</span>
                   <span className="hidden sm:inline" style={{ opacity: active ? 1 : 0.7 }}>
-                    {s.title.split(" ")[0]}
+                    {s.shortTitle || s.title.split(" ")[0]}
                   </span>
                 </button>
               );
